@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Fraunces", Georgia, serif;
+  --font-mono: "IBM Plex Mono", Menlo, monospace;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --color-dark-base: #0A0A0A;
+  --color-dark-surface: #121212;
+  --color-dark-card: #171717;
+  --color-dark-card-hover: #1F1F1F;
+  --color-gold: #D4AF37;
+  --color-gold-light: #E5C158;
+  --color-crimson: #9B2C2C;
+  --color-crimson-light: #C53030;
+  --color-emerald-deep: #195E3E;
+  --color-text-primary: #F5F2ED;
+  --color-text-secondary: #A3A3A3;
+}
+
+/* Custom subtle dark grid pattern */
+.bg-grid-pattern {
+  background-image: radial-gradient(circle at 1px 1px, rgba(212, 175, 55, 0.05) 1px, transparent 0);
+  background-size: 28px 28px;
+}
+
+.font-display {
+  font-family: "Fraunces", Georgia, serif;
+}
+
+.font-code {
+  font-family: "IBM Plex Mono", Menlo, monospace;
+}
+
+/* Custom scrollbars for sophisticated dark aesthetics */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}

@@ -27,10 +27,13 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Build
         run: npm run build
+        env:
+          GEMINI_API_KEY: placeholder_not_needed_for_static_build
+          APP_URL: https://its-sartaj.github.io/Sajid_-Tax-Consultant
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

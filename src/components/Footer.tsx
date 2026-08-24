@@ -50,7 +50,7 @@ export default function Footer() {
                   href="#services"
                   className="hover:text-[#D4AF37] transition-colors py-0.5"
                 >
-                  • {s.title}
+                  â€¢ {s.title}
                 </a>
               ))}
             </div>
@@ -85,7 +85,7 @@ export default function Footer() {
               <div className="flex items-start gap-2">
                 <Clock className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
                 <div>
-                  <div className="font-semibold text-[#F5F2ED]">Mon–Sat: 11:00 AM – 7:00 PM</div>
+                  <div className="font-semibold text-[#F5F2ED]">Monâ€“Sat: 11:00 AM â€“ 7:00 PM</div>
                   <div className="text-[#737373]">Sunday: Closed</div>
                 </div>
               </div>
@@ -101,8 +101,13 @@ export default function Footer() {
 
         {/* Bottom copyright & back to top */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#737373] font-mono">
-          <div>
-            &copy; {new Date().getFullYear()} {BUSINESS_INFO.name}. All Rights Reserved.
+          <div className="space-y-1 text-center sm:text-left">
+            <div>
+              &copy; {new Date().getFullYear()} {BUSINESS_INFO.name}. All Rights Reserved.
+            </div>
+            <div className="text-[11px] text-[#A3A3A3]">
+              Website Designed &amp; Developed by <span className="text-[#D4AF37] font-semibold">Sartaj</span>
+            </div>
           </div>
 
           <div className="flex items-center gap-6">

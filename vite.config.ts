@@ -5,7 +5,7 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-    base: '/Sajid_-Tax-Consultant/',
+    base: '/SAJID-TAX-CONSULTANT-SERVICE/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {

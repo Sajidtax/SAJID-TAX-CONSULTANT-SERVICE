@@ -33,12 +33,7 @@ jobs:
       - name: Build
         run: npx vite build
         env:
-          GEMINI_API_KEY: not_needed_static_site
-          APP_URL: https://its-sartaj.github.io/Sajid_-Tax-Consultant
           DISABLE_HMR: true
-
-      - name: List dist folder
-        run: ls -la dist/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

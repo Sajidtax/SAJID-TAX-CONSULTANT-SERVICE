@@ -1,4 +1,4 @@
-﻿import { useState, type FormEvent } from 'react';
+import { useState, type FormEvent } from 'react';
 import { Phone, Mail, MapPin, Clock, Send, MessageSquare, CheckCircle2 } from 'lucide-react';
 import { BUSINESS_INFO, SERVICES_LIST } from '../data/businessData';
 
@@ -12,16 +12,35 @@ export default function ContactSection() {
 
   const [submitted, setSubmitted] = useState(false);
 
+  // Helper to sanitize inputs and remove malicious characters
+  const sanitizeText = (val: string, maxLen: number) => {
+    return val.replace(/[<>]/g, '').trim().slice(0, maxLen);
+  };
+
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    const cleanName = sanitizeText(formData.name, 60);
+    const cleanPhone = formData.phone.replace(/[^\d+()\s-]/g, '').trim().slice(0, 15);
+    const cleanMsg = sanitizeText(formData.message, 500);
+
+    setFormData(prev => ({
+      ...prev,
+      name: cleanName,
+      phone: cleanPhone,
+      message: cleanMsg,
+    }));
     setSubmitted(true);
   };
 
   const handleSendViaWhatsApp = () => {
+    const cleanName = sanitizeText(formData.name, 60);
+    const cleanPhone = formData.phone.replace(/[^\d+()\s-]/g, '').trim().slice(0, 15);
+    const cleanMsg = sanitizeText(formData.message, 500);
+
     const text = encodeURIComponent(
-      `Hello Sajid Sir,\n\nName: ${formData.name || 'Client'}\nPhone: ${formData.phone || 'N/A'}\nService Needed: ${formData.service}\nRequirement: ${formData.message || 'I need consultation for my tax/accounting work.'}`
+      `Hello Sajid Sir,\n\nName: ${cleanName || 'Client'}\nPhone: ${cleanPhone || 'N/A'}\nService Needed: ${formData.service}\nRequirement: ${cleanMsg || 'I need consultation for my tax/accounting work.'}`
     );
-    window.open(`https://wa.me/${BUSINESS_INFO.phoneClean.replace('+', '')}?text=${text}`, '_blank');
+    window.open(`https://wa.me/${BUSINESS_INFO.phoneClean.replace('+', '')}?text=${text}`, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -177,6 +196,8 @@ export default function ContactSection() {
                     <input
                       type="text"
                       required
+                      maxLength={60}
+                      autoComplete="name"
                       placeholder="e.g. Rahul Sharma / Business Name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -191,6 +212,8 @@ export default function ContactSection() {
                     <input
                       type="tel"
                       required
+                      maxLength={15}
+                      autoComplete="tel"
                       placeholder="e.g. +91 98765 43210"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -221,6 +244,7 @@ export default function ContactSection() {
                     </label>
                     <textarea
                       rows={3}
+                      maxLength={500}
                       placeholder="Describe your requirement (e.g. Need urgent GST registration for my new shop, or previous year ITR filing)..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}

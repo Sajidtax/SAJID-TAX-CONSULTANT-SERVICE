@@ -24,7 +24,7 @@ export default function Footer() {
                   {BUSINESS_INFO.name}
                 </div>
                 <div className="font-mono text-xs text-[#D4AF37] tracking-wider uppercase">
-                  @{BUSINESS_INFO.handle}
+                  Opera House, Mumbai
                 </div>
               </div>
             </div>
@@ -48,9 +48,9 @@ export default function Footer() {
                 <a
                   key={s.id}
                   href="#services"
-                  className="hover:text-[#D4AF37] transition-colors py-0.5"
+                  className="hover:text-[#D4AF37] transition-colors py-0.5 block"
                 >
-                  â€¢ {s.title}
+                  {s.title}
                 </a>
               ))}
             </div>

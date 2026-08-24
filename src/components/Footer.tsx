@@ -101,13 +101,8 @@ export default function Footer() {
 
         {/* Bottom copyright & back to top */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#737373] font-mono">
-          <div className="space-y-1 text-center sm:text-left">
-            <div>
-              &copy; {new Date().getFullYear()} {BUSINESS_INFO.name}. All Rights Reserved.
-            </div>
-            <div className="text-[11px] text-[#A3A3A3]">
-              Website Designed &amp; Developed by <span className="text-[#D4AF37] font-semibold">Sartaj</span>
-            </div>
+          <div>
+            &copy; {new Date().getFullYear()} {BUSINESS_INFO.name}. All Rights Reserved.
           </div>
 
           <div className="flex items-center gap-6">

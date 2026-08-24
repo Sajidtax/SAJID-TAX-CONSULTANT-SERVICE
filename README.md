@@ -86,7 +86,7 @@ git push origin main
 
 ## Developer
 
-**Built & Designed by Sartaj**
+**Built & Designed by Sajid**
 
 - Website crafted with modern web technologies
 - Dark sophisticated theme with gold accents

@@ -60,7 +60,7 @@ export default function ServicesSection() {
               Ten services. One point of contact.
             </h2>
             <p className="text-sm sm:text-base text-[#A3A3A3] leading-relaxed">
-              Every registration, monthly return, and statutory audit your enterprise requires — prepared, verified, and submitted by Sajid Tax Consultant in Opera House, Mumbai.
+              Every registration, monthly return, and statutory audit your enterprise requires - prepared, verified, and submitted by Sajid Tax Consultant in Opera House, Mumbai.
             </p>
           </div>
 

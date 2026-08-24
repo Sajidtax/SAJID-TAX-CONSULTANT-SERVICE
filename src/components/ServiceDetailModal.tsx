@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { X, CheckCircle, FileText, Clock, Phone, MessageSquare } from 'lucide-react';
+import { X, CheckCircle, Check, FileText, Clock, Phone, MessageSquare } from 'lucide-react';
 import { ServiceItem } from '../types';
 import { BUSINESS_INFO } from '../data/businessData';
 
@@ -88,7 +88,7 @@ export default function ServiceDetailModal({ service, onClose }: ServiceDetailMo
             <ul className="space-y-2 text-xs sm:text-sm text-[#D4D4D4]">
               {service.deliverables.map((item, idx) => (
                 <li key={idx} className="flex items-start gap-2">
-                  <span className="text-emerald-400 font-bold mt-0.5">•</span>
+                  <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
                   <span>{item}</span>
                 </li>
               ))}

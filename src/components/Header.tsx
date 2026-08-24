@@ -55,14 +55,8 @@ export default function Header() {
             <div className="font-display font-bold text-lg sm:text-xl text-[#F5F2ED] leading-tight tracking-tight">
               {BUSINESS_INFO.name}
             </div>
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-[10px] sm:text-[11px] font-semibold text-[#D4AF37] uppercase tracking-wider">
-                @{BUSINESS_INFO.handle}
-              </span>
-              <span className="text-[#525252] text-xs">•</span>
-              <span className="text-[11px] text-[#A3A3A3] hidden md:inline">
-                Opera House, Mumbai
-              </span>
+            <div className="text-[11px] text-[#D4AF37] font-semibold tracking-wide uppercase">
+              Opera House, Mumbai
             </div>
           </div>
         </a>

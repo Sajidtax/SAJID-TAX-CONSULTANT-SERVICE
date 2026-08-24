@@ -1,6 +1,6 @@
 # SAJID TAX CONSULTANT SERVICE
 
-> **Professional Accounting, GST, ITR & Compliance Services — Opera House, Mumbai**
+> **Professional Accounting, GST, ITR & Compliance Services - Opera House, Mumbai**
 
 ---
 
@@ -38,7 +38,7 @@ The website provides complete information about all services offered, including 
 | WhatsApp | +91 77620 67143 |
 | Email | workwithsajid@zohomail.in |
 | Office | Office No.114A, 2nd Floor, Paras Juice Building, Opera House, Mumbai - 400004 |
-| Hours | Monday – Saturday: 11:00 AM – 7:00 PM |
+| Hours | Monday - Saturday: 11:00 AM - 7:00 PM |
 
 ---
 
@@ -86,7 +86,7 @@ git push origin main
 
 ## Developer
 
-**Built & Designed by Sajid**
+**Built & Designed by Sartaj**
 
 - Website crafted with modern web technologies
 - Dark sophisticated theme with gold accents

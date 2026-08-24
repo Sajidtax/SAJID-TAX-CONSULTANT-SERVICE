@@ -67,7 +67,7 @@ export default function ContactSection() {
                   >
                     {BUSINESS_INFO.phone}
                   </a>
-                  <p className="text-[11px] text-[#737373]">Available Mon–Sat: 11 AM – 7 PM</p>
+                  <p className="text-[11px] text-[#737373]">Available Mon-Sat: 11 AM - 7 PM</p>
                 </div>
               </div>
 
@@ -150,7 +150,7 @@ export default function ContactSection() {
                     Consultation Request Received!
                   </h4>
                   <p className="text-xs sm:text-sm text-[#D4D4D4] max-w-md mx-auto leading-relaxed">
-                    Thank you, <strong>{formData.name || 'Valued Client'}</strong>. We have logged your request for <strong>{formData.service}</strong>. We will call you at <strong>{formData.phone}</strong> shortly during business hours (11:00 AM – 7:00 PM).
+                    Thank you, <strong>{formData.name || 'Valued Client'}</strong>. We have logged your request for <strong>{formData.service}</strong>. We will call you at <strong>{formData.phone}</strong> shortly during business hours (11:00 AM - 7:00 PM).
                   </p>
                   <div className="pt-2 flex flex-col sm:flex-row justify-center gap-3">
                     <button

@@ -26,12 +26,12 @@ export const BUSINESS_INFO = {
 };
 
 export const WORKING_HOURS: WorkingHourDay[] = [
-  { day: "Monday", hours: "11:00 am – 7:00 pm", isOpen: true },
-  { day: "Tuesday", hours: "11:00 am – 7:00 pm", isOpen: true },
-  { day: "Wednesday", hours: "11:00 am – 7:00 pm", isOpen: true },
-  { day: "Thursday", hours: "11:00 am – 7:00 pm", isOpen: true },
-  { day: "Friday", hours: "11:00 am – 7:00 pm", isOpen: true },
-  { day: "Saturday", hours: "11:00 am – 7:00 pm", isOpen: true },
+  { day: "Monday", hours: "11:00 am - 7:00 pm", isOpen: true },
+  { day: "Tuesday", hours: "11:00 am - 7:00 pm", isOpen: true },
+  { day: "Wednesday", hours: "11:00 am - 7:00 pm", isOpen: true },
+  { day: "Thursday", hours: "11:00 am - 7:00 pm", isOpen: true },
+  { day: "Friday", hours: "11:00 am - 7:00 pm", isOpen: true },
+  { day: "Saturday", hours: "11:00 am - 7:00 pm", isOpen: true },
   { day: "Sunday", hours: "Closed", isOpen: false },
 ];
 
@@ -344,7 +344,7 @@ export const FAQS = [
   },
   {
     q: "Do I need to visit your Opera House office physically?",
-    a: "You are always welcome to visit our office in Opera House, Mumbai during working hours (11:00 AM to 7:00 PM, Mon–Sat). However, we also provide 100% digital service via WhatsApp and Email for your convenience."
+    a: "You are always welcome to visit our office in Opera House, Mumbai during working hours (11:00 AM to 7:00 PM, Mon-Sat). However, we also provide 100% digital service via WhatsApp and Email for your convenience."
   },
   {
     q: "What are the penalty consequences for late GST or TDS filing?",

@@ -59,13 +59,13 @@ The website provides complete information about all services offered, including 
 
 **Prerequisites:** Node.js 18+
 
-`ash
+```ash
 # Install dependencies
 npm install
 
 # Start development server
 npm run dev
-`
+```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
@@ -75,12 +75,12 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 This project auto-deploys to GitHub Pages on every push to main branch via GitHub Actions.
 
-`ash
+```ash
 git add .
 git commit -m "your update"
 git push origin main
 # Website automatically updates in 2-3 minutes
-`
+```
 
 ---
 

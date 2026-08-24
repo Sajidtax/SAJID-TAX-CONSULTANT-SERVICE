@@ -18,7 +18,7 @@ export default function WhyChooseUs() {
     {
       letter: "C",
       title: "Direct Access to Consultant Sajid",
-      desc: "Speak directly with the professional analyzing your accounts and filing your returns — not an outsourced call center or junior ticket desk.",
+      desc: "Speak directly with the professional analyzing your accounts and filing your returns - not an outsourced call center or junior ticket desk.",
       icon: UserCheck
     },
     {
@@ -57,7 +57,7 @@ export default function WhyChooseUs() {
                 &ldquo;Every return we file is treated with the highest standard of accuracy as if it were our own. Your growth is our responsibility.&rdquo;
               </p>
               <div className="text-xs font-bold text-[#D4AF37]">
-                — Sajid (Tax &amp; Accounting Consultant)
+                - Sajid (Tax &amp; Accounting Consultant)
               </div>
             </div>
 

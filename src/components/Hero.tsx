@@ -20,7 +20,7 @@ export default function Hero() {
             {/* Eyebrow badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#D4AF37] text-xs font-mono font-semibold tracking-wider uppercase">
               <ShieldCheck className="w-3.5 h-3.5 text-[#D4AF37]" />
-              <span>Registered Tax &amp; Accounting Practice · Opera House Mumbai</span>
+              <span>Registered Tax &amp; Accounting Practice | Opera House Mumbai</span>
             </div>
 
             {/* Main Headline */}
@@ -31,7 +31,7 @@ export default function Hero() {
 
             {/* Subtitle / Lead text */}
             <p className="text-base sm:text-lg text-[#A3A3A3] leading-relaxed max-w-xl">
-              From day-to-day bookkeeping to GST filing, ITR computation to company registration, Gumasta licences to PF withdrawals — one expert team in Opera House, Mumbai for every number your business answers for.
+              From day-to-day bookkeeping to GST filing, ITR computation to company registration, Gumasta licences to PF withdrawals - one expert team in Opera House, Mumbai for every number your business answers for.
             </p>
 
             {/* Quick Action Buttons */}
@@ -78,9 +78,9 @@ export default function Hero() {
                 </div>
               </div>
               <div>
-                <div className="text-2xl sm:text-3xl font-mono font-bold text-emerald-400">Mon–Sat</div>
+                <div className="text-2xl sm:text-3xl font-mono font-bold text-emerald-400">Mon-Sat</div>
                 <div className="text-[11px] sm:text-xs font-mono text-[#A3A3A3] uppercase tracking-wider mt-0.5">
-                  11 AM – 7 PM
+                  11 AM - 7 PM
                 </div>
               </div>
             </div>

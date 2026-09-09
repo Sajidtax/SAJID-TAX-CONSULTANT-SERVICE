@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { MapPin, Clock, Copy, Check, Navigation, Phone, QrCode, Mail } from 'lucide-react';
-import { BUSINESS_INFO, WORKING_HOURS } from '../data/businessData';
+import { MapPin, Copy, Check, Navigation, Phone, QrCode } from 'lucide-react';
+import { BUSINESS_INFO } from '../data/businessData';
 import { getOfficeStatus } from '../utils/timeHelper';
 
 export default function OfficeLocation() {
@@ -8,16 +8,53 @@ export default function OfficeLocation() {
   const [copiedUpi, setCopiedUpi] = useState(false);
   const status = getOfficeStatus();
 
+  const copyToClipboard = async (text: string, onSuccess: () => void) => {
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        onSuccess();
+      } else {
+        // Fallback for older browsers or non-secure contexts
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        document.execCommand('copy');
+        textArea.remove();
+        onSuccess();
+      }
+    } catch {
+      // Fallback
+      const textArea = document.createElement('textarea');
+      textArea.value = text;
+      textArea.style.position = 'fixed';
+      textArea.style.left = '-999999px';
+      textArea.style.top = '-999999px';
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      document.execCommand('copy');
+      textArea.remove();
+      onSuccess();
+    }
+  };
+
   const handleCopyAddress = () => {
-    navigator.clipboard.writeText(BUSINESS_INFO.address.full);
-    setCopiedAddress(true);
-    setTimeout(() => setCopiedAddress(false), 2500);
+    copyToClipboard(BUSINESS_INFO.address.full, () => {
+      setCopiedAddress(true);
+      setTimeout(() => setCopiedAddress(false), 2500);
+    });
   };
 
   const handleCopyUpi = () => {
-    navigator.clipboard.writeText(BUSINESS_INFO.upiId);
-    setCopiedUpi(true);
-    setTimeout(() => setCopiedUpi(false), 2500);
+    copyToClipboard(BUSINESS_INFO.upiId, () => {
+      setCopiedUpi(true);
+      setTimeout(() => setCopiedUpi(false), 2500);
+    });
   };
 
   return (

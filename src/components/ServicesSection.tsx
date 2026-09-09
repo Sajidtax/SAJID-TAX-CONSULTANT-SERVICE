@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { 
   Calculator, 
   Search, 
@@ -10,8 +10,7 @@ import {
   Users, 
   Wallet,
   ArrowRight,
-  Sparkles,
-  Info
+  Sparkles
 } from 'lucide-react';
 import { SERVICES_LIST, BUSINESS_INFO } from '../data/businessData';
 import { ServiceItem } from '../types';

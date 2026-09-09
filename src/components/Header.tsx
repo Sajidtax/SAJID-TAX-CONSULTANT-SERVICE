@@ -68,6 +68,7 @@ export default function Header() {
           <a href="#process" className="hover:text-[#D4AF37] transition-colors py-1">How It Works</a>
           <a href="#why-us" className="hover:text-[#D4AF37] transition-colors py-1">Why Us</a>
           <a href="#office" className="hover:text-[#D4AF37] transition-colors py-1">Office &amp; Hours</a>
+          <a href="#faq" className="hover:text-[#D4AF37] transition-colors py-1">FAQ</a>
           <a href="#contact" className="hover:text-[#D4AF37] transition-colors py-1">Contact</a>
         </nav>
 
@@ -146,6 +147,13 @@ export default function Header() {
               className="py-1 text-[#F5F2ED] hover:text-[#D4AF37]"
             >
               Opera House Office &amp; Hours
+            </a>
+            <a
+              href="#faq"
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-1 text-[#F5F2ED] hover:text-[#D4AF37]"
+            >
+              Frequently Asked Questions (FAQ)
             </a>
             <a
               href="#contact"

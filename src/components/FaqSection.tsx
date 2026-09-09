@@ -10,7 +10,7 @@ export default function FaqSection() {
   };
 
   return (
-    <section className="py-20 bg-[#0D0D0D] border-t border-[#ffffff12]">
+    <section id="faq" className="py-20 bg-[#0D0D0D] border-t border-[#ffffff12]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         
         <div className="text-center max-w-xl mx-auto mb-12 space-y-3">

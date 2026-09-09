@@ -1,4 +1,4 @@
-import { Phone, MessageSquare, ArrowRight, ShieldCheck, CheckCircle2, FileText, Calendar } from 'lucide-react';
+import { Phone, MessageSquare, ArrowRight, ShieldCheck, CheckCircle2, Calendar } from 'lucide-react';
 import { BUSINESS_INFO, COMPLIANCE_CALENDAR } from '../data/businessData';
 
 export default function Hero() {

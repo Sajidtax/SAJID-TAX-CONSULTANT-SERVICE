@@ -1,4 +1,4 @@
-﻿export function getOfficeStatus(): { isOpen: boolean; text: string; detail: string } {
+export function getOfficeStatus(): { isOpen: boolean; text: string; detail: string } {
   try {
     // Determine Indian Standard Time (UTC + 5:30)
     const now = new Date();
@@ -26,10 +26,12 @@
           detail: "Mon-Sat, 11:00 AM - 7:00 PM"
         };
       } else {
+        // After 7:00 PM
+        const isSaturday = day === 6;
         return {
           isOpen: false,
           text: "Closed for Today",
-          detail: "Opens tomorrow at 11:00 AM"
+          detail: isSaturday ? "Opens Monday at 11:00 AM" : "Opens tomorrow at 11:00 AM"
         };
       }
     } else {

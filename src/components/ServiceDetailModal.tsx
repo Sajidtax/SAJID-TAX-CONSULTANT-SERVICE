@@ -17,9 +17,11 @@ export default function ServiceDetailModal({ service, onClose }: ServiceDetailMo
     };
     if (service) {
       document.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
     }
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'unset';
     };
   }, [service, onClose]);
 
@@ -33,6 +35,9 @@ export default function ServiceDetailModal({ service, onClose }: ServiceDetailMo
     <div 
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200"
       onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-service-title"
     >
       <div 
         className="bg-[#141414] rounded-lg border border-[#ffffff20] shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative animate-in zoom-in-95 duration-200 text-[#F5F2ED]"
@@ -51,7 +56,7 @@ export default function ServiceDetailModal({ service, onClose }: ServiceDetailMo
                 </span>
               )}
             </div>
-            <h3 className="text-2xl font-display font-bold mt-1 text-[#F5F2ED]">
+            <h3 id="modal-service-title" className="text-2xl font-display font-bold mt-1 text-[#F5F2ED]">
               {service.title}
             </h3>
             <p className="text-[#A3A3A3] text-xs sm:text-sm mt-1">

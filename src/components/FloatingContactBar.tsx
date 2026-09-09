@@ -1,4 +1,4 @@
-import { Phone, MessageSquare, MapPin } from 'lucide-react';
+import { Phone, MessageSquare } from 'lucide-react';
 import { BUSINESS_INFO } from '../data/businessData';
 
 export default function FloatingContactBar() {

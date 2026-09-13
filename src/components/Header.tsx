@@ -3,7 +3,7 @@ import { PhoneIcon, MessageSquareIcon, MenuIcon, XIcon, MapPinIcon } from './Cri
 import { BUSINESS_INFO } from '../data/businessData';
 import { getOfficeStatus } from '../utils/timeHelper';
 
-export default function Header({ onNavClick }: { onNavClick?: () => void } = {}) {
+export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const status = getOfficeStatus();
 
@@ -66,13 +66,13 @@ export default function Header({ onNavClick }: { onNavClick?: () => void } = {})
 
         {/* Desktop Navigation Links */}
         <nav aria-label="Main Navigation" className="hidden lg:flex items-center gap-7 text-[14.5px] font-medium text-[#D4D4D4]">
-          <a href="#services" onClick={onNavClick} className="hover:text-[#D4AF37] transition-colors py-1">Services</a>
-          <a href="#due-dates" onClick={onNavClick} className="hover:text-[#D4AF37] transition-colors py-1">Due Dates</a>
-          <a href="#process" onClick={onNavClick} className="hover:text-[#D4AF37] transition-colors py-1">How It Works</a>
-          <a href="#why-us" onClick={onNavClick} className="hover:text-[#D4AF37] transition-colors py-1">Why Us</a>
-          <a href="#office" onClick={onNavClick} className="hover:text-[#D4AF37] transition-colors py-1">Office &amp; Hours</a>
-          <a href="#faq" onClick={onNavClick} className="hover:text-[#D4AF37] transition-colors py-1">FAQ</a>
-          <a href="#contact" onClick={onNavClick} className="hover:text-[#D4AF37] transition-colors py-1">Contact</a>
+          <a href="#services" className="hover:text-[#D4AF37] transition-colors py-1">Services</a>
+          <a href="#due-dates" className="hover:text-[#D4AF37] transition-colors py-1">Due Dates</a>
+          <a href="#process" className="hover:text-[#D4AF37] transition-colors py-1">How It Works</a>
+          <a href="#why-us" className="hover:text-[#D4AF37] transition-colors py-1">Why Us</a>
+          <a href="#office" className="hover:text-[#D4AF37] transition-colors py-1">Office &amp; Hours</a>
+          <a href="#faq" className="hover:text-[#D4AF37] transition-colors py-1">FAQ</a>
+          <a href="#contact" className="hover:text-[#D4AF37] transition-colors py-1">Contact</a>
         </nav>
 
         {/* Fast Action Buttons */}
@@ -97,10 +97,7 @@ export default function Header({ onNavClick }: { onNavClick?: () => void } = {})
 
         {/* Mobile menu toggle */}
         <button
-          onClick={() => {
-            setMobileMenuOpen(!mobileMenuOpen);
-            onNavClick?.();
-          }}
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className="p-2 text-[#F5F2ED] lg:hidden hover:bg-[#262626] rounded border border-white/10"
           aria-label="Toggle Navigation"
           aria-expanded={mobileMenuOpen}
@@ -123,49 +120,49 @@ export default function Header({ onNavClick }: { onNavClick?: () => void } = {})
           <div className="flex flex-col space-y-3 text-base font-medium">
             <a
               href="#services"
-              onClick={() => { setMobileMenuOpen(false); onNavClick?.(); }}
+              onClick={() => setMobileMenuOpen(false)}
               className="py-1 text-[#F5F2ED] hover:text-[#D4AF37]"
             >
               Services (10 Essential Offerings)
             </a>
             <a
               href="#due-dates"
-              onClick={() => { setMobileMenuOpen(false); onNavClick?.(); }}
+              onClick={() => setMobileMenuOpen(false)}
               className="py-1 text-[#F5F2ED] hover:text-[#D4AF37]"
             >
               Compliance Calendar &amp; Due Dates
             </a>
             <a
               href="#process"
-              onClick={() => { setMobileMenuOpen(false); onNavClick?.(); }}
+              onClick={() => setMobileMenuOpen(false)}
               className="py-1 text-[#F5F2ED] hover:text-[#D4AF37]"
             >
               Our Process
             </a>
             <a
               href="#why-us"
-              onClick={() => { setMobileMenuOpen(false); onNavClick?.(); }}
+              onClick={() => setMobileMenuOpen(false)}
               className="py-1 text-[#F5F2ED] hover:text-[#D4AF37]"
             >
               Why Choose Us
             </a>
             <a
               href="#office"
-              onClick={() => { setMobileMenuOpen(false); onNavClick?.(); }}
+              onClick={() => setMobileMenuOpen(false)}
               className="py-1 text-[#F5F2ED] hover:text-[#D4AF37]"
             >
               Opera House Office &amp; Hours
             </a>
             <a
               href="#faq"
-              onClick={() => { setMobileMenuOpen(false); onNavClick?.(); }}
+              onClick={() => setMobileMenuOpen(false)}
               className="py-1 text-[#F5F2ED] hover:text-[#D4AF37]"
             >
               Frequently Asked Questions (FAQ)
             </a>
             <a
               href="#contact"
-              onClick={() => { setMobileMenuOpen(false); onNavClick?.(); }}
+              onClick={() => setMobileMenuOpen(false)}
               className="py-1 text-[#F5F2ED] hover:text-[#D4AF37]"
             >
               Contact &amp; Callback

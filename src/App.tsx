@@ -1,4 +1,4 @@
-import { Component, ErrorInfo, ReactNode, lazy, Suspense, useState, useEffect } from 'react';
+import { Component, ErrorInfo, ReactNode, lazy, Suspense } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import TrustBar from './components/TrustBar';
@@ -62,55 +62,11 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
 }
 
 export default function App() {
-  const [loadRest, setLoadRest] = useState(() => {
-    return typeof window !== 'undefined' && Boolean(window.location.hash);
-  });
-
-  useEffect(() => {
-    if (loadRest) return;
-
-    const trigger = () => {
-      setLoadRest(true);
-      removeListeners();
-    };
-
-    const removeListeners = () => {
-      window.removeEventListener('scroll', trigger);
-      window.removeEventListener('touchstart', trigger);
-      window.removeEventListener('mousemove', trigger);
-      window.removeEventListener('keydown', trigger);
-      window.removeEventListener('hashchange', trigger);
-    };
-
-    window.addEventListener('scroll', trigger, { passive: true, once: true });
-    window.addEventListener('touchstart', trigger, { passive: true, once: true });
-    window.addEventListener('mousemove', trigger, { passive: true, once: true });
-    window.addEventListener('keydown', trigger, { passive: true, once: true });
-    window.addEventListener('hashchange', trigger, { once: true });
-
-    // Load automatically on browser idle or fallback after 2.5s
-    let idleHandle: any;
-    let timerHandle: any;
-    if ('requestIdleCallback' in window) {
-      idleHandle = (window as any).requestIdleCallback(trigger, { timeout: 3500 });
-    } else {
-      timerHandle = setTimeout(trigger, 2500);
-    }
-
-    return () => {
-      removeListeners();
-      if (idleHandle && 'cancelIdleCallback' in window) {
-        (window as any).cancelIdleCallback(idleHandle);
-      }
-      if (timerHandle) clearTimeout(timerHandle);
-    };
-  }, [loadRest]);
-
   return (
     <ErrorBoundary>
       <div className="min-h-screen flex flex-col bg-[#0A0A0A] text-[#F5F2ED] font-sans selection:bg-[#D4AF37] selection:text-[#0A0A0A] bg-grid-pattern">
         {/* Top Navigation */}
-        <Header onNavClick={() => setLoadRest(true)} />
+        <Header />
 
         {/* Main Content Sections */}
         <main id="main-content" className="flex-1">
@@ -120,51 +76,38 @@ export default function App() {
           {/* Official Motto / Trust Bar */}
           <TrustBar />
 
-          {/* Below-the-fold sections loaded on interaction / idle */}
-          {loadRest ? (
-            <Suspense fallback={<div className="py-12 text-center text-xs font-mono text-[#D4AF37] animate-pulse">Loading compliance services...</div>}>
-              {/* 10 Core Services Catalog */}
-              <ServicesSection />
+          {/* Below-the-fold sections with Suspense */}
+          <Suspense fallback={<div className="py-12 text-center text-xs font-mono text-[#D4AF37] animate-pulse">Loading compliance services...</div>}>
+            {/* 10 Core Services Catalog */}
+            <ServicesSection />
 
-              {/* Indian Statutory Compliance Deadlines */}
-              <ComplianceCalendarSection />
+            {/* Indian Statutory Compliance Deadlines */}
+            <ComplianceCalendarSection />
 
-              {/* Workflow & Process */}
-              <ProcessSection />
+            {/* Workflow & Process */}
+            <ProcessSection />
 
-              {/* Why Choose Sajid Tax Consultant */}
-              <WhyChooseUs />
+            {/* Why Choose Sajid Tax Consultant */}
+            <WhyChooseUs />
 
-              {/* Opera House Office, Map & Timings from Photo */}
-              <OfficeLocation />
+            {/* Opera House Office, Map & Timings from Photo */}
+            <OfficeLocation />
 
-              {/* Callback Request & Direct Contacts */}
-              <ContactSection />
+            {/* Callback Request & Direct Contacts */}
+            <ContactSection />
 
-              {/* Frequently Asked Questions */}
-              <FaqSection />
-            </Suspense>
-          ) : (
-            <div className="py-8 text-center">
-              <button
-                onClick={() => setLoadRest(true)}
-                className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-mono uppercase tracking-wider rounded border border-[#D4AF37]/40 text-[#D4AF37] bg-[#141414] hover:bg-[#D4AF37] hover:text-[#0A0A0A] transition-all shadow-sm"
-              >
-                <span>View Full Services &amp; Tax Calendar ↓</span>
-              </button>
-            </div>
-          )}
+            {/* Frequently Asked Questions */}
+            <FaqSection />
+          </Suspense>
         </main>
 
-        {loadRest && (
-          <Suspense fallback={null}>
-            {/* Footer */}
-            <Footer />
+        <Suspense fallback={null}>
+          {/* Footer */}
+          <Footer />
 
-            {/* Floating Call & WhatsApp Triggers */}
-            <FloatingContactBar />
-          </Suspense>
-        )}
+          {/* Floating Call & WhatsApp Triggers */}
+          <FloatingContactBar />
+        </Suspense>
       </div>
     </ErrorBoundary>
   );

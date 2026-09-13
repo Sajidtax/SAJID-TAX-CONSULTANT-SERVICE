@@ -50,11 +50,11 @@ export default function Hero() {
               From GST filing and tax auditing to individual ITR, company incorporation, Gumasta licences, and PF claims — one trusted consultancy in Opera House, Mumbai to protect your business and eliminate penalties.
             </p>
 
-            {/* Quick Action Buttons */}
-            <div className="flex flex-wrap items-center gap-3.5 pt-2">
+            {/* Quick Action Buttons - Harmonious, uniform height, perfectly aligned */}
+            <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 pt-2">
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-[#1d4ed8] text-white font-bold text-sm hover:bg-[#1e40af] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+                className="h-12 px-6 rounded-lg bg-[#1d4ed8] hover:bg-[#1e40af] text-white font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 whitespace-nowrap"
               >
                 <span>Book Free Consultation</span>
                 <ArrowRightIcon className="w-4 h-4" />
@@ -62,7 +62,7 @@ export default function Hero() {
 
               <a
                 href={`tel:${BUSINESS_INFO.phoneClean}`}
-                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-lg border border-white/20 text-white bg-white/10 hover:bg-white/20 backdrop-blur-md font-bold text-sm transition-all shadow-xs"
+                className="h-12 px-5 rounded-lg border border-white/25 text-white bg-white/10 hover:bg-white/20 backdrop-blur-md font-semibold text-sm flex items-center justify-center gap-2 transition-all shadow-xs hover:-translate-y-0.5 whitespace-nowrap"
               >
                 <PhoneIcon className="w-4 h-4 text-blue-300" />
                 <span>Call {BUSINESS_INFO.phone}</span>
@@ -72,7 +72,7 @@ export default function Hero() {
                 href={`https://wa.me/${BUSINESS_INFO.phoneClean.replace('+', '')}?text=Hello%20Sajid%20Tax%20Consultant,%20I%20would%20like%20to%20consult%20regarding%20tax%20and%20accounting%20services.`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-lg bg-[#047857] hover:bg-[#065f46] text-white font-semibold text-xs transition-all shadow-md"
+                className="h-12 px-5 rounded-lg bg-[#047857] hover:bg-[#065f46] text-white font-semibold text-sm flex items-center justify-center gap-2 transition-all shadow-md hover:-translate-y-0.5 whitespace-nowrap"
               >
                 <MessageSquareIcon className="w-4 h-4 text-white" />
                 <span>WhatsApp Chat</span>

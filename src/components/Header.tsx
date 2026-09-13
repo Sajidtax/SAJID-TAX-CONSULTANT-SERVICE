@@ -75,23 +75,13 @@ export default function Header() {
           <a href="#contact" className="hover:text-[#1d4ed8] transition-colors py-1">Contact</a>
         </nav>
 
-        {/* Fast Action Buttons */}
-        <div className="hidden sm:flex items-center gap-3">
+        {/* Single Sleek Desktop CTA */}
+        <div className="hidden lg:flex items-center">
           <a
-            href={`https://wa.me/${BUSINESS_INFO.phoneClean.replace('+', '')}?text=Hello%20Sajid%20Tax%20Consultant,%20I%20need%20assistance%20with%20accounting%20and%20tax%20services.`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold rounded-lg bg-[#047857] text-white hover:bg-[#065f46] transition-all shadow-xs border border-emerald-700/20"
+            href="#contact"
+            className="whitespace-nowrap inline-flex items-center justify-center px-4 py-2 text-xs font-mono font-bold uppercase tracking-wider rounded-lg bg-[#1d4ed8] text-white hover:bg-[#1e40af] transition-all shadow-xs"
           >
-            <MessageSquareIcon className="w-3.5 h-3.5" />
-            <span>WhatsApp</span>
-          </a>
-          <a
-            href={`tel:${BUSINESS_INFO.phoneClean}`}
-            className="inline-flex items-center gap-2 px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-lg bg-[#1d4ed8] text-white hover:bg-[#1e40af] transition-all shadow-xs"
-          >
-            <PhoneIcon className="w-3.5 h-3.5" />
-            <span>Call {BUSINESS_INFO.phone}</span>
+            <span>Book Consultation</span>
           </a>
         </div>
 

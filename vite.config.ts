@@ -7,16 +7,30 @@ import { defineConfig } from 'vite';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Plugin to convert CSS links to non-render-blocking
+function nonBlockingCss() {
+  return {
+    name: 'non-blocking-css',
+    transformIndexHtml(html: string) {
+      return html.replace(
+        /<link rel="stylesheet" crossorigin href="([^"]+\.css)">/g,
+        '<link rel="stylesheet" crossorigin href="$1" media="print" onload="this.media=\'all\'"><noscript><link rel="stylesheet" crossorigin href="$1"></noscript>'
+      );
+    },
+  };
+}
+
 export default defineConfig(() => {
   return {
     base: '/SAJID-TAX-CONSULTANT-SERVICE/',
-    plugins: [react(), tailwindcss()],
+    plugins: [react(), tailwindcss(), nonBlockingCss()],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
       },
     },
     build: {
+      modulePreload: false,
       cssCodeSplit: true,
       minify: 'esbuild',
       rollupOptions: {

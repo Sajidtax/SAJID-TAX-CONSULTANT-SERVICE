@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { Phone, MessageSquare, Menu, X, MapPin } from 'lucide-react';
+import { PhoneIcon, MessageSquareIcon, MenuIcon, XIcon, MapPinIcon } from './CriticalIcons';
 import { BUSINESS_INFO } from '../data/businessData';
 import { getOfficeStatus } from '../utils/timeHelper';
 
-export default function Header() {
+export default function Header({ onNavClick }: { onNavClick?: () => void } = {}) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const status = getOfficeStatus();
 
@@ -24,7 +24,7 @@ export default function Header() {
               <span className="text-[#A3A3A3] text-[11px]">({status.detail})</span>
             </div>
             <div className="flex items-center gap-1.5 text-[#A3A3A3] text-[11px]">
-              <MapPin className="w-3 h-3 text-[#D4AF37]" />
+              <MapPinIcon className="w-3 h-3 text-[#D4AF37]" />
               <span>Opera House, Mumbai - 400004</span>
             </div>
           </div>
@@ -40,7 +40,7 @@ export default function Header() {
               href={`tel:${BUSINESS_INFO.phoneClean}`}
               className="font-semibold text-[#D4AF37] hover:text-[#E5C158] transition-colors flex items-center gap-1"
             >
-              <Phone className="w-3 h-3" />
+              <PhoneIcon className="w-3 h-3" />
               <span>{BUSINESS_INFO.phone}</span>
             </a>
           </div>
@@ -66,13 +66,13 @@ export default function Header() {
 
         {/* Desktop Navigation Links */}
         <nav aria-label="Main Navigation" className="hidden lg:flex items-center gap-7 text-[14.5px] font-medium text-[#D4D4D4]">
-          <a href="#services" className="hover:text-[#D4AF37] transition-colors py-1">Services</a>
-          <a href="#due-dates" className="hover:text-[#D4AF37] transition-colors py-1">Due Dates</a>
-          <a href="#process" className="hover:text-[#D4AF37] transition-colors py-1">How It Works</a>
-          <a href="#why-us" className="hover:text-[#D4AF37] transition-colors py-1">Why Us</a>
-          <a href="#office" className="hover:text-[#D4AF37] transition-colors py-1">Office &amp; Hours</a>
-          <a href="#faq" className="hover:text-[#D4AF37] transition-colors py-1">FAQ</a>
-          <a href="#contact" className="hover:text-[#D4AF37] transition-colors py-1">Contact</a>
+          <a href="#services" onClick={onNavClick} className="hover:text-[#D4AF37] transition-colors py-1">Services</a>
+          <a href="#due-dates" onClick={onNavClick} className="hover:text-[#D4AF37] transition-colors py-1">Due Dates</a>
+          <a href="#process" onClick={onNavClick} className="hover:text-[#D4AF37] transition-colors py-1">How It Works</a>
+          <a href="#why-us" onClick={onNavClick} className="hover:text-[#D4AF37] transition-colors py-1">Why Us</a>
+          <a href="#office" onClick={onNavClick} className="hover:text-[#D4AF37] transition-colors py-1">Office &amp; Hours</a>
+          <a href="#faq" onClick={onNavClick} className="hover:text-[#D4AF37] transition-colors py-1">FAQ</a>
+          <a href="#contact" onClick={onNavClick} className="hover:text-[#D4AF37] transition-colors py-1">Contact</a>
         </nav>
 
         {/* Fast Action Buttons */}
@@ -83,27 +83,30 @@ export default function Header() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold rounded bg-[#195E3E] text-white hover:bg-[#1f754d] transition-all shadow-sm border border-[#195E3E]/40"
           >
-            <MessageSquare className="w-3.5 h-3.5" />
+            <MessageSquareIcon className="w-3.5 h-3.5" />
             <span>WhatsApp</span>
           </a>
           <a
             href={`tel:${BUSINESS_INFO.phoneClean}`}
             className="inline-flex items-center gap-2 px-4 py-2 text-xs font-bold uppercase tracking-wider rounded bg-[#D4AF37] text-[#0A0A0A] hover:bg-[#E5C158] transition-all shadow-[2px_2px_0px_rgba(255,255,255,0.15)] hover:translate-x-[-1px] hover:translate-y-[-1px]"
           >
-            <Phone className="w-3.5 h-3.5" />
+            <PhoneIcon className="w-3.5 h-3.5" />
             <span>Call {BUSINESS_INFO.phone}</span>
           </a>
         </div>
 
         {/* Mobile menu toggle */}
         <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          onClick={() => {
+            setMobileMenuOpen(!mobileMenuOpen);
+            onNavClick?.();
+          }}
           className="p-2 text-[#F5F2ED] lg:hidden hover:bg-[#262626] rounded border border-white/10"
           aria-label="Toggle Navigation"
           aria-expanded={mobileMenuOpen}
           aria-controls="mobile-menu"
         >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          {mobileMenuOpen ? <XIcon className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
         </button>
       </div>
 
@@ -120,49 +123,49 @@ export default function Header() {
           <div className="flex flex-col space-y-3 text-base font-medium">
             <a
               href="#services"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={() => { setMobileMenuOpen(false); onNavClick?.(); }}
               className="py-1 text-[#F5F2ED] hover:text-[#D4AF37]"
             >
               Services (10 Essential Offerings)
             </a>
             <a
               href="#due-dates"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={() => { setMobileMenuOpen(false); onNavClick?.(); }}
               className="py-1 text-[#F5F2ED] hover:text-[#D4AF37]"
             >
               Compliance Calendar &amp; Due Dates
             </a>
             <a
               href="#process"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={() => { setMobileMenuOpen(false); onNavClick?.(); }}
               className="py-1 text-[#F5F2ED] hover:text-[#D4AF37]"
             >
               Our Process
             </a>
             <a
               href="#why-us"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={() => { setMobileMenuOpen(false); onNavClick?.(); }}
               className="py-1 text-[#F5F2ED] hover:text-[#D4AF37]"
             >
               Why Choose Us
             </a>
             <a
               href="#office"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={() => { setMobileMenuOpen(false); onNavClick?.(); }}
               className="py-1 text-[#F5F2ED] hover:text-[#D4AF37]"
             >
               Opera House Office &amp; Hours
             </a>
             <a
               href="#faq"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={() => { setMobileMenuOpen(false); onNavClick?.(); }}
               className="py-1 text-[#F5F2ED] hover:text-[#D4AF37]"
             >
               Frequently Asked Questions (FAQ)
             </a>
             <a
               href="#contact"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={() => { setMobileMenuOpen(false); onNavClick?.(); }}
               className="py-1 text-[#F5F2ED] hover:text-[#D4AF37]"
             >
               Contact &amp; Callback
@@ -174,7 +177,7 @@ export default function Header() {
               href={`tel:${BUSINESS_INFO.phoneClean}`}
               className="flex items-center justify-center gap-2 py-3 bg-[#D4AF37] text-[#0A0A0A] font-bold text-sm rounded shadow-[2px_2px_0px_rgba(255,255,255,0.1)]"
             >
-              <Phone className="w-4 h-4" />
+              <PhoneIcon className="w-4 h-4" />
               <span>Call: {BUSINESS_INFO.phone}</span>
             </a>
             <a
@@ -183,7 +186,7 @@ export default function Header() {
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 py-3 bg-[#195E3E] text-white font-semibold text-sm rounded border border-[#195E3E]/40"
             >
-              <MessageSquare className="w-4 h-4" />
+              <MessageSquareIcon className="w-4 h-4" />
               <span>WhatsApp Direct Message</span>
             </a>
           </div>

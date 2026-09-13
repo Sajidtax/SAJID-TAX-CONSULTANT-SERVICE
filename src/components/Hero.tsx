@@ -1,4 +1,4 @@
-import { Phone, MessageSquare, ArrowRight, ShieldCheck, CheckCircle2, Calendar } from 'lucide-react';
+import { PhoneIcon, MessageSquareIcon, ArrowRightIcon, ShieldCheckIcon, CheckCircle2Icon, CalendarIcon } from './CriticalIcons';
 import { BUSINESS_INFO, COMPLIANCE_CALENDAR } from '../data/businessData';
 
 export default function Hero() {
@@ -19,7 +19,7 @@ export default function Hero() {
             
             {/* Eyebrow badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#D4AF37] text-xs font-mono font-semibold tracking-wider uppercase">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#D4AF37]" />
+              <ShieldCheckIcon className="w-3.5 h-3.5 text-[#D4AF37]" />
               <span>Registered Tax &amp; Accounting Practice | Opera House Mumbai</span>
             </div>
 
@@ -42,14 +42,14 @@ export default function Hero() {
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded bg-[#D4AF37] text-[#0A0A0A] font-bold text-sm hover:bg-[#E5C158] transition-all shadow-[3px_3px_0px_rgba(255,255,255,0.15)] hover:translate-x-[-2px] hover:translate-y-[-2px]"
               >
                 <span>Book Free Consultation</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRightIcon className="w-4 h-4" />
               </a>
 
               <a
                 href={`tel:${BUSINESS_INFO.phoneClean}`}
                 className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded border border-[#D4AF37]/50 text-[#D4AF37] bg-[#171717] hover:bg-[#D4AF37] hover:text-[#0A0A0A] font-bold text-sm transition-all shadow-sm"
               >
-                <Phone className="w-4 h-4" />
+                <PhoneIcon className="w-4 h-4" />
                 <span>Call {BUSINESS_INFO.phone}</span>
               </a>
 
@@ -59,7 +59,7 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded border border-[#195E3E]/60 text-emerald-400 bg-[#195E3E]/20 hover:bg-[#195E3E] hover:text-white font-semibold text-xs transition-all"
               >
-                <MessageSquare className="w-4 h-4" />
+                <MessageSquareIcon className="w-4 h-4" />
                 <span>WhatsApp Chat</span>
               </a>
             </div>
@@ -111,7 +111,7 @@ export default function Hero() {
                   </h3>
                 </div>
                 <div className="p-2 rounded bg-[#D4AF37]/10 text-[#D4AF37] border border-[#D4AF37]/20">
-                  <Calendar className="w-5 h-5" />
+                  <CalendarIcon className="w-5 h-5" />
                 </div>
               </div>
 
@@ -140,7 +140,7 @@ export default function Hero() {
               {/* Card Footer notice */}
               <div className="mt-5 pt-4 border-t border-[#ffffff15] flex items-center justify-between text-[11px] text-[#A3A3A3] font-mono">
                 <span className="flex items-center gap-1.5 text-emerald-400">
-                  <CheckCircle2 className="w-3.5 h-3.5" />
+                  <CheckCircle2Icon className="w-3.5 h-3.5" />
                   <span>Tracked Automatically</span>
                 </span>
                 <a href="#due-dates" className="text-[#D4AF37] hover:text-[#E5C158] underline font-semibold">

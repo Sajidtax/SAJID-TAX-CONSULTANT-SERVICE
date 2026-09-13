@@ -9,7 +9,7 @@ export default function FloatingContactBar() {
         href={`https://wa.me/${BUSINESS_INFO.phoneClean.replace('+', '')}?text=Hello%20Sajid%20Tax%20Consultant,%20I%20need%20assistance%20with%20tax%20and%20accounting.`}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center gap-2 px-4 py-3 rounded-full bg-emerald-600 text-white shadow-xl hover:bg-emerald-700 transition-all hover:scale-105 active:scale-95 group font-semibold text-xs sm:text-sm border border-emerald-500/30"
+        className="flex items-center gap-2 px-4 py-3 rounded-full bg-[#047857] text-white shadow-xl hover:bg-[#065f46] transition-all hover:scale-105 active:scale-95 group font-semibold text-xs sm:text-sm border border-emerald-500/30"
         aria-label="Chat on WhatsApp"
       >
         <MessageSquare className="w-5 h-5" />
@@ -19,7 +19,7 @@ export default function FloatingContactBar() {
       {/* Call Quick Trigger */}
       <a
         href={`tel:${BUSINESS_INFO.phoneClean}`}
-        className="flex items-center gap-2 px-4 py-3 rounded-full bg-blue-600 text-white shadow-xl hover:bg-blue-700 transition-all hover:scale-105 active:scale-95 group font-bold text-xs sm:text-sm border border-blue-500/30"
+        className="flex items-center gap-2 px-4 py-3 rounded-full bg-[#1d4ed8] text-white shadow-xl hover:bg-[#1e40af] transition-all hover:scale-105 active:scale-95 group font-bold text-xs sm:text-sm border border-blue-500/30"
         aria-label="Call Now"
       >
         <Phone className="w-5 h-5" />

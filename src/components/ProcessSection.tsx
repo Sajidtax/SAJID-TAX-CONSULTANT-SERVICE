@@ -29,18 +29,18 @@ export default function ProcessSection() {
   ];
 
   return (
-    <section id="process" className="py-20 bg-slate-50 border-t border-slate-200">
+    <section id="process" className="py-20 bg-[#f8fafc] border-t border-[#e2e8f0]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         
         <div className="max-w-2xl mb-14 space-y-3">
-          <div className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase text-blue-700 tracking-widest">
-            <span className="w-6 h-[1.5px] bg-blue-600"></span>
+          <div className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase text-[#1d4ed8] tracking-widest">
+            <span className="w-6 h-[1.5px] bg-[#1d4ed8]"></span>
             <span>Seamless Workflow</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-display font-bold text-slate-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#0f172a] tracking-tight">
             From first consultation to confirmed return
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+          <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
             A transparent four-step process built so business owners never have to chase paperwork or worry about missed deadlines.
           </p>
         </div>
@@ -51,18 +51,18 @@ export default function ProcessSection() {
             return (
               <div
                 key={step.num}
-                className="bg-white rounded-xl border border-slate-200 hover:border-blue-500/60 p-6 space-y-4 hover:shadow-md transition-all relative group shadow-2xs"
+                className="bg-white rounded-xl border border-[#e2e8f0] hover:border-[#1d4ed8] p-6 space-y-4 hover:shadow-md transition-all relative group shadow-xs"
               >
                 <div className="flex items-center justify-between">
-                  <div className="w-10 h-10 rounded-full bg-blue-50 border border-blue-200 text-blue-700 flex items-center justify-center font-mono font-bold text-sm">
+                  <div className="w-10 h-10 rounded-full bg-blue-50 border border-blue-200 text-[#1d4ed8] flex items-center justify-center font-mono font-bold text-sm">
                     {step.num}
                   </div>
-                  <Icon className="w-5 h-5 text-blue-600 group-hover:text-blue-700 transition-colors" />
+                  <Icon className="w-5 h-5 text-[#1d4ed8] group-hover:text-[#1e40af] transition-colors" />
                 </div>
-                <h3 className="font-display font-bold text-lg text-slate-900 group-hover:text-blue-700 transition-colors">
+                <h3 className="font-display font-bold text-lg text-[#0f172a] group-hover:text-[#1d4ed8] transition-colors">
                   {step.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
                   {step.desc}
                 </p>
               </div>

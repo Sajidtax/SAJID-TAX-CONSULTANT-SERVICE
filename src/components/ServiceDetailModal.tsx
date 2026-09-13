@@ -40,32 +40,32 @@ export default function ServiceDetailModal({ service, onClose }: ServiceDetailMo
       aria-labelledby="modal-service-title"
     >
       <div 
-        className="bg-white rounded-xl border border-slate-200 shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative animate-in zoom-in-95 duration-200 text-slate-900"
+        className="bg-white rounded-xl border border-[#e2e8f0] shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative animate-in zoom-in-95 duration-200 text-[#0f172a]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="bg-slate-50 p-6 sticky top-0 z-10 flex items-start justify-between border-b border-slate-200">
+        <div className="bg-[#f8fafc] p-6 sticky top-0 z-10 flex items-start justify-between border-b border-[#e2e8f0]">
           <div>
             <div className="flex items-center gap-2">
-              <span className="font-mono text-xs text-blue-700 font-bold tracking-widest uppercase">
+              <span className="font-mono text-xs text-[#1d4ed8] font-bold tracking-widest uppercase">
                 Service #{service.number}
               </span>
               {service.badge && (
-                <span className="bg-blue-50 text-blue-700 border border-blue-200 text-[10px] uppercase font-mono px-2 py-0.5 rounded font-semibold">
+                <span className="bg-blue-50 text-[#1d4ed8] border border-blue-200 text-[10px] uppercase font-mono px-2 py-0.5 rounded font-semibold">
                   {service.badge}
                 </span>
               )}
             </div>
-            <h3 id="modal-service-title" className="text-2xl font-display font-bold mt-1 text-slate-900">
+            <h3 id="modal-service-title" className="text-2xl font-display font-bold mt-1 text-[#0f172a]">
               {service.title}
             </h3>
-            <p className="text-slate-600 text-xs sm:text-sm mt-1">
+            <p className="text-[#475569] text-xs sm:text-sm mt-1">
               {service.tagline}
             </p>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-full bg-slate-200 hover:bg-slate-300 text-slate-700 transition-colors"
+            className="p-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-[#475569] transition-colors"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
@@ -76,24 +76,24 @@ export default function ServiceDetailModal({ service, onClose }: ServiceDetailMo
         <div className="p-6 space-y-6">
           {/* Overview */}
           <div>
-            <h4 className="text-xs font-mono font-bold uppercase text-blue-700 tracking-wider mb-2">
+            <h4 className="text-xs font-mono font-bold uppercase text-[#1d4ed8] tracking-wider mb-2">
               Service Scope &amp; Description
             </h4>
-            <p className="text-sm sm:text-[15px] text-slate-600 leading-relaxed">
+            <p className="text-sm sm:text-[15px] text-[#475569] leading-relaxed">
               {service.description}
             </p>
           </div>
 
           {/* Deliverables */}
-          <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
-            <h4 className="text-xs font-mono font-bold uppercase text-slate-900 tracking-wider mb-3 flex items-center gap-1.5">
-              <CheckCircle className="w-4 h-4 text-emerald-600" />
+          <div className="bg-[#f8fafc] p-4 rounded-xl border border-[#e2e8f0]">
+            <h4 className="text-xs font-mono font-bold uppercase text-[#0f172a] tracking-wider mb-3 flex items-center gap-1.5">
+              <CheckCircle className="w-4 h-4 text-[#047857]" />
               <span>What We Deliver for You</span>
             </h4>
-            <ul className="space-y-2 text-xs sm:text-sm text-slate-700">
+            <ul className="space-y-2 text-xs sm:text-sm text-[#475569]">
               {service.deliverables.map((item, idx) => (
                 <li key={idx} className="flex items-start gap-2">
-                  <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                  <Check className="w-3.5 h-3.5 text-[#047857] shrink-0 mt-0.5" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -102,42 +102,42 @@ export default function ServiceDetailModal({ service, onClose }: ServiceDetailMo
 
           {/* Required Documents checklist */}
           <div>
-            <h4 className="text-xs font-mono font-bold uppercase text-blue-700 tracking-wider mb-3 flex items-center gap-1.5">
-              <FileText className="w-4 h-4 text-blue-600" />
+            <h4 className="text-xs font-mono font-bold uppercase text-[#1d4ed8] tracking-wider mb-3 flex items-center gap-1.5">
+              <FileText className="w-4 h-4 text-[#1d4ed8]" />
               <span>Documents Required From You</span>
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm">
               {service.documentsRequired.map((doc, idx) => (
-                <div key={idx} className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50 border border-slate-200">
-                  <span className="w-4 h-4 rounded-full bg-blue-50 text-blue-700 text-[10px] font-bold flex items-center justify-center shrink-0 border border-blue-200">
+                <div key={idx} className="flex items-center gap-2 p-2.5 rounded-lg bg-[#f8fafc] border border-[#e2e8f0]">
+                  <span className="w-4 h-4 rounded-full bg-blue-50 text-[#1d4ed8] text-[10px] font-bold flex items-center justify-center shrink-0 border border-blue-200">
                     {idx + 1}
                   </span>
-                  <span className="text-slate-800 font-medium">{doc}</span>
+                  <span className="text-[#0f172a] font-medium">{doc}</span>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Turnaround Time */}
-          <div className="flex items-center gap-2 text-xs font-mono text-slate-700 bg-blue-50/70 border border-blue-200 p-3 rounded-lg">
-            <Clock className="w-4 h-4 text-blue-600 shrink-0" />
-            <span><strong className="text-slate-900">Turnaround Time:</strong> {service.turnaroundTime}</span>
+          <div className="flex items-center gap-2 text-xs font-mono text-[#475569] bg-blue-50/70 border border-blue-200 p-3 rounded-lg">
+            <Clock className="w-4 h-4 text-[#1d4ed8] shrink-0" />
+            <span><strong className="text-[#0f172a]">Turnaround Time:</strong> {service.turnaroundTime}</span>
           </div>
 
           {/* Fast Actions */}
-          <div className="pt-2 flex flex-col sm:flex-row items-center gap-3 border-t border-slate-200">
+          <div className="pt-2 flex flex-col sm:flex-row items-center gap-3 border-t border-[#e2e8f0]">
             <a
               href={`https://wa.me/${BUSINESS_INFO.phoneClean.replace('+', '')}?text=${whatsappMessage}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:flex-1 py-3 px-4 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-xs border border-emerald-700/20"
+              className="w-full sm:flex-1 py-3 px-4 rounded-lg bg-[#047857] hover:bg-[#065f46] text-white font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-xs"
             >
               <MessageSquare className="w-4 h-4" />
               <span>Inquire via WhatsApp</span>
             </a>
             <a
               href={`tel:${BUSINESS_INFO.phoneClean}`}
-              className="w-full sm:flex-1 py-3 px-4 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-xs"
+              className="w-full sm:flex-1 py-3 px-4 rounded-lg bg-[#1d4ed8] hover:bg-[#1e40af] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-xs"
             >
               <Phone className="w-4 h-4" />
               <span>Call: {BUSINESS_INFO.phone}</span>

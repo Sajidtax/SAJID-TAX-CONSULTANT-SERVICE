@@ -15,14 +15,14 @@ export default function ComplianceCalendarSection() {
         
         {/* Section Header */}
         <div className="max-w-2xl mb-10 space-y-3">
-          <div className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase text-blue-700 tracking-widest">
-            <span className="w-6 h-[1.5px] bg-blue-600"></span>
+          <div className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase text-[#1d4ed8] tracking-widest">
+            <span className="w-6 h-[1.5px] bg-[#1d4ed8]"></span>
             <span>Statutory Compliance Calendar</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-display font-bold text-slate-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#0f172a] tracking-tight">
             Upcoming Deadlines &amp; Filing Timelines
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+          <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
             Avoid heavy government penalties, late filing fees, and blocked Input Tax Credit (ITC). We track every deadline on your behalf.
           </p>
         </div>
@@ -36,8 +36,8 @@ export default function ComplianceCalendarSection() {
               onClick={() => setSelectedCategory(cat)}
               className={`px-3.5 py-1.5 rounded-lg text-xs font-mono font-semibold transition-all ${
                 selectedCategory === cat
-                  ? 'bg-blue-600 text-white font-bold shadow-xs'
-                  : 'bg-slate-50 border border-slate-200 text-slate-700 hover:bg-slate-100'
+                  ? 'bg-[#1d4ed8] text-white font-bold shadow-xs'
+                  : 'bg-[#f8fafc] border border-[#e2e8f0] text-[#475569] hover:bg-slate-100'
               }`}
             >
               {cat === 'ALL' ? 'All Deadlines' : `${cat} Filings`}
@@ -46,19 +46,19 @@ export default function ComplianceCalendarSection() {
         </div>
 
         {/* Deadlines Table/Grid */}
-        <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
-          <div className="divide-y divide-slate-100">
+        <div className="bg-white rounded-xl border border-[#e2e8f0] shadow-sm overflow-hidden">
+          <div className="divide-y divide-[#e2e8f0]">
             {filteredDeadlines.map((item) => (
               <div
                 key={item.id}
-                className="p-5 sm:p-6 hover:bg-slate-50 transition-colors flex flex-col md:flex-row md:items-center justify-between gap-4"
+                className="p-5 sm:p-6 hover:bg-[#f8fafc] transition-colors flex flex-col md:flex-row md:items-center justify-between gap-4"
               >
                 <div className="space-y-1 max-w-xl">
                   <div className="flex items-center gap-2 flex-wrap">
-                    <span className="font-mono text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-200">
+                    <span className="font-mono text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-slate-100 text-[#475569] border border-[#e2e8f0]">
                       {item.category}
                     </span>
-                    <span className="text-xs font-mono text-slate-500">
+                    <span className="text-xs font-mono text-[#64748b]">
                       {item.frequency}
                     </span>
                     {item.importance === 'urgent' && (
@@ -68,20 +68,20 @@ export default function ComplianceCalendarSection() {
                       </span>
                     )}
                   </div>
-                  <h3 className="font-display font-bold text-base sm:text-lg text-slate-900">
+                  <h3 className="font-display font-bold text-base sm:text-lg text-[#0f172a]">
                     {item.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
                     {item.description}
                   </p>
                 </div>
 
-                <div className="flex items-center sm:items-end md:flex-col justify-between shrink-0 gap-3 border-t md:border-t-0 pt-3 md:pt-0 border-dashed border-slate-200">
+                <div className="flex items-center sm:items-end md:flex-col justify-between shrink-0 gap-3 border-t md:border-t-0 pt-3 md:pt-0 border-dashed border-[#e2e8f0]">
                   <div className="text-left md:text-right">
-                    <div className="text-[10px] font-mono uppercase text-slate-500 font-semibold">
+                    <div className="text-[10px] font-mono uppercase text-[#64748b] font-semibold">
                       Statutory Due Date
                     </div>
-                    <div className="text-sm sm:text-base font-mono font-bold text-blue-700">
+                    <div className="text-sm sm:text-base font-mono font-bold text-[#1d4ed8]">
                       {item.dueDate}
                     </div>
                   </div>
@@ -90,7 +90,7 @@ export default function ComplianceCalendarSection() {
                     href={`https://wa.me/${BUSINESS_INFO.phoneClean.replace('+', '')}?text=${encodeURIComponent(`Hello Sajid Sir, I need help filing ${item.title} before the due date.`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-xs font-bold px-3.5 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition-colors shadow-xs"
+                    className="inline-flex items-center gap-1 text-xs font-bold px-3.5 py-2 rounded-lg bg-[#1d4ed8] hover:bg-[#1e40af] text-white transition-colors shadow-xs"
                   >
                     <span>File with Sajid</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
@@ -105,7 +105,7 @@ export default function ComplianceCalendarSection() {
         <div className="mt-6 p-4 rounded-xl bg-amber-50/80 border border-amber-200 flex items-start gap-3 text-xs text-amber-900">
           <ShieldAlert className="w-5 h-5 text-amber-700 shrink-0 mt-0.5" />
           <div>
-            <strong className="text-amber-950 font-bold">Notice on Late Fees &amp; Interest:</strong> Non-filing or late filing of GST attracts daily fees up to ₹50/day plus 18% annual interest. Delayed TDS payments incur 1.5% interest per month. Contact our Opera House office at <a href={`tel:${BUSINESS_INFO.phoneClean}`} className="underline font-bold text-blue-700">{BUSINESS_INFO.phone}</a> to avoid penal actions.
+            <strong className="text-amber-950 font-bold">Notice on Late Fees &amp; Interest:</strong> Non-filing or late filing of GST attracts daily fees up to ₹50/day plus 18% annual interest. Delayed TDS payments incur 1.5% interest per month. Contact our Opera House office at <a href={`tel:${BUSINESS_INFO.phoneClean}`} className="underline font-bold text-[#1d4ed8]">{BUSINESS_INFO.phone}</a> to avoid penal actions.
           </div>
         </div>
 

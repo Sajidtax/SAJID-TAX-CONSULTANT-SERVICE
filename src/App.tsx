@@ -36,20 +36,20 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   render() {
     if (this.state.hasError) {
       return (
-        <div className="min-h-screen flex items-center justify-center bg-slate-50 text-slate-900 p-6">
-          <div className="max-w-md w-full bg-white border border-slate-200 rounded-xl p-8 text-center space-y-4 shadow-xl">
-            <div className="w-12 h-12 rounded-full bg-blue-50 text-blue-700 border border-blue-200 flex items-center justify-center mx-auto text-xl font-bold">
+        <div className="min-h-screen flex items-center justify-center bg-[#f8fafc] text-[#0f172a] p-6">
+          <div className="max-w-md w-full bg-white border border-[#e2e8f0] rounded-xl p-8 text-center space-y-4 shadow-sm">
+            <div className="w-12 h-12 rounded-full bg-blue-50 text-[#1d4ed8] border border-blue-200 flex items-center justify-center mx-auto text-xl font-bold">
               SJ
             </div>
-            <h2 className="text-2xl font-display font-bold text-slate-900">
+            <h2 className="text-2xl font-display font-bold text-[#0f172a]">
               Sajid Tax Consultant Service
             </h2>
-            <p className="text-sm text-slate-600">
+            <p className="text-sm text-[#475569]">
               Something went wrong loading this view. Please refresh or contact us directly.
             </p>
             <button
               onClick={() => window.location.reload()}
-              className="w-full py-2.5 px-4 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm transition-all shadow-sm"
+              className="w-full py-2.5 px-4 rounded-lg bg-[#1d4ed8] hover:bg-[#1e40af] text-white font-bold text-sm transition-all shadow-sm"
             >
               Reload Page
             </button>
@@ -64,7 +64,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
 export default function App() {
   return (
     <ErrorBoundary>
-      <div className="min-h-screen flex flex-col bg-white text-slate-800 font-sans selection:bg-blue-600 selection:text-white bg-grid-pattern">
+      <div className="min-h-screen flex flex-col bg-white text-[#475569] font-sans selection:bg-[#1d4ed8] selection:text-white bg-grid-pattern">
         {/* Top Navigation */}
         <Header />
 
@@ -77,7 +77,7 @@ export default function App() {
           <TrustBar />
 
           {/* Below-the-fold sections with Suspense */}
-          <Suspense fallback={<div className="py-12 text-center text-xs font-mono text-blue-700 animate-pulse">Loading compliance services...</div>}>
+          <Suspense fallback={<div className="py-12 text-center text-xs font-mono text-[#1d4ed8] animate-pulse">Loading compliance services...</div>}>
             {/* 10 Core Services Catalog */}
             <ServicesSection />
 

@@ -5,41 +5,56 @@ export default function Hero() {
   const topUpcomingDueDates = COMPLIANCE_CALENDAR.slice(0, 5);
 
   return (
-    <section className="relative pt-10 pb-16 md:pt-16 md:pb-24 overflow-hidden bg-white">
-      {/* Background decorative watermark */}
-      <div aria-hidden="true" className="absolute top-0 right-0 -z-10 translate-x-1/4 -translate-y-1/4 opacity-[0.03] pointer-events-none select-none">
-        <span className="text-[480px] font-display font-bold text-blue-900">SJ</span>
+    <section className="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden bg-[#0F172A] text-white">
+      {/* Background Photography with High-Trust Corporate Dark Gradient Overlay */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/images/tax-hero-bg.jpg"
+          alt="Sajid Tax Consultant reviewing financial paperwork and tax calculations in office"
+          className="w-full h-full object-cover object-center brightness-[0.80]"
+          loading="eager"
+          fetchPriority="high"
+        />
+        {/* Multilayer gradient: deep navy on left for 100% crisp text readability, fading to subtle vignette on right */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A]/95 via-[#0F172A]/85 to-[#0F172A]/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-transparent to-[#0F172A]/40"></div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           
           {/* Left Column: Hero Copy & Value Proposition */}
           <div className="lg:col-span-7 space-y-6">
             
-            {/* Eyebrow badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-[#1d4ed8] text-xs font-mono font-semibold tracking-wider uppercase shadow-2xs">
-              <ShieldCheckIcon className="w-3.5 h-3.5 text-[#1d4ed8]" />
-              <span>Registered Tax &amp; Accounting Practice | Opera House Mumbai</span>
+            {/* Eyebrow badge from user reference: SAJID TAX CONSULTANT */}
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-blue-500/15 border border-blue-400/30 text-blue-300 text-xs font-mono font-bold tracking-widest uppercase backdrop-blur-md shadow-xs">
+              <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+              <span>SAJID TAX CONSULTANT</span>
+              <span className="text-blue-400/50 hidden sm:inline">|</span>
+              <span className="text-blue-200/80 hidden sm:inline text-[11px] font-normal">Opera House, Mumbai</span>
             </div>
 
-            {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-[54px] font-display font-bold text-[#0f172a] leading-[1.08] tracking-tight">
-              Compliance handled. <br />
-              <span className="text-[#1d4ed8] italic">Growth</span>, uninterrupted.
-              <span className="sr-only"> - Sajid Tax Consultant in Opera House, Mumbai</span>
-            </h1>
+            {/* Main Headline: Maximize Your Tax Savings */}
+            <div className="space-y-2">
+              <h1 className="text-4xl sm:text-5xl lg:text-[58px] font-display font-bold text-white leading-[1.08] tracking-tight">
+                Maximize Your <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-100 to-white">Tax Savings</span>.
+                <span className="sr-only"> - Sajid Tax Consultant in Opera House, Mumbai</span>
+              </h1>
+              {/* Subtle decorative divider inspired by reference */}
+              <div className="w-24 h-1 bg-gradient-to-r from-[#1d4ed8] to-blue-400 rounded-full"></div>
+            </div>
 
             {/* Subtitle / Lead text */}
-            <p className="text-base sm:text-lg text-[#475569] leading-relaxed max-w-xl">
-              From day-to-day bookkeeping to GST filing, ITR computation to company registration, Gumasta licences to PF withdrawals - one expert team in Opera House, Mumbai for every number your business answers for.
+            <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-xl font-normal">
+              From GST filing and tax auditing to individual ITR, company incorporation, Gumasta licences, and PF claims — one trusted consultancy in Opera House, Mumbai to protect your business and eliminate penalties.
             </p>
 
             {/* Quick Action Buttons */}
             <div className="flex flex-wrap items-center gap-3.5 pt-2">
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-[#1d4ed8] text-white font-bold text-sm hover:bg-[#1e40af] transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-[#1d4ed8] text-white font-bold text-sm hover:bg-[#1e40af] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
               >
                 <span>Book Free Consultation</span>
                 <ArrowRightIcon className="w-4 h-4" />
@@ -47,9 +62,9 @@ export default function Hero() {
 
               <a
                 href={`tel:${BUSINESS_INFO.phoneClean}`}
-                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-lg border border-[#e2e8f0] text-[#0f172a] bg-white hover:bg-[#f8fafc] font-bold text-sm transition-all shadow-xs"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-lg border border-white/20 text-white bg-white/10 hover:bg-white/20 backdrop-blur-md font-bold text-sm transition-all shadow-xs"
               >
-                <PhoneIcon className="w-4 h-4 text-[#1d4ed8]" />
+                <PhoneIcon className="w-4 h-4 text-blue-300" />
                 <span>Call {BUSINESS_INFO.phone}</span>
               </a>
 
@@ -57,30 +72,30 @@ export default function Hero() {
                 href={`https://wa.me/${BUSINESS_INFO.phoneClean.replace('+', '')}?text=Hello%20Sajid%20Tax%20Consultant,%20I%20would%20like%20to%20consult%20regarding%20tax%20and%20accounting%20services.`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-lg border border-emerald-200 text-[#047857] bg-emerald-50 hover:bg-emerald-100 font-semibold text-xs transition-all shadow-2xs"
+                className="inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-lg bg-[#047857] hover:bg-[#065f46] text-white font-semibold text-xs transition-all shadow-md"
               >
-                <MessageSquareIcon className="w-4 h-4 text-[#047857]" />
+                <MessageSquareIcon className="w-4 h-4 text-white" />
                 <span>WhatsApp Chat</span>
               </a>
             </div>
 
             {/* Metric Strips */}
-            <div className="grid grid-cols-3 gap-4 pt-6 border-t border-[#e2e8f0] max-w-lg">
+            <div className="grid grid-cols-3 gap-4 pt-6 border-t border-white/15 max-w-lg">
               <div>
-                <div className="text-2xl sm:text-3xl font-mono font-bold text-[#1d4ed8]">10+</div>
-                <div className="text-[11px] sm:text-xs font-mono text-[#64748b] uppercase tracking-wider mt-0.5">
+                <div className="text-2xl sm:text-3xl font-mono font-bold text-blue-300">10+</div>
+                <div className="text-[11px] sm:text-xs font-mono text-slate-300 uppercase tracking-wider mt-0.5">
                   Core Services
                 </div>
               </div>
               <div>
-                <div className="text-2xl sm:text-3xl font-mono font-bold text-[#0f172a]">100%</div>
-                <div className="text-[11px] sm:text-xs font-mono text-[#64748b] uppercase tracking-wider mt-0.5">
+                <div className="text-2xl sm:text-3xl font-mono font-bold text-white">100%</div>
+                <div className="text-[11px] sm:text-xs font-mono text-slate-300 uppercase tracking-wider mt-0.5">
                   Filing Accuracy
                 </div>
               </div>
               <div>
-                <div className="text-2xl sm:text-3xl font-mono font-bold text-[#047857]">Mon-Sat</div>
-                <div className="text-[11px] sm:text-xs font-mono text-[#64748b] uppercase tracking-wider mt-0.5">
+                <div className="text-2xl sm:text-3xl font-mono font-bold text-emerald-400">Mon-Sat</div>
+                <div className="text-[11px] sm:text-xs font-mono text-slate-300 uppercase tracking-wider mt-0.5">
                   11 AM - 7 PM
                 </div>
               </div>
@@ -91,7 +106,7 @@ export default function Hero() {
           {/* Right Column: Live Compliance Ledger & Official Seal Card */}
           <div className="lg:col-span-5 relative mt-4 lg:mt-0">
             {/* The Floating Seal */}
-            <div className="absolute -top-7 -right-4 sm:-right-6 w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-white border-2 border-[#1d4ed8] shadow-xl flex items-center justify-center text-center p-2 z-20 rotate-[-12deg] hover:rotate-0 transition-transform duration-300">
+            <div className="absolute -top-7 -right-4 sm:-right-6 w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-white border-2 border-[#1d4ed8] shadow-2xl flex items-center justify-center text-center p-2 z-20 rotate-[-12deg] hover:rotate-0 transition-transform duration-300">
               <div className="border border-dashed border-blue-300 w-full h-full rounded-full flex flex-col items-center justify-center font-mono text-[9px] sm:text-[10px] text-[#1d4ed8] font-bold uppercase tracking-tight leading-tight">
                 <span>Reliable</span>
                 <span className="text-xs sm:text-sm font-black text-[#1d4ed8] my-0.5">ACCURATE</span>
@@ -100,7 +115,7 @@ export default function Hero() {
             </div>
 
             {/* Ledger Card */}
-            <div className="bg-white rounded-xl border border-[#e2e8f0] shadow-md p-6 sm:p-7 relative z-10 overflow-hidden">
+            <div className="bg-white text-[#0f172a] rounded-2xl border border-white/80 shadow-2xl p-6 sm:p-7 relative z-10 overflow-hidden">
               <div className="flex items-center justify-between border-b border-dashed border-[#e2e8f0] pb-4 mb-4">
                 <div>
                   <span className="font-mono text-[11px] uppercase tracking-wider font-semibold text-[#1d4ed8] block">
@@ -150,7 +165,7 @@ export default function Hero() {
             </div>
 
             {/* Card Backdrop shadow styling */}
-            <div className="absolute inset-0 bg-[#f8fafc] rounded-xl -rotate-1 translate-x-2 translate-y-2 -z-0 border border-[#e2e8f0]"></div>
+            <div className="absolute inset-0 bg-blue-600/20 rounded-2xl -rotate-1 translate-x-2 translate-y-2 -z-0 border border-blue-400/20 backdrop-blur-xs"></div>
           </div>
 
         </div>

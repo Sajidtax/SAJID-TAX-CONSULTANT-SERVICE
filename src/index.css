@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --font-serif: "Fraunces", Georgia, serif;
-  --font-mono: "IBM Plex Mono", Menlo, monospace;
-  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: "Fraunces", Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --color-dark-base: #0A0A0A;
   --color-dark-surface: #121212;
   --color-dark-card: #171717;

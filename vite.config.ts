@@ -21,9 +21,16 @@ export default defineConfig(() => {
       minify: 'esbuild',
       rollupOptions: {
         output: {
-          manualChunks: {
-            vendor: ['react', 'react-dom'],
-            icons: ['lucide-react'],
+          manualChunks(id) {
+            if (id.includes('node_modules')) {
+              if (id.includes('react') || id.includes('scheduler')) {
+                return 'react-core';
+              }
+              if (id.includes('lucide-react')) {
+                return 'icons';
+              }
+              return 'vendor';
+            }
           },
         },
       },

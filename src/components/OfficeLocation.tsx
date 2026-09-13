@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { MapPin, Copy, Check, Navigation, Phone, QrCode, Mail } from 'lucide-react';
+import { MapPin, Copy, Check, Navigation, Phone, QrCode, Mail, Clock } from 'lucide-react';
 import { BUSINESS_INFO } from '../data/businessData';
 import { getOfficeStatus } from '../utils/timeHelper';
 

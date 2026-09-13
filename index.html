@@ -42,7 +42,15 @@
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=IBM+Plex+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=IBM+Plex+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=IBM+Plex+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" />
+    </noscript>
+
+    <!-- Machine-readable Agentic & LLM discovery -->
+    <link rel="alternate" type="text/markdown" title="LLM documentation" href="https://sajidtax.github.io/SAJID-TAX-CONSULTANT-SERVICE/llms.txt" />
+    <link rel="llms-txt" href="https://sajidtax.github.io/SAJID-TAX-CONSULTANT-SERVICE/llms.txt" />
 
     <!-- Schema.org JSON-LD LocalBusiness / AccountingService Structured Data for Google -->
     <script type="application/ld+json">
@@ -144,7 +152,26 @@
             }
           }
         ]
-      }
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-77620-67143",
+        "contactType": "customer service",
+        "availableLanguage": ["English", "Hindi", "Marathi", "Gujarati"],
+        "areaServed": "IN"
+      },
+      "potentialAction": [
+        {
+          "@type": "CommunicateAction",
+          "name": "Call Sajid Tax Consultant",
+          "target": "tel:+917762067143"
+        },
+        {
+          "@type": "CommunicateAction",
+          "name": "WhatsApp Sajid Tax Consultant",
+          "target": "https://wa.me/917762067143"
+        }
+      ]
     }
     </script>
 

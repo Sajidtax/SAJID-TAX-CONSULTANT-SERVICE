@@ -9,6 +9,9 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-40 bg-[#0A0A0A]/95 backdrop-blur-md border-b border-[#ffffff15] transition-all">
+      <a href="#services" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:p-3 focus:bg-[#D4AF37] focus:text-[#0A0A0A] focus:font-bold focus:rounded">
+        Skip to main content
+      </a>
       {/* Top micro-bar for quick contact & office status */}
       <div className="bg-[#111111] text-[#E5E5E5] text-xs py-2 px-4 border-b border-white/5 hidden sm:block">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
@@ -32,7 +35,7 @@ export default function Header() {
             >
               <span>{BUSINESS_INFO.email}</span>
             </a>
-            <span className="text-[#404040]">|</span>
+            <span className="text-[#6B7280]">|</span>
             <a
               href={`tel:${BUSINESS_INFO.phoneClean}`}
               className="font-semibold text-[#D4AF37] hover:text-[#E5C158] transition-colors flex items-center gap-1"
@@ -47,7 +50,7 @@ export default function Header() {
       {/* Main Navigation Bar */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-4">
         {/* Brand identity */}
-        <a href="#" className="flex items-center gap-3 group text-left">
+        <a href="#" aria-label="Sajid Tax Consultant Service Home" className="flex items-center gap-3 group text-left">
           <div className="w-10 h-10 rounded-full border border-[#D4AF37]/60 bg-[#171717] flex items-center justify-center font-display font-bold text-[#D4AF37] text-lg shadow-sm group-hover:border-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-[#0A0A0A] transition-all">
             SJ
           </div>
@@ -62,7 +65,7 @@ export default function Header() {
         </a>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-7 text-[14.5px] font-medium text-[#D4D4D4]">
+        <nav aria-label="Main Navigation" className="hidden lg:flex items-center gap-7 text-[14.5px] font-medium text-[#D4D4D4]">
           <a href="#services" className="hover:text-[#D4AF37] transition-colors py-1">Services</a>
           <a href="#due-dates" className="hover:text-[#D4AF37] transition-colors py-1">Due Dates</a>
           <a href="#process" className="hover:text-[#D4AF37] transition-colors py-1">How It Works</a>

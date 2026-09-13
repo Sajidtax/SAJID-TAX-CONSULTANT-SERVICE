@@ -1,4 +1,4 @@
-﻿import { ShieldCheck, Clock, UserCheck, Banknote } from 'lucide-react';
+import { ShieldCheck, Clock, UserCheck, Banknote } from 'lucide-react';
 import { BUSINESS_INFO } from '../data/businessData';
 
 export default function WhyChooseUs() {
@@ -88,7 +88,7 @@ export default function WhyChooseUs() {
                       <h3 className="font-display font-bold text-base sm:text-lg text-[#F5F2ED] group-hover:text-[#D4AF37] transition-colors">
                         {item.title}
                       </h3>
-                      <Icon className="w-4 h-4 text-[#737373] group-hover:text-[#D4AF37] transition-colors" />
+                      <Icon className="w-4 h-4 text-[#9CA3AF] group-hover:text-[#D4AF37] transition-colors" />
                     </div>
                     <p className="text-xs sm:text-sm text-[#A3A3A3] leading-relaxed">
                       {item.desc}

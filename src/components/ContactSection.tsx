@@ -86,7 +86,7 @@ export default function ContactSection() {
                   >
                     {BUSINESS_INFO.phone}
                   </a>
-                  <p className="text-[11px] text-[#737373]">Available Mon-Sat: 11 AM - 7 PM</p>
+                  <p className="text-[11px] text-[#9CA3AF]">Available Mon-Sat: 11 AM - 7 PM</p>
                 </div>
               </div>
 
@@ -107,7 +107,7 @@ export default function ContactSection() {
                   >
                     +91 {BUSINESS_INFO.phone}
                   </a>
-                  <p className="text-[11px] text-[#737373]">Quick document sharing &amp; chat</p>
+                  <p className="text-[11px] text-[#9CA3AF]">Quick document sharing &amp; chat</p>
                 </div>
               </div>
 
@@ -126,7 +126,7 @@ export default function ContactSection() {
                   >
                     {BUSINESS_INFO.email}
                   </a>
-                  <p className="text-[11px] text-[#737373]">Send files, forms, and enquiries</p>
+                  <p className="text-[11px] text-[#9CA3AF]">Send files, forms, and enquiries</p>
                 </div>
               </div>
 
@@ -190,10 +190,12 @@ export default function ContactSection() {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
-                    <label className="block text-xs font-mono font-bold uppercase text-[#D4D4D4] mb-1.5">
+                    <label htmlFor="contact-name" className="block text-xs font-mono font-bold uppercase text-[#D4D4D4] mb-1.5">
                       Your Full Name <span className="text-[#D4AF37]">*</span>
                     </label>
                     <input
+                      id="contact-name"
+                      name="name"
                       type="text"
                       required
                       maxLength={60}
@@ -201,15 +203,17 @@ export default function ContactSection() {
                       placeholder="e.g. Rahul Sharma / Business Name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded border border-[#ffffff18] text-sm focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] bg-[#171717] text-[#F5F2ED] placeholder:text-[#737373]"
+                      className="w-full px-3.5 py-2.5 rounded border border-[#ffffff18] text-sm focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] bg-[#171717] text-[#F5F2ED] placeholder:text-[#9CA3AF]"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-mono font-bold uppercase text-[#D4D4D4] mb-1.5">
+                    <label htmlFor="contact-phone" className="block text-xs font-mono font-bold uppercase text-[#D4D4D4] mb-1.5">
                       Mobile / Phone Number <span className="text-[#D4AF37]">*</span>
                     </label>
                     <input
+                      id="contact-phone"
+                      name="phone"
                       type="tel"
                       required
                       maxLength={15}
@@ -217,15 +221,17 @@ export default function ContactSection() {
                       placeholder="e.g. +91 98765 43210"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded border border-[#ffffff18] text-sm focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] bg-[#171717] text-[#F5F2ED] placeholder:text-[#737373]"
+                      className="w-full px-3.5 py-2.5 rounded border border-[#ffffff18] text-sm focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] bg-[#171717] text-[#F5F2ED] placeholder:text-[#9CA3AF]"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-mono font-bold uppercase text-[#D4D4D4] mb-1.5">
+                    <label htmlFor="contact-service" className="block text-xs font-mono font-bold uppercase text-[#D4D4D4] mb-1.5">
                       Service Required <span className="text-[#D4AF37]">*</span>
                     </label>
                     <select
+                      id="contact-service"
+                      name="service"
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                       className="w-full px-3.5 py-2.5 rounded border border-[#ffffff18] text-sm focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] bg-[#171717] text-[#F5F2ED]"
@@ -239,16 +245,18 @@ export default function ContactSection() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-mono font-bold uppercase text-[#D4D4D4] mb-1.5">
+                    <label htmlFor="contact-message" className="block text-xs font-mono font-bold uppercase text-[#D4D4D4] mb-1.5">
                       Brief Message or Specific Query (Optional)
                     </label>
                     <textarea
+                      id="contact-message"
+                      name="message"
                       rows={3}
                       maxLength={500}
                       placeholder="Describe your requirement (e.g. Need urgent GST registration for my new shop, or previous year ITR filing)..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded border border-[#ffffff18] text-sm focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] bg-[#171717] text-[#F5F2ED] placeholder:text-[#737373] resize-none"
+                      className="w-full px-3.5 py-2.5 rounded border border-[#ffffff18] text-sm focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] bg-[#171717] text-[#F5F2ED] placeholder:text-[#9CA3AF] resize-none"
                     ></textarea>
                   </div>
 
@@ -271,7 +279,7 @@ export default function ContactSection() {
                     </button>
                   </div>
 
-                  <p className="text-[11px] text-[#737373] font-mono text-center pt-2">
+                  <p className="text-[11px] text-[#9CA3AF] font-mono text-center pt-2">
                     🔒 100% Client Data Confidentiality Assured. We do not share your contact details.
                   </p>
                 </form>

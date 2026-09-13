@@ -68,11 +68,14 @@ export default function ServicesSection() {
           <div className="relative w-full md:w-72">
             <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-[#A3A3A3]" />
             <input
+              id="service-search"
+              name="search"
+              aria-label="Search taxation and accounting services"
               type="text"
               placeholder="Search service (e.g. GST, ITR, PF, Gumasta)..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-4 py-2.5 bg-[#171717] border border-[#ffffff18] rounded text-xs sm:text-sm text-[#F5F2ED] placeholder:text-[#737373] focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition-all"
+              className="w-full pl-9 pr-4 py-2.5 bg-[#171717] border border-[#ffffff18] rounded text-xs sm:text-sm text-[#F5F2ED] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition-all"
             />
           </div>
         </div>

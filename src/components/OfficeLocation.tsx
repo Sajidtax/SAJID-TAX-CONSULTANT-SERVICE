@@ -99,6 +99,7 @@ export default function OfficeLocation() {
                 onClick={handleCopyAddress}
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-[#ffffff18] text-xs font-mono font-medium hover:bg-[#262626] text-[#D4D4D4] transition-all shrink-0"
                 title="Copy full address"
+                aria-label="Copy full office address"
               >
                 {copiedAddress ? (
                   <>
@@ -175,6 +176,7 @@ export default function OfficeLocation() {
 
               <button
                 onClick={handleCopyUpi}
+                aria-label="Copy consultation UPI ID"
                 className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded bg-[#262626] border border-[#ffffff20] text-xs font-mono font-semibold hover:bg-[#333333] text-[#F5F2ED] transition-all self-start sm:self-auto"
               >
                 {copiedUpi ? (
@@ -241,7 +243,7 @@ export default function OfficeLocation() {
                 <Mail className="w-3.5 h-3.5 text-[#D4AF37]" />
                 <span>Email: <a href={`mailto:${BUSINESS_INFO.email}`} className="font-mono font-semibold text-[#D4AF37] hover:underline">{BUSINESS_INFO.email}</a></span>
               </p>
-              <p className="text-[11px] text-[#737373]">
+              <p className="text-[11px] text-[#9CA3AF]">
                 * Sunday appointments can be arranged upon prior phone confirmation for urgent tax filing deadlines.
               </p>
             </div>

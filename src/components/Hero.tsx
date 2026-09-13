@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <section className="relative pt-10 pb-16 md:pt-16 md:pb-24 overflow-hidden">
       {/* Background decorative watermark */}
-      <div className="absolute top-0 right-0 -z-10 translate-x-1/4 -translate-y-1/4 opacity-[0.03] pointer-events-none select-none">
+      <div aria-hidden="true" className="absolute top-0 right-0 -z-10 translate-x-1/4 -translate-y-1/4 opacity-[0.03] pointer-events-none select-none">
         <span className="text-[480px] font-display font-bold text-[#D4AF37]">SJ</span>
       </div>
 

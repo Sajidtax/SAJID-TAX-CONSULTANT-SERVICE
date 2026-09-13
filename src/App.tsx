@@ -1,16 +1,18 @@
-import { Component, ErrorInfo, ReactNode } from 'react';
+import { Component, ErrorInfo, ReactNode, lazy, Suspense } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import TrustBar from './components/TrustBar';
-import ServicesSection from './components/ServicesSection';
-import ComplianceCalendarSection from './components/ComplianceCalendarSection';
-import ProcessSection from './components/ProcessSection';
-import WhyChooseUs from './components/WhyChooseUs';
-import OfficeLocation from './components/OfficeLocation';
-import ContactSection from './components/ContactSection';
-import FaqSection from './components/FaqSection';
-import Footer from './components/Footer';
-import FloatingContactBar from './components/FloatingContactBar';
+
+// Lazy load below-the-fold components for peak mobile performance & 0ms TBT
+const ServicesSection = lazy(() => import('./components/ServicesSection'));
+const ComplianceCalendarSection = lazy(() => import('./components/ComplianceCalendarSection'));
+const ProcessSection = lazy(() => import('./components/ProcessSection'));
+const WhyChooseUs = lazy(() => import('./components/WhyChooseUs'));
+const OfficeLocation = lazy(() => import('./components/OfficeLocation'));
+const ContactSection = lazy(() => import('./components/ContactSection'));
+const FaqSection = lazy(() => import('./components/FaqSection'));
+const Footer = lazy(() => import('./components/Footer'));
+const FloatingContactBar = lazy(() => import('./components/FloatingContactBar'));
 
 interface ErrorBoundaryProps {
   children: ReactNode;
@@ -63,45 +65,50 @@ export default function App() {
   return (
     <ErrorBoundary>
       <div className="min-h-screen flex flex-col bg-[#0A0A0A] text-[#F5F2ED] font-sans selection:bg-[#D4AF37] selection:text-[#0A0A0A] bg-grid-pattern">
-      {/* Top Navigation */}
-      <Header />
+        {/* Top Navigation */}
+        <Header />
 
-      {/* Main Content Sections */}
-      <main className="flex-1">
-        {/* Hero with Value proposition & upcoming due dates card */}
-        <Hero />
+        {/* Main Content Sections */}
+        <main id="main-content" className="flex-1">
+          {/* Hero with Value proposition & upcoming due dates card */}
+          <Hero />
 
-        {/* Official Motto / Trust Bar */}
-        <TrustBar />
+          {/* Official Motto / Trust Bar */}
+          <TrustBar />
 
-        {/* 10 Core Services Catalog */}
-        <ServicesSection />
+          {/* Below-the-fold sections with Suspense */}
+          <Suspense fallback={<div className="py-12 text-center text-xs font-mono text-[#D4AF37] animate-pulse">Loading compliance services...</div>}>
+            {/* 10 Core Services Catalog */}
+            <ServicesSection />
 
-        {/* Indian Statutory Compliance Deadlines */}
-        <ComplianceCalendarSection />
+            {/* Indian Statutory Compliance Deadlines */}
+            <ComplianceCalendarSection />
 
-        {/* Workflow & Process */}
-        <ProcessSection />
+            {/* Workflow & Process */}
+            <ProcessSection />
 
-        {/* Why Choose Sajid Tax Consultant */}
-        <WhyChooseUs />
+            {/* Why Choose Sajid Tax Consultant */}
+            <WhyChooseUs />
 
-        {/* Opera House Office, Map & Timings from Photo */}
-        <OfficeLocation />
+            {/* Opera House Office, Map & Timings from Photo */}
+            <OfficeLocation />
 
-        {/* Callback Request & Direct Contacts */}
-        <ContactSection />
+            {/* Callback Request & Direct Contacts */}
+            <ContactSection />
 
-        {/* Frequently Asked Questions */}
-        <FaqSection />
-      </main>
+            {/* Frequently Asked Questions */}
+            <FaqSection />
+          </Suspense>
+        </main>
 
-      {/* Footer */}
-      <Footer />
+        <Suspense fallback={null}>
+          {/* Footer */}
+          <Footer />
 
-      {/* Floating Call & WhatsApp Triggers */}
-      <FloatingContactBar />
-    </div>
+          {/* Floating Call & WhatsApp Triggers */}
+          <FloatingContactBar />
+        </Suspense>
+      </div>
     </ErrorBoundary>
   );
 }

@@ -84,6 +84,7 @@ export default function ServicesSection() {
         <div className="flex flex-wrap gap-2 pb-8 border-b border-[#ffffff12] text-xs font-medium">
           <button
             onClick={() => setActiveCategory('all')}
+            aria-pressed={activeCategory === 'all'}
             className={`px-4 py-2 rounded font-mono uppercase tracking-wider transition-all ${
               activeCategory === 'all'
                 ? 'bg-[#D4AF37] text-[#0A0A0A] font-bold shadow-sm'
@@ -94,6 +95,7 @@ export default function ServicesSection() {
           </button>
           <button
             onClick={() => setActiveCategory('tax')}
+            aria-pressed={activeCategory === 'tax'}
             className={`px-4 py-2 rounded font-mono uppercase tracking-wider transition-all ${
               activeCategory === 'tax'
                 ? 'bg-[#D4AF37] text-[#0A0A0A] font-bold shadow-sm'
@@ -104,6 +106,7 @@ export default function ServicesSection() {
           </button>
           <button
             onClick={() => setActiveCategory('accounting')}
+            aria-pressed={activeCategory === 'accounting'}
             className={`px-4 py-2 rounded font-mono uppercase tracking-wider transition-all ${
               activeCategory === 'accounting'
                 ? 'bg-[#D4AF37] text-[#0A0A0A] font-bold shadow-sm'
@@ -114,6 +117,7 @@ export default function ServicesSection() {
           </button>
           <button
             onClick={() => setActiveCategory('registration')}
+            aria-pressed={activeCategory === 'registration'}
             className={`px-4 py-2 rounded font-mono uppercase tracking-wider transition-all ${
               activeCategory === 'registration'
                 ? 'bg-[#D4AF37] text-[#0A0A0A] font-bold shadow-sm'
@@ -124,6 +128,7 @@ export default function ServicesSection() {
           </button>
           <button
             onClick={() => setActiveCategory('compliance')}
+            aria-pressed={activeCategory === 'compliance'}
             className={`px-4 py-2 rounded font-mono uppercase tracking-wider transition-all ${
               activeCategory === 'compliance'
                 ? 'bg-[#D4AF37] text-[#0A0A0A] font-bold shadow-sm'

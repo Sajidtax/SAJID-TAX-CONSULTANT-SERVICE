@@ -32,6 +32,7 @@ export default function ComplianceCalendarSection() {
           {(['ALL', 'GST', 'ITR', 'TDS', 'PF'] as const).map((cat) => (
             <button
               key={cat}
+              aria-pressed={selectedCategory === cat}
               onClick={() => setSelectedCategory(cat)}
               className={`px-3.5 py-1.5 rounded text-xs font-mono font-semibold transition-all ${
                 selectedCategory === cat

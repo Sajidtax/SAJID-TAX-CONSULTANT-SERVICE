@@ -100,6 +100,8 @@ export default function Header() {
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className="p-2 text-[#F5F2ED] lg:hidden hover:bg-[#262626] rounded border border-white/10"
           aria-label="Toggle Navigation"
+          aria-expanded={mobileMenuOpen}
+          aria-controls="mobile-menu"
         >
           {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
@@ -107,7 +109,7 @@ export default function Header() {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-[#ffffff15] bg-[#121212] px-5 py-5 space-y-4 shadow-2xl animate-in slide-in-from-top duration-200">
+        <div id="mobile-menu" className="lg:hidden border-t border-[#ffffff15] bg-[#121212] px-5 py-5 space-y-4 shadow-2xl animate-in slide-in-from-top duration-200">
           <div className="flex items-center justify-between pb-3 border-b border-[#ffffff10] text-xs">
             <span className="font-mono text-[#A3A3A3]">Hours: Mon-Sat 11 AM - 7 PM</span>
             <span className={`font-mono font-bold ${status.isOpen ? 'text-emerald-400' : 'text-[#D4AF37]'}`}>

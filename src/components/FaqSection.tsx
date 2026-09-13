@@ -35,6 +35,9 @@ export default function FaqSection() {
                 className="bg-[#141414] rounded border border-[#ffffff15] overflow-hidden transition-all shadow-md"
               >
                 <button
+                  id={`faq-btn-${index}`}
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${index}`}
                   onClick={() => toggleFaq(index)}
                   className="w-full p-5 text-left flex items-center justify-between gap-4 font-display font-bold text-base sm:text-lg text-[#F5F2ED] hover:text-[#D4AF37] transition-colors"
                 >
@@ -46,7 +49,12 @@ export default function FaqSection() {
                   />
                 </button>
                 {isOpen && (
-                  <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-[#D4D4D4] leading-relaxed border-t border-[#ffffff10] bg-[#1A1A1A]">
+                  <div
+                    id={`faq-answer-${index}`}
+                    role="region"
+                    aria-labelledby={`faq-btn-${index}`}
+                    className="px-5 pb-5 pt-1 text-xs sm:text-sm text-[#D4D4D4] leading-relaxed border-t border-[#ffffff10] bg-[#1A1A1A]"
+                  >
                     {faq.a}
                   </div>
                 )}

@@ -4,22 +4,24 @@
   --font-serif: "Fraunces", Georgia, Cambria, "Times New Roman", Times, serif;
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --color-dark-base: #0A0A0A;
-  --color-dark-surface: #121212;
-  --color-dark-card: #171717;
-  --color-dark-card-hover: #1F1F1F;
-  --color-gold: #D4AF37;
-  --color-gold-light: #E5C158;
-  --color-crimson: #9B2C2C;
-  --color-crimson-light: #C53030;
-  --color-emerald-deep: #195E3E;
-  --color-text-primary: #F5F2ED;
-  --color-text-secondary: #A3A3A3;
+  --color-brand-blue: #1E40AF;
+  --color-brand-blue-hover: #1D4ED8;
+  --color-brand-blue-light: #EFF6FF;
+  --color-brand-emerald: #047857;
+  --color-brand-emerald-hover: #065F46;
+  --color-navy-dark: #0F172A;
+  --color-navy-slate: #1E293B;
+  --color-slate-body: #334155;
+  --color-slate-muted: #64748B;
+  --color-surface-white: #FFFFFF;
+  --color-surface-slate: #F8FAFC;
+  --color-surface-subtle: #F1F5F9;
+  --color-border-light: #E2E8F0;
 }
 
-/* Custom subtle dark grid pattern */
+/* Custom subtle light grid pattern */
 .bg-grid-pattern {
-  background-image: radial-gradient(circle at 1px 1px, rgba(212, 175, 55, 0.05) 1px, transparent 0);
+  background-image: radial-gradient(circle at 1px 1px, rgba(30, 64, 175, 0.04) 1px, transparent 0);
   background-size: 28px 28px;
 }
 
@@ -31,18 +33,18 @@
   font-family: "IBM Plex Mono", Menlo, monospace;
 }
 
-/* Custom scrollbars for sophisticated dark aesthetics */
+/* Custom scrollbars for clean light aesthetics */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0A0A0A;
+  background: #F8FAFC;
 }
 ::-webkit-scrollbar-thumb {
-  background: #262626;
+  background: #CBD5E1;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #D4AF37;
+  background: #94A3B8;
 }

@@ -30,33 +30,33 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section id="why-us" className="py-20 bg-[#0A0A0A] border-t border-[#ffffff12]">
+    <section id="why-us" className="py-20 bg-white border-t border-slate-200">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* Left Column: Heading & Value Prop */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase text-[#D4AF37] tracking-widest">
-              <span className="w-6 h-[1.5px] bg-[#D4AF37]"></span>
+            <div className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase text-blue-700 tracking-widest">
+              <span className="w-6 h-[1.5px] bg-blue-600"></span>
               <span>Why Choose Sajid Tax Consultant</span>
             </div>
             
-            <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#F5F2ED] leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-display font-bold text-slate-900 leading-tight">
               Built for business owners who value accuracy, time, and peace of mind.
             </h2>
             
-            <p className="text-sm sm:text-base text-[#A3A3A3] leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
               Operating centrally from Opera House, Mumbai, we combine rigorous compliance expertise with personal accountability to empower local enterprises and individual taxpayers.
             </p>
 
-            <div className="p-5 rounded bg-[#141414] border border-[#ffffff15] shadow-sm space-y-3">
-              <div className="text-xs font-mono font-bold uppercase text-emerald-400">
+            <div className="p-5 rounded-xl bg-blue-50/70 border border-blue-200 shadow-2xs space-y-3">
+              <div className="text-xs font-mono font-bold uppercase text-emerald-800">
                 Client Commitment
               </div>
-              <p className="text-xs sm:text-sm text-[#D4D4D4] italic">
+              <p className="text-xs sm:text-sm text-slate-700 italic">
                 &ldquo;Every return we file is treated with the highest standard of accuracy as if it were our own. Your growth is our responsibility.&rdquo;
               </p>
-              <div className="text-xs font-bold text-[#D4AF37]">
+              <div className="text-xs font-bold text-blue-800">
                 - Sajid (Tax &amp; Accounting Consultant)
               </div>
             </div>
@@ -64,7 +64,7 @@ export default function WhyChooseUs() {
             <div className="pt-2">
               <a
                 href={`tel:${BUSINESS_INFO.phoneClean}`}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded bg-[#D4AF37] text-[#0A0A0A] font-bold text-xs sm:text-sm hover:bg-[#E5C158] transition-all shadow-[2px_2px_0px_rgba(255,255,255,0.15)]"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-blue-600 text-white font-bold text-xs sm:text-sm hover:bg-blue-700 transition-all shadow-xs"
               >
                 <span>Consult with Sajid: {BUSINESS_INFO.phone}</span>
               </a>
@@ -78,19 +78,19 @@ export default function WhyChooseUs() {
               return (
                 <div
                   key={item.letter}
-                  className="bg-[#141414] rounded p-5 sm:p-6 border border-[#ffffff12] hover:border-[#D4AF37]/60 transition-all shadow-sm flex items-start gap-4 group hover:shadow-[0_8px_30px_rgb(0,0,0,0.5)]"
+                  className="bg-white rounded-xl p-5 sm:p-6 border border-slate-200 hover:border-blue-500/60 transition-all shadow-2xs flex items-start gap-4 group hover:shadow-md"
                 >
-                  <div className="w-10 h-10 rounded bg-[#1C1C1C] border border-[#D4AF37]/30 flex items-center justify-center font-mono font-bold text-[#D4AF37] shrink-0 group-hover:bg-[#D4AF37] group-hover:text-[#0A0A0A] transition-colors">
+                  <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-200 flex items-center justify-center font-mono font-bold text-blue-700 shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors">
                     {item.letter}
                   </div>
                   <div className="space-y-1 flex-1">
                     <div className="flex items-center justify-between">
-                      <h3 className="font-display font-bold text-base sm:text-lg text-[#F5F2ED] group-hover:text-[#D4AF37] transition-colors">
+                      <h3 className="font-display font-bold text-base sm:text-lg text-slate-900 group-hover:text-blue-700 transition-colors">
                         {item.title}
                       </h3>
-                      <Icon className="w-4 h-4 text-[#9CA3AF] group-hover:text-[#D4AF37] transition-colors" />
+                      <Icon className="w-4 h-4 text-slate-400 group-hover:text-blue-600 transition-colors" />
                     </div>
-                    <p className="text-xs sm:text-sm text-[#A3A3A3] leading-relaxed">
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                       {item.desc}
                     </p>
                   </div>

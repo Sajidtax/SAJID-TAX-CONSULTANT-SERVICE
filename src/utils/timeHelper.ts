@@ -41,7 +41,6 @@ export function getOfficeStatus(): { isOpen: boolean; text: string; detail: stri
         };
       } else {
         // After 7:00 PM
-        const isSaturday = day === 6;
         return {
           isOpen: false,
           text: "Closed for Today",

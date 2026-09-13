@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { 
+  type LucideIcon,
   Calculator, 
   Search, 
   FileCheck2, 
@@ -17,7 +18,7 @@ import { ServiceItem } from '../types';
 import ServiceDetailModal from './ServiceDetailModal';
 
 // Icon mapping helper
-const serviceIcons: Record<string, any> = {
+const serviceIcons: Record<string, LucideIcon> = {
   'accounting': Calculator,
   'auditing': FileCheck2,
   'itr': Receipt,

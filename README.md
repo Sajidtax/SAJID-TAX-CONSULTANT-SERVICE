@@ -1,4 +1,4 @@
-﻿# SAJID TAX CONSULTANT SERVICE
+# SAJID TAX CONSULTANT SERVICE
 
 > **Professional Accounting, GST, ITR & Compliance Services - Opera House, Mumbai**
 
@@ -11,7 +11,7 @@ This is the official website for **Sajid Tax Consultant Service**, a trusted tax
 The website provides complete information about all services offered, including direct contact options, callback request form, office location, compliance calendar, and FAQs.
 
 ### Live Website
-**[https://sajidtax.github.io/SAJID-TAX-CONSULTANT-SERVICE/](https://sajidtax.github.io/SAJID-TAX-CONSULTANT-SERVICE/)**
+**[https://its-sartaj.github.io/Sajid_-Tax-Consultant/](https://its-sartaj.github.io/Sajid_-Tax-Consultant/)**
 
 ---
 
@@ -59,7 +59,7 @@ The website provides complete information about all services offered, including 
 
 **Prerequisites:** Node.js 18+
 
-```ash
+```bash
 # Install dependencies
 npm install
 
@@ -75,7 +75,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 This project auto-deploys to GitHub Pages on every push to main branch via GitHub Actions.
 
-```ash
+```bash
 git add .
 git commit -m "your update"
 git push origin main
@@ -95,4 +95,4 @@ git push origin main
 
 ---
 
-*© 2025 Sajid Tax Consultant Service. All Rights Reserved. Opera House, Mumbai.*
+*© 2026 Sajid Tax Consultant Service. All Rights Reserved. Opera House, Mumbai.*

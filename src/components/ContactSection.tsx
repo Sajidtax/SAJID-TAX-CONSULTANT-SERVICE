@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react';
-import { Phone, Mail, MapPin, Clock, Send, MessageSquare, CheckCircle2 } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, MessageSquare, CheckCircle2 } from 'lucide-react';
 import { BUSINESS_INFO, SERVICES_LIST } from '../data/businessData';
 
 export default function ContactSection() {

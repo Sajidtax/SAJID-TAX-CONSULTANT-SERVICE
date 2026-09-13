@@ -1,4 +1,4 @@
-﻿# Security Policy
+# Security Policy
 
 ## Reporting Security Issues
 
@@ -13,7 +13,6 @@ Please do not open public issues for security vulnerabilities. All reports will 
 
 1. **No Sensitive Data / Secrets:** No API keys, database credentials, or secret tokens are stored in the codebase or client bundle.
 2. **Client-Side Sanitization:** All form inputs are sanitized to prevent script injection (XSS) and malformed payloads.
-3. **Safe External Links:** All external links include el="noopener noreferrer" to prevent tab-nabbing / reverse tab-jacking.
-4. **Security Headers:** Essential HTTP security headers and meta tags (
-osniff, strict-origin-when-cross-origin, XSS protection) are enabled.
+3. **Safe External Links:** All external links include `rel="noopener noreferrer"` to prevent tab-nabbing / reverse tab-jacking.
+4. **Security Headers:** Essential HTTP security headers and meta tags (nosniff, strict-origin-when-cross-origin, XSS protection) are enabled.
 5. **Static Client Hosting:** The website is a purely static React SPA with zero server-side attack surface on GitHub Pages.

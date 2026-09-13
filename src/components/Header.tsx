@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Phone, MessageSquare, Clock, Menu, X, MapPin } from 'lucide-react';
+import { Phone, MessageSquare, Menu, X, MapPin } from 'lucide-react';
 import { BUSINESS_INFO } from '../data/businessData';
 import { getOfficeStatus } from '../utils/timeHelper';
 

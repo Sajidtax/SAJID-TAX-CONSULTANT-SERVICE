@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Calendar, AlertCircle, Clock, ShieldAlert, ArrowUpRight } from 'lucide-react';
+import { AlertCircle, ShieldAlert, ArrowUpRight } from 'lucide-react';
 import { COMPLIANCE_CALENDAR, BUSINESS_INFO } from '../data/businessData';
 
 export default function ComplianceCalendarSection() {

@@ -1,18 +1,32 @@
 export function getOfficeStatus(): { isOpen: boolean; text: string; detail: string } {
   try {
-    // Determine Indian Standard Time (UTC + 5:30)
+    // Accurately determine Indian Standard Time (Asia/Kolkata) regardless of visitor's local timezone
     const now = new Date();
-    const utcTime = now.getTime() + (now.getTimezoneOffset() * 60000);
-    const istOffset = 5.5 * 3600000;
-    const istDate = new Date(utcTime + istOffset);
+    const formatter = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'Asia/Kolkata',
+      weekday: 'short',
+      hour: 'numeric',
+      minute: 'numeric',
+      hourCycle: 'h23',
+    });
 
-    const day = istDate.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
-    const hours = istDate.getHours();
-    const minutes = istDate.getMinutes();
+    const parts = formatter.formatToParts(now);
+    let weekday = '';
+    let hours = 0;
+    let minutes = 0;
+
+    for (const part of parts) {
+      if (part.type === 'weekday') weekday = part.value;
+      if (part.type === 'hour') hours = parseInt(part.value, 10);
+      if (part.type === 'minute') minutes = parseInt(part.value, 10);
+    }
+
+    const isSunday = weekday === 'Sun';
+    const isSaturday = weekday === 'Sat';
     const currentDecimalTime = hours + minutes / 60;
 
-    // Mon (1) to Sat (6), 11:00 AM (11.0) to 7:00 PM (19.0)
-    if (day >= 1 && day <= 6) {
+    // Mon to Sat, 11:00 AM (11.0) to 7:00 PM (19.0) IST
+    if (!isSunday) {
       if (currentDecimalTime >= 11 && currentDecimalTime < 19) {
         return {
           isOpen: true,

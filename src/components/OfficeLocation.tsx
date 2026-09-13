@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { MapPin, Copy, Check, Navigation, Phone, QrCode } from 'lucide-react';
+import { MapPin, Copy, Check, Navigation, Phone, QrCode, Mail } from 'lucide-react';
 import { BUSINESS_INFO } from '../data/businessData';
 import { getOfficeStatus } from '../utils/timeHelper';
 
@@ -120,6 +120,20 @@ export default function OfficeLocation() {
               <p>{BUSINESS_INFO.address.line2}</p>
               <p className="font-medium text-[#D4AF37]">{BUSINESS_INFO.address.area} - {BUSINESS_INFO.address.pincode}</p>
               <p className="text-xs font-mono text-[#A3A3A3]">{BUSINESS_INFO.address.state}</p>
+            </div>
+
+            {/* Local Areas Served for Google Local SEO */}
+            <div className="pt-1">
+              <div className="text-[11px] font-mono uppercase text-[#A3A3A3] font-semibold mb-2">
+                Serving Clients Across South Mumbai &amp; Maharashtra:
+              </div>
+              <div className="flex flex-wrap gap-1.5 text-[11px] font-mono text-[#D4D4D4]">
+                {["Opera House (400004)", "Charni Road", "Girgaon", "Grant Road", "Lamington Road", "Marine Lines", "Kalbadevi", "Churchgate / Fort"].map((area) => (
+                  <span key={area} className="px-2 py-0.5 rounded bg-[#1C1C1C] border border-white/5 text-[#A3A3A3]">
+                    📍 {area}
+                  </span>
+                ))}
+              </div>
             </div>
 
             {/* Quick action buttons for location */}

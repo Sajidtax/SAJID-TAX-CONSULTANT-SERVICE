@@ -27,6 +27,7 @@ export default function Hero() {
             <h1 className="text-4xl sm:text-5xl lg:text-[54px] font-display font-bold text-[#F5F2ED] leading-[1.08] tracking-tight">
               Compliance handled. <br />
               <span className="text-[#D4AF37] italic">Growth</span>, uninterrupted.
+              <span className="sr-only"> - Sajid Tax Consultant in Opera House, Mumbai</span>
             </h1>
 
             {/* Subtitle / Lead text */}

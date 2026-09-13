@@ -21,7 +21,7 @@ export default function ServiceDetailModal({ service, onClose }: ServiceDetailMo
     }
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
     };
   }, [service, onClose]);
 

@@ -11,7 +11,7 @@ This is the official website for **Sajid Tax Consultant Service**, a trusted tax
 The website provides complete information about all services offered, including direct contact options, callback request form, office location, compliance calendar, and FAQs.
 
 ### Live Website
-**[https://its-sartaj.github.io/Sajid_-Tax-Consultant/](https://its-sartaj.github.io/Sajid_-Tax-Consultant/)**
+**[https://sajidtax.github.io/SAJID-TAX-CONSULTANT-SERVICE/](https://sajidtax.github.io/SAJID-TAX-CONSULTANT-SERVICE/)**
 
 ---
 

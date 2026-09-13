@@ -1,4 +1,4 @@
 ﻿User-agent: *
 Allow: /
 
-Sitemap: https://its-sartaj.github.io/Sajid_-Tax-Consultant/sitemap.xml
+Sitemap: https://sajidtax.github.io/SAJID-TAX-CONSULTANT-SERVICE/sitemap.xml

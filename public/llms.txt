@@ -1,4 +1,4 @@
-﻿# Sajid Tax Consultant Service
+# Sajid Tax Consultant Service
 > Expert Tax, Accounting, GST, ITR, Company Incorporation & Compliance Practice in Opera House, Mumbai.
 
 ## About
@@ -8,7 +8,7 @@
 - Email: workwithsajid@zohomail.in
 - UPI ID: 7762067143@ybl
 - Working Hours: Monday to Saturday 11:00 AM - 7:00 PM IST (Sunday closed)
-- Official URL: https://sajidtax.github.io/SAJID-TAX-CONSULTANT-SERVICE/
+- Official URL: https://sajidtaxconsultant.online/
 
 ## Key Services Offered
 1. Accounting & Bookkeeping: Tally / Zoho / QuickBooks bookkeeping, ledger maintenance, bank reconciliation, profit & loss, balance sheet.

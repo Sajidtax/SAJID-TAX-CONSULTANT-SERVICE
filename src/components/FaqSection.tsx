@@ -34,20 +34,23 @@ export default function FaqSection() {
                 key={index}
                 className="bg-white rounded-xl border border-[#e2e8f0] overflow-hidden transition-all shadow-xs"
               >
-                <button
-                  id={`faq-btn-${index}`}
-                  aria-expanded={isOpen}
-                  aria-controls={`faq-answer-${index}`}
-                  onClick={() => toggleFaq(index)}
-                  className="w-full p-5 text-left flex items-center justify-between gap-4 font-display font-bold text-base sm:text-lg text-[#0f172a] hover:text-[#1d4ed8] transition-colors"
-                >
-                  <span>{faq.q}</span>
-                  <ChevronDown
-                    className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-200 ${
-                      isOpen ? 'rotate-180 text-[#1d4ed8]' : ''
-                    }`}
-                  />
-                </button>
+                <h3 className="m-0 p-0">
+                  <button
+                    id={`faq-btn-${index}`}
+                    aria-expanded={isOpen}
+                    aria-controls={`faq-answer-${index}`}
+                    onClick={() => toggleFaq(index)}
+                    className="w-full p-5 text-left flex items-center justify-between gap-4 font-display font-bold text-base sm:text-lg text-[#0f172a] hover:text-[#1d4ed8] transition-colors"
+                  >
+                    <span>{faq.q}</span>
+                    <ChevronDown
+                      className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-200 ${
+                        isOpen ? 'rotate-180 text-[#1d4ed8]' : ''
+                      }`}
+                      aria-hidden="true"
+                    />
+                  </button>
+                </h3>
                 {isOpen && (
                   <div
                     id={`faq-answer-${index}`}

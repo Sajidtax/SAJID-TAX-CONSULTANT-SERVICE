@@ -58,12 +58,12 @@ export default function ComplianceCalendarSection() {
                     <span className="font-mono text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-slate-100 text-[#475569] border border-[#e2e8f0]">
                       {item.category}
                     </span>
-                    <span className="text-xs font-mono text-[#64748b]">
+                    <span className="text-xs font-mono text-[#475569]">
                       {item.frequency}
                     </span>
                     {item.importance === 'urgent' && (
                       <span className="flex items-center gap-1 font-mono text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-red-50 text-red-700 border border-red-200">
-                        <AlertCircle className="w-3 h-3" />
+                        <AlertCircle className="w-3 h-3" aria-hidden="true" />
                         Critical
                       </span>
                     )}
@@ -78,7 +78,7 @@ export default function ComplianceCalendarSection() {
 
                 <div className="flex items-center sm:items-end md:flex-col justify-between shrink-0 gap-3 border-t md:border-t-0 pt-3 md:pt-0 border-dashed border-[#e2e8f0]">
                   <div className="text-left md:text-right">
-                    <div className="text-[10px] font-mono uppercase text-[#64748b] font-semibold">
+                    <div className="text-[10px] font-mono uppercase text-[#475569] font-semibold">
                       Statutory Due Date
                     </div>
                     <div className="text-sm sm:text-base font-mono font-bold text-[#1d4ed8]">
@@ -90,10 +90,11 @@ export default function ComplianceCalendarSection() {
                     href={`https://wa.me/${BUSINESS_INFO.phoneClean.replace('+', '')}?text=${encodeURIComponent(`Hello Sajid Sir, I need help filing ${item.title} before the due date.`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`File ${item.title} with Consultant Sajid`}
                     className="inline-flex items-center gap-1 text-xs font-bold px-3.5 py-2 rounded-lg bg-[#1d4ed8] hover:bg-[#1e40af] text-white transition-colors shadow-xs"
                   >
                     <span>File with Sajid</span>
-                    <ArrowUpRight className="w-3.5 h-3.5" />
+                    <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
                   </a>
                 </div>
               </div>

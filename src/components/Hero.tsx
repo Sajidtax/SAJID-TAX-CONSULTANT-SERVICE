@@ -8,13 +8,18 @@ export default function Hero() {
     <section className="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden bg-[#0F172A] text-white">
       {/* Background Photography with High-Trust Corporate Dark Gradient Overlay */}
       <div className="absolute inset-0 z-0">
-        <img
-          src="/images/tax-hero-bg.jpg"
-          alt="Sajid Tax Consultant reviewing financial paperwork and tax calculations in office"
-          className="w-full h-full object-cover object-center brightness-[0.80]"
-          loading="eager"
-          fetchPriority="high"
-        />
+        <picture className="w-full h-full block">
+          <source media="(max-width: 640px)" srcSet="/images/tax-hero-bg-mobile.jpg" />
+          <img
+            src="/images/tax-hero-bg.jpg"
+            alt="Sajid Tax Consultant reviewing financial paperwork and tax calculations in office"
+            className="w-full h-full object-cover object-center brightness-[0.80]"
+            width="1376"
+            height="768"
+            loading="eager"
+            fetchPriority="high"
+          />
+        </picture>
         {/* Multilayer gradient: deep navy on left for 100% crisp text readability, fading to subtle vignette on right */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A]/95 via-[#0F172A]/85 to-[#0F172A]/50"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-transparent to-[#0F172A]/40"></div>
@@ -28,10 +33,10 @@ export default function Hero() {
             
             {/* Eyebrow badge from user reference: SAJID TAX CONSULTANT */}
             <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-blue-500/15 border border-blue-400/30 text-blue-300 text-xs font-mono font-bold tracking-widest uppercase backdrop-blur-md shadow-xs">
-              <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+              <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" aria-hidden="true"></span>
               <span>SAJID TAX CONSULTANT</span>
-              <span className="text-blue-400/50 hidden sm:inline">|</span>
-              <span className="text-blue-200/80 hidden sm:inline text-[11px] font-normal">Opera House, Mumbai</span>
+              <span className="text-blue-400/50 hidden sm:inline" aria-hidden="true">|</span>
+              <span className="text-blue-100 hidden sm:inline text-[11px] font-normal">Opera House, Mumbai</span>
             </div>
 
             {/* Main Headline: Maximize Your Tax Savings */}
@@ -144,7 +149,7 @@ export default function Hero() {
                     <span className={`font-mono text-xs font-semibold px-2 py-0.5 rounded ${
                       item.importance === 'urgent' 
                         ? 'bg-red-50 text-red-700 border border-red-200' 
-                        : 'bg-emerald-50 text-[#047857] border border-emerald-200'
+                        : 'bg-emerald-50 text-[#065f46] border border-emerald-200'
                     }`}>
                       {item.dueDate}
                     </span>
@@ -153,8 +158,8 @@ export default function Hero() {
               </div>
 
               {/* Card Footer notice */}
-              <div className="mt-5 pt-4 border-t border-[#e2e8f0] flex items-center justify-between text-[11px] text-[#64748b] font-mono">
-                <span className="flex items-center gap-1.5 text-[#047857] font-semibold">
+              <div className="mt-5 pt-4 border-t border-[#e2e8f0] flex items-center justify-between text-xs text-[#475569] font-mono">
+                <span className="flex items-center gap-1.5 text-[#065f46] font-semibold">
                   <CheckCircle2Icon className="w-3.5 h-3.5" />
                   <span>Tracked Automatically</span>
                 </span>

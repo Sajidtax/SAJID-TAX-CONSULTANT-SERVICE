@@ -29,26 +29,26 @@ export default function Footer() {
               </div>
             </div>
 
-            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
               Trusted Accounting, Tax preparation, GST filing, ROC company incorporation, Gumasta, and PF claims consultancy practice operating from Opera House, Mumbai.
             </p>
 
-            <div className="pt-2 text-xs font-mono text-blue-400">
+            <div className="pt-2 text-xs font-mono text-blue-300">
               {BUSINESS_INFO.tagline}
             </div>
           </div>
 
           {/* Col 2: Services Quick Links (4 cols) */}
           <div className="lg:col-span-4 space-y-3">
-            <h4 className="font-mono text-xs uppercase font-bold text-white tracking-wider border-b border-slate-800 pb-2">
+            <h3 className="font-mono text-xs uppercase font-bold text-white tracking-wider border-b border-slate-800 pb-2">
               Our 10 Core Services
-            </h4>
+            </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-1.5 text-xs text-slate-300">
               {SERVICES_LIST.map((s) => (
                 <a
                   key={s.id}
                   href="#services"
-                  className="hover:text-blue-400 transition-colors py-0.5 block"
+                  className="hover:text-blue-400 transition-colors py-1 block"
                 >
                   {s.title}
                 </a>
@@ -58,9 +58,9 @@ export default function Footer() {
 
           {/* Col 3: Direct Contact & Office Hours (4 cols) */}
           <div className="lg:col-span-4 space-y-3">
-            <h4 className="font-mono text-xs uppercase font-bold text-white tracking-wider border-b border-slate-800 pb-2">
+            <h3 className="font-mono text-xs uppercase font-bold text-white tracking-wider border-b border-slate-800 pb-2">
               Office &amp; Contact
-            </h4>
+            </h3>
             
             <div className="space-y-2.5 text-xs text-slate-300">
               <div className="flex items-start gap-2">

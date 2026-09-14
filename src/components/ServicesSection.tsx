@@ -66,7 +66,8 @@ export default function ServicesSection() {
 
           {/* Quick Search */}
           <div className="relative w-full md:w-72">
-            <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-[#94a3b8]" />
+            <label htmlFor="service-search" className="sr-only">Search taxation and accounting services</label>
+            <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-[#64748b]" aria-hidden="true" />
             <input
               id="service-search"
               name="search"
@@ -75,7 +76,7 @@ export default function ServicesSection() {
               placeholder="Search service (e.g. GST, ITR, PF, Gumasta)..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-4 py-2.5 bg-white border border-[#e2e8f0] rounded-lg text-xs sm:text-sm text-[#0f172a] placeholder:text-[#94a3b8] focus:outline-none focus:border-[#1d4ed8] focus:ring-1 focus:ring-[#1d4ed8] shadow-xs transition-all"
+              className="w-full pl-9 pr-4 py-2.5 bg-white border border-[#e2e8f0] rounded-lg text-xs sm:text-sm text-[#0f172a] placeholder:text-[#64748b] focus:outline-none focus:border-[#1d4ed8] focus:ring-1 focus:ring-[#1d4ed8] shadow-xs transition-all"
             />
           </div>
         </div>
@@ -181,17 +182,19 @@ export default function ServicesSection() {
                 <div className="pt-3 border-t border-[#e2e8f0] flex items-center justify-between">
                   <button
                     onClick={() => setSelectedService(service)}
-                    className="inline-flex items-center gap-1 text-xs font-mono font-semibold text-[#475569] hover:text-[#1d4ed8] transition-colors"
+                    aria-label={`View full details and checklist for ${service.title}`}
+                    className="inline-flex items-center gap-1 text-xs font-mono font-semibold text-[#475569] hover:text-[#1d4ed8] transition-colors py-1"
                   >
                     <span>View Details</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
                   </button>
 
                   <a
                     href={`https://wa.me/${BUSINESS_INFO.phoneClean.replace('+', '')}?text=${encodeURIComponent(`Hi Sajid Sir, I need assistance with ${service.title}.`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[11px] font-semibold text-[#047857] hover:text-[#065f46] hover:underline"
+                    aria-label={`Inquire about ${service.title} on WhatsApp`}
+                    className="text-xs font-semibold text-[#065f46] hover:text-[#047857] hover:underline py-1"
                     title="Quick Inquiry on WhatsApp"
                   >
                     Inquire &rarr;
@@ -218,12 +221,12 @@ export default function ServicesSection() {
         <div className="mt-12 bg-[#0f172a] text-white p-6 sm:p-8 rounded-xl shadow-md flex flex-col md:flex-row items-center justify-between gap-6 border border-slate-800">
           <div className="space-y-1 text-center md:text-left">
             <div className="inline-flex items-center gap-1.5 text-blue-400 font-mono text-xs uppercase tracking-wider font-semibold">
-              <Sparkles className="w-3.5 h-3.5 text-blue-400" />
+              <Sparkles className="w-3.5 h-3.5 text-blue-400" aria-hidden="true" />
               <span>Need Multiple Filings / Complete Annual Retainership?</span>
             </div>
-            <h4 className="text-xl sm:text-2xl font-display font-bold text-white">
+            <h3 className="text-xl sm:text-2xl font-display font-bold text-white">
               Get an all-inclusive custom corporate compliance package
-            </h4>
+            </h3>
             <p className="text-xs sm:text-sm text-slate-300 max-w-xl">
               We bundle Accounting + GST + TDS + PF + ITR into an affordable monthly retainer for Mumbai businesses.
             </p>

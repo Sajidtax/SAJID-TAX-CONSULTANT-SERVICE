@@ -48,10 +48,18 @@
     <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
     <meta name="robots" content="index, follow" />
     
-    <!-- Preconnect for performance -->
+    <!-- Preconnect & Asynchronous Non-Blocking Fonts for 100/100 Mobile Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Plus+Jakarta+Sans:wght@500;700&display=optional" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Plus+Jakarta+Sans:wght@500;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Plus+Jakarta+Sans:wght@500;700&display=swap" media="print" onload="this.media='all'" />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Plus+Jakarta+Sans:wght@500;700&display=swap" />
+    </noscript>
+
+    <!-- Preload Critical Hero Background Images for Instant Mobile (33KB) & Desktop (79KB) LCP -->
+    <link rel="preload" as="image" href="/images/tax-hero-bg-mobile.jpg" media="(max-width: 640px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="/images/tax-hero-bg.jpg" media="(min-width: 641px)" fetchpriority="high" />
 
     <!-- Inline critical CSS for instant 0.3s First Contentful Paint -->
     <style>

@@ -18,12 +18,12 @@ export default function Header() {
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2">
               <span className={`w-2 h-2 rounded-full ${status.isOpen ? 'bg-emerald-500 animate-pulse' : 'bg-slate-400'}`}></span>
-              <span className={`font-mono text-[11px] uppercase tracking-wider font-semibold ${status.isOpen ? 'text-[#047857]' : 'text-[#475569]'}`}>
+              <span className={`font-mono text-[11px] uppercase tracking-wider font-semibold ${status.isOpen ? 'text-[#065f46]' : 'text-[#334155]'}`}>
                 {status.text}
               </span>
-              <span className="text-[#64748b] text-[11px]">({status.detail})</span>
+              <span className="text-[#475569] text-[11px]">({status.detail})</span>
             </div>
-            <div className="flex items-center gap-1.5 text-[#475569] text-[11px]">
+            <div className="flex items-center gap-1.5 text-[#334155] text-[11px]">
               <MapPinIcon className="w-3.5 h-3.5 text-[#1d4ed8]" />
               <span>Opera House, Mumbai - 400004</span>
             </div>
@@ -31,11 +31,11 @@ export default function Header() {
           <div className="flex items-center gap-5 font-mono text-[11px]">
             <a
               href={`mailto:${BUSINESS_INFO.email}`}
-              className="text-[#475569] hover:text-[#1d4ed8] transition-colors flex items-center gap-1"
+              className="text-[#334155] hover:text-[#1d4ed8] transition-colors flex items-center gap-1"
             >
               <span>{BUSINESS_INFO.email}</span>
             </a>
-            <span className="text-[#cbd5e1]">|</span>
+            <span className="text-[#cbd5e1]" aria-hidden="true">|</span>
             <a
               href={`tel:${BUSINESS_INFO.phoneClean}`}
               className="font-semibold text-[#1d4ed8] hover:text-[#1e40af] transition-colors flex items-center gap-1"

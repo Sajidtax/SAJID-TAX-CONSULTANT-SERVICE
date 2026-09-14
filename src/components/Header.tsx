@@ -1,10 +1,12 @@
 import { useState } from 'react';
-import { PhoneIcon, MessageSquareIcon, MenuIcon, XIcon, MapPinIcon } from './CriticalIcons';
+import { PhoneIcon, MessageSquareIcon, MenuIcon, XIcon, MapPinIcon, SparklesIcon } from './CriticalIcons';
 import { BUSINESS_INFO } from '../data/businessData';
 import { getOfficeStatus } from '../utils/timeHelper';
+import AiTaxAssistantModal from './AiTaxAssistantModal';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [aiModalOpen, setAiModalOpen] = useState(false);
   const status = getOfficeStatus();
 
   return (
@@ -71,16 +73,30 @@ export default function Header() {
           </div>
         </a>
 
-        {/* 3-Row / Hamburger Menu Toggle (placed at the end) */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="p-2.5 text-[#0f172a] hover:bg-[#f8fafc] hover:text-[#1d4ed8] rounded-lg border border-[#e2e8f0] transition-all flex items-center justify-center shadow-2xs"
-          aria-label="Toggle Navigation Menu"
-          aria-expanded={mobileMenuOpen}
-          aria-controls="navigation-menu"
-        >
-          {mobileMenuOpen ? <XIcon className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
-        </button>
+        {/* Action Controls: AI Assistant (left) + 3-Row Menu (right) */}
+        <div className="flex items-center gap-2 sm:gap-3">
+          {/* AI Assistant Button (placed directly to the left of 3-row menu) */}
+          <button
+            onClick={() => setAiModalOpen(true)}
+            className="group inline-flex items-center gap-1.5 px-3 py-2 text-xs font-bold rounded-lg bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 hover:from-blue-700 hover:via-indigo-700 hover:to-violet-700 text-white shadow-xs hover:shadow-md transition-all active:scale-95"
+            aria-label="Open AI Tax Assistant"
+          >
+            <SparklesIcon className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
+            <span className="tracking-wide">AI</span>
+            <span className="hidden sm:inline font-normal text-blue-100">Tax Help</span>
+          </button>
+
+          {/* 3-Row / Hamburger Menu Toggle */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="p-2.5 text-[#0f172a] hover:bg-[#f8fafc] hover:text-[#1d4ed8] rounded-lg border border-[#e2e8f0] transition-all flex items-center justify-center shadow-2xs"
+            aria-label="Toggle Navigation Menu"
+            aria-expanded={mobileMenuOpen}
+            aria-controls="navigation-menu"
+          >
+            {mobileMenuOpen ? <XIcon className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
 
       {/* Responsive Navigation Menu (Dropdown for all screen sizes) */}
@@ -166,6 +182,9 @@ export default function Header() {
           </div>
         </div>
       )}
+
+      {/* AI Tax & Compliance Assistant Dialog */}
+      <AiTaxAssistantModal isOpen={aiModalOpen} onClose={() => setAiModalOpen(false)} />
     </header>
   );
 }

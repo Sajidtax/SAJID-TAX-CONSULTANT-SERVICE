@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { XIcon, MessageSquareIcon, SparklesIcon, PhoneIcon, SendIcon } from './CriticalIcons';
 import { BUSINESS_INFO } from '../data/businessData';
 
@@ -34,17 +35,17 @@ function generateAiResponse(input: string): { text: string; whatsappQuery: strin
     q.includes('who are you') || q.includes('kya karte ho') || q.includes('help')
   ) {
     return {
-      text: `Namaste! 🙏 Main Sajid Tax Consultant Service ka Official AI Tax Advisor hoon.
+      text: `Namaste! 🙏 Main Sajid Tax Consultant Service ka Official AI Tax Assistant hoon.
 
-Main aapki in cheezon me madad kar sakta hoon:
-1. Income Tax Return (ITR) & New vs Old Tax Slab
-2. GST Registration & Monthly Return Filing
-3. PF / EPF Withdrawal & Rejection Problem Solution
-4. Mumbai BMC Gumasta License (Shop & Establishment)
-5. Pvt Ltd & LLP Company Registration with MCA
-6. Office Timings, Fees & Document checklist
+Main aapki in sabhi statutory compliance me madad kar sakta hoon:
+• Income Tax Return (ITR) & New vs Old Tax Regime Computation
+• GST Registration & Monthly GSTR-1 / 3B Filing
+• PF / EPF Withdrawal & Rejection Problem Solution
+• Mumbai BMC Gumasta License (Shop & Establishment)
+• Pvt Ltd & LLP Company Incorporation with MCA
+• Tax Deductions, Due Dates & Consultation Fees
 
-Aap apna sawaal neeche type kar sakte hain ya quick topics par tap karein!`,
+Aap apna sawaal neeche box me pooch sakte hain ya kisi topic par tap karein!`,
       whatsappQuery: "Hello Sajid Sir, I have a tax and compliance query. Please assist me."
     };
   }
@@ -177,7 +178,7 @@ Zaroori Documents:
 • Due Date for Individuals & Salaried: 31st July.
 • Due Date for Tax Audit (Section 44AB): 31st October.
 • Late Filing Penalty (Section 234F):
-  - Income up to ₹5 Lakhs: ₹1,000 late fee
+  - Income up to ₹5 Lakhs: ₹1,00,0 late fee
   - Income above ₹5 Lakhs: ₹5,000 late fee + 1% monthly interest (Sec 234A).
 • Documents Needed:
   - Form 16 (for salaried)
@@ -271,16 +272,16 @@ export default function AiTaxAssistantModal({ isOpen, onClose }: AiTaxAssistantM
     {
       id: 'welcome',
       sender: 'ai',
-      text: `Namaste! 🙏 Main Sajid Tax Consultant ka AI Advisor hoon.
+      text: `Namaste! 🙏 Main Sajid Tax Consultant ka AI Assistant hoon.
 
 Aap mujhse pooch sakte hain:
 • New vs Old Tax Regime me kitna tax bachega?
 • GST Registration ke liye kya documents chahiye?
-• PF rejection kaise theek hoga?
+• PF rejection problem kaise solve hogi?
 • Mumbai Gumasta License kaise banega?
 • Opera House office timings & consultation fees?
 
-Neeche kisi bhi topic par tap karein ya apna sawaal type karein!`
+Neeche kisi topic par tap karein ya apna sawaal type karein!`
     }
   ]);
   const [inputValue, setInputValue] = useState('');
@@ -313,8 +314,8 @@ Neeche kisi bhi topic par tap karein ya apna sawaal type karein!`
     }
   }, [messages, isTyping, isOpen]);
 
-  // CRITICAL: When closed, render NOTHING so 0 horizontal space or touch issues occur
-  if (!isOpen) return null;
+  // CRITICAL: Unmounted when closed, so zero DOM leaks or scroll width issues
+  if (!isOpen || typeof document === 'undefined') return null;
 
   const handleSend = (textToSend?: string) => {
     const prompt = textToSend || inputValue;
@@ -336,7 +337,7 @@ Neeche kisi bhi topic par tap karein ya apna sawaal type karein!`
         id: `ai-${Date.now()}`,
         sender: 'ai',
         text: response.text,
-        actionText: 'Message Sajid on WhatsApp',
+        actionText: 'Message on WhatsApp',
         whatsappQuery: response.whatsappQuery
       };
       setMessages((prev) => [...prev, aiMessage]);
@@ -344,106 +345,110 @@ Neeche kisi bhi topic par tap karein ya apna sawaal type karein!`
     }, 300);
   };
 
-  return (
+  const modalContent = (
     <div
-      className="fixed inset-0 z-50 flex justify-end bg-slate-950/60 backdrop-blur-xs animate-in fade-in duration-200 overflow-hidden"
+      className="fixed inset-0 z-[100] flex flex-col justify-end md:justify-center md:items-center bg-black/60 backdrop-blur-xs p-0 md:p-4 animate-in fade-in duration-200"
       role="dialog"
       aria-modal="true"
       aria-labelledby="ai-assistant-title"
       onClick={onClose}
     >
-      {/* Slide-over drawer container */}
+      {/* Drawer / Modal Container: Bottom sheet on mobile, centered modal on desktop */}
       <div
-        className="relative w-full sm:max-w-md h-[100dvh] bg-white shadow-2xl flex flex-col animate-in slide-in-from-right duration-250 text-[#0f172a]"
+        className="w-full md:max-w-xl h-[88vh] md:h-[80vh] bg-white rounded-t-3xl md:rounded-2xl shadow-2xl flex flex-col overflow-hidden text-[#0f172a] border border-slate-200/80 animate-in slide-in-from-bottom md:zoom-in-95 duration-250"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header (Pinned at top with guaranteed visibility) */}
-        <div className="bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 p-3.5 sm:p-4 text-white flex items-center justify-between border-b border-white/10 shrink-0 shadow-xs">
-          <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-blue-500 via-indigo-500 to-amber-400 flex items-center justify-center shadow-md ring-2 ring-white/20 shrink-0">
-              <SparklesIcon className="w-5 h-5 text-white" />
+        {/* Sticky Modal Header (Guaranteed 100% visible, never covered by sticky navbar) */}
+        <div className="sticky top-0 z-10 bg-white px-4 py-3.5 border-b border-slate-100 flex items-center justify-between shrink-0 shadow-2xs">
+          <div className="flex items-center gap-3 min-w-0">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-amber-400 flex items-center justify-center text-white shadow-xs shrink-0">
+              <SparklesIcon className="w-5 h-5" />
             </div>
             <div className="min-w-0">
               <div className="flex items-center gap-2">
-                <h3 id="ai-assistant-title" className="font-display font-bold text-sm sm:text-base text-white leading-tight truncate">
-                  Sajid Tax AI Advisor
+                <h3 id="ai-assistant-title" className="font-display font-bold text-base text-[#0f172a] leading-tight truncate">
+                  Sajid Tax AI Assistant
                 </h3>
-                <span className="px-1.5 py-0.2 text-[9px] font-mono font-bold uppercase rounded bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 shrink-0">
+                <span className="inline-flex items-center gap-1 px-1.5 py-0.5 text-[10px] font-mono font-bold uppercase rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 shrink-0">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
                   Online
                 </span>
               </div>
-              <p className="text-[10.5px] sm:text-[11px] text-blue-200/90 font-mono truncate">
-                ITR, GST, EPFO &amp; Mumbai Regulations
+              <p className="text-[11px] text-slate-500 font-sans truncate">
+                ITR, GST, Gumasta &amp; PF Compliance Guide
               </p>
             </div>
           </div>
 
           <button
             onClick={onClose}
-            className="p-1.5 sm:p-2 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-colors shrink-0"
+            className="p-2 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors shrink-0"
             aria-label="Close AI Assistant"
           >
-            <XIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+            <XIcon className="w-5 h-5" />
           </button>
         </div>
 
-        {/* Chat Messages Body */}
-        <div className="flex-1 overflow-y-auto p-3.5 sm:p-4 space-y-3.5 bg-[#f8fafc] overscroll-contain">
+        {/* Isolated Scrollable Chat Area */}
+        <div className="flex-1 overflow-y-auto p-4 space-y-3.5 bg-slate-50/60 overscroll-contain">
           {messages.map((msg) => (
             <div
               key={msg.id}
-              className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
+              className={`flex flex-col ${msg.sender === 'user' ? 'items-end' : 'items-start'}`}
             >
-              <div
-                className={`max-w-[88%] sm:max-w-[85%] rounded-2xl p-3 sm:p-3.5 text-xs sm:text-sm leading-relaxed ${
-                  msg.sender === 'user'
-                    ? 'bg-[#1d4ed8] text-white rounded-br-xs shadow-xs'
-                    : 'bg-white text-slate-800 border border-slate-200 shadow-xs rounded-bl-xs'
-                }`}
-              >
-                <div className="whitespace-pre-line font-sans">{msg.text}</div>
-
-                {msg.whatsappQuery && (
-                  <div className="mt-3 pt-3 border-t border-slate-100 flex flex-col sm:flex-row gap-2">
-                    <a
-                      href={`https://wa.me/${BUSINESS_INFO.phoneClean.replace('+', '')}?text=${encodeURIComponent(msg.whatsappQuery)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-[#047857] hover:bg-[#065f46] text-white font-semibold text-xs shadow-xs transition-all active:scale-95"
-                    >
-                      <MessageSquareIcon className="w-3.5 h-3.5" />
-                      <span>{msg.actionText || 'Message on WhatsApp'}</span>
-                    </a>
-                    <a
-                      href={`tel:${BUSINESS_INFO.phoneClean}`}
-                      className="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs transition-all active:scale-95"
-                    >
-                      <PhoneIcon className="w-3 h-3 text-[#1d4ed8]" />
-                      <span>Call {BUSINESS_INFO.phone}</span>
-                    </a>
+              {msg.sender === 'user' ? (
+                <div className="bg-[#1d4ed8] text-white rounded-2xl rounded-tr-xs p-3 max-w-[85%] text-xs sm:text-sm shadow-xs font-medium leading-relaxed">
+                  {msg.text}
+                </div>
+              ) : (
+                <div className="bg-white text-slate-900 border border-slate-200/80 rounded-2xl rounded-tl-xs p-4 max-w-[92%] sm:max-w-[88%] text-xs sm:text-sm shadow-xs leading-relaxed">
+                  {/* Structured AI Text */}
+                  <div className="whitespace-pre-line font-sans space-y-1">
+                    {msg.text}
                   </div>
-                )}
-              </div>
+
+                  {/* WhatsApp & Call Action Buttons */}
+                  {msg.whatsappQuery && (
+                    <div className="mt-3.5 pt-3 border-t border-slate-100 flex flex-wrap items-center gap-2">
+                      <a
+                        href={`https://wa.me/${BUSINESS_INFO.phoneClean.replace('+', '')}?text=${encodeURIComponent(msg.whatsappQuery)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#047857] hover:bg-[#065f46] text-white font-semibold text-xs shadow-2xs transition-all active:scale-95"
+                      >
+                        <MessageSquareIcon className="w-3.5 h-3.5" />
+                        <span>{msg.actionText || 'Chat on WhatsApp'}</span>
+                      </a>
+                      <a
+                        href={`tel:${BUSINESS_INFO.phoneClean}`}
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs transition-all active:scale-95"
+                      >
+                        <PhoneIcon className="w-3 h-3 text-[#1d4ed8]" />
+                        <span>Call {BUSINESS_INFO.phone}</span>
+                      </a>
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           ))}
 
+          {/* Clean Inline Typing Indicator */}
           {isTyping && (
-            <div className="flex justify-start">
-              <div className="bg-white border border-slate-200 rounded-2xl rounded-bl-xs p-3 flex items-center gap-1.5 shadow-xs">
-                <span className="w-2 h-2 rounded-full bg-blue-600 animate-bounce"></span>
-                <span className="w-2 h-2 rounded-full bg-blue-600 animate-bounce [animation-delay:0.2s]"></span>
-                <span className="w-2 h-2 rounded-full bg-blue-600 animate-bounce [animation-delay:0.4s]"></span>
-                <span className="text-xs text-slate-400 font-mono ml-2">Analyzing tax laws...</span>
-              </div>
+            <div className="flex items-center gap-2 bg-white border border-slate-200/80 rounded-2xl rounded-tl-xs p-3.5 max-w-[200px] shadow-xs">
+              <span className="w-2 h-2 rounded-full bg-blue-600 animate-bounce"></span>
+              <span className="w-2 h-2 rounded-full bg-blue-600 animate-bounce [animation-delay:0.2s]"></span>
+              <span className="w-2 h-2 rounded-full bg-blue-600 animate-bounce [animation-delay:0.4s]"></span>
+              <span className="text-xs text-slate-400 font-mono ml-1">Analyzing...</span>
             </div>
           )}
 
           <div ref={chatBottomRef}></div>
         </div>
 
-        {/* Quick Suggestion Chips (Smooth pills without native scrollbar) */}
-        <div 
-          className="px-3 py-2 bg-white border-t border-slate-200/80 flex items-center gap-1.5 overflow-x-auto text-xs shrink-0"
+        {/* Quick Suggestion Chips */}
+        <div
+          className="px-4 py-2 bg-white border-t border-slate-100 flex items-center gap-1.5 overflow-x-auto text-xs shrink-0"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           <span className="text-[10px] font-mono uppercase font-bold text-slate-400 shrink-0 mr-1">
@@ -453,40 +458,42 @@ Neeche kisi bhi topic par tap karein ya apna sawaal type karein!`
             <button
               key={idx}
               onClick={() => handleSend(prompt)}
-              className="shrink-0 px-2.5 py-1 rounded-full bg-slate-100 hover:bg-blue-50 hover:text-[#1d4ed8] hover:border-blue-200 border border-slate-200 text-slate-700 text-[11px] font-medium transition-all active:scale-95"
+              className="shrink-0 px-3 py-1 rounded-full bg-slate-100 hover:bg-blue-50 hover:text-[#1d4ed8] hover:border-blue-200 border border-slate-200 text-slate-700 text-[11px] font-medium transition-all active:scale-95"
             >
               {prompt}
             </button>
           ))}
         </div>
 
-        {/* Input Bar */}
+        {/* Fixed Input Form Pinned at Bottom */}
         <form
           onSubmit={(e) => {
             e.preventDefault();
             handleSend();
           }}
-          className="p-2.5 sm:p-3 bg-white border-t border-slate-200 flex items-center gap-2 shrink-0 pb-[max(0.75rem,env(safe-area-inset-bottom))]"
+          className="border-t border-slate-200 bg-white p-3 flex gap-2 items-center shrink-0"
         >
           <input
             ref={inputRef}
             type="text"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            placeholder="Type question (e.g. Fees, Tax slab, PF, GST)..."
-            className="flex-1 px-3 py-2 text-xs sm:text-sm rounded-xl border border-slate-300 focus:outline-hidden focus:border-[#1d4ed8] focus:ring-2 focus:ring-blue-100 transition-all placeholder:text-slate-400 bg-slate-50/50 focus:bg-white"
+            placeholder="Ask anything (e.g. Fees, Tax slab, GST, PF)..."
+            className="flex-1 px-3.5 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-300 focus:outline-hidden focus:border-[#1d4ed8] focus:ring-2 focus:ring-blue-100 transition-all placeholder:text-slate-400 bg-slate-50/60 focus:bg-white"
           />
           <button
             type="submit"
             disabled={!inputValue.trim() || isTyping}
-            className="px-3.5 py-2 bg-[#1d4ed8] hover:bg-[#1e40af] disabled:opacity-50 text-white font-bold text-xs sm:text-sm rounded-xl transition-all shadow-xs flex items-center gap-1 shrink-0 active:scale-95"
-            aria-label="Send query"
+            className="px-4 py-2.5 bg-[#1d4ed8] hover:bg-[#1e40af] disabled:opacity-50 text-white font-bold text-xs sm:text-sm rounded-xl transition-all shadow-xs flex items-center gap-1.5 shrink-0 active:scale-95"
+            aria-label="Send question"
           >
             <span>Ask</span>
-            <SendIcon className="w-3.5 h-3.5 text-white" />
+            <SendIcon className="w-3.5 h-3.5" />
           </button>
         </form>
       </div>
     </div>
   );
+
+  return createPortal(modalContent, document.body);
 }

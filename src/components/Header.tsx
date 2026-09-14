@@ -85,8 +85,8 @@ export default function Header() {
             aria-label="Open AI Tax Assistant"
           >
             <SparklesIcon className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
-            <span className="tracking-wide">AI</span>
-            <span className="hidden sm:inline font-normal text-blue-100">Tax Help</span>
+            <span className="tracking-wide font-bold">+ AI</span>
+            <span className="hidden sm:inline font-normal text-blue-100">Advisor</span>
           </button>
 
           {/* 3-Row / Hamburger Menu Toggle */}

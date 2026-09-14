@@ -71,112 +71,98 @@ export default function Header() {
           </div>
         </a>
 
-        {/* Desktop Navigation Links */}
-        <nav aria-label="Main Navigation" className="hidden lg:flex items-center gap-7 text-[14.5px] font-medium text-[#475569]">
-          <a href="#services" className="hover:text-[#1d4ed8] transition-colors py-1">Services</a>
-          <a href="#due-dates" className="hover:text-[#1d4ed8] transition-colors py-1">Due Dates</a>
-          <a href="#process" className="hover:text-[#1d4ed8] transition-colors py-1">How It Works</a>
-          <a href="#why-us" className="hover:text-[#1d4ed8] transition-colors py-1">Why Us</a>
-          <a href="#office" className="hover:text-[#1d4ed8] transition-colors py-1">Office &amp; Hours</a>
-          <a href="#faq" className="hover:text-[#1d4ed8] transition-colors py-1">FAQ</a>
-        </nav>
-
-        {/* Single Sleek Desktop CTA */}
-        <div className="hidden lg:flex items-center">
-          <a
-            href={`https://wa.me/${BUSINESS_INFO.phoneClean.replace('+', '')}?text=Hello%20Sajid%20Tax%20Consultant,%20I%20would%20like%20to%20book%20a%20consultation.`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="whitespace-nowrap inline-flex items-center justify-center px-4 py-2 text-xs font-mono font-bold uppercase tracking-wider rounded-lg bg-[#1d4ed8] text-white hover:bg-[#1e40af] transition-all shadow-xs"
-          >
-            <span>Book Consultation</span>
-          </a>
-        </div>
-
-        {/* Mobile menu toggle */}
+        {/* 3-Row / Hamburger Menu Toggle (placed at the end) */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="p-2 text-[#0f172a] lg:hidden hover:bg-[#f8fafc] rounded-lg border border-[#e2e8f0]"
-          aria-label="Toggle Navigation"
+          className="p-2.5 text-[#0f172a] hover:bg-[#f8fafc] hover:text-[#1d4ed8] rounded-lg border border-[#e2e8f0] transition-all flex items-center justify-center shadow-2xs"
+          aria-label="Toggle Navigation Menu"
           aria-expanded={mobileMenuOpen}
-          aria-controls="mobile-menu"
+          aria-controls="navigation-menu"
         >
           {mobileMenuOpen ? <XIcon className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
         </button>
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Responsive Navigation Menu (Dropdown for all screen sizes) */}
       {mobileMenuOpen && (
-        <div id="mobile-menu" className="lg:hidden border-t border-[#e2e8f0] bg-white px-5 py-5 space-y-4 shadow-xl animate-in slide-in-from-top duration-200">
-          <div className="flex items-center justify-between pb-3 border-b border-[#e2e8f0] text-xs">
-            <span className="font-mono text-[#475569]">Hours: Mon-Sat 11 AM - 7 PM</span>
-            <span className={`font-mono font-bold ${status.isOpen ? 'text-[#047857]' : 'text-[#475569]'}`}>
-              {status.text}
-            </span>
-          </div>
+        <div id="navigation-menu" className="border-t border-[#e2e8f0] bg-white shadow-xl animate-in slide-in-from-top duration-200">
+          <div className="max-w-6xl mx-auto px-5 sm:px-6 py-6 space-y-5">
+            <div className="flex items-center justify-between pb-3 border-b border-[#e2e8f0] text-xs">
+              <span className="font-mono text-[#475569]">Working Hours: Mon-Sat 11 AM - 7 PM</span>
+              <span className={`font-mono font-bold ${status.isOpen ? 'text-[#047857]' : 'text-[#475569]'}`}>
+                {status.text}
+              </span>
+            </div>
 
-          <div className="flex flex-col space-y-2 text-base font-medium">
-            <a
-              href="#services"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-2 px-2 text-[#0f172a] hover:text-[#1d4ed8] hover:bg-[#f8fafc] rounded-md"
-            >
-              Services (10 Essential Offerings)
-            </a>
-            <a
-              href="#due-dates"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-2 px-2 text-[#0f172a] hover:text-[#1d4ed8] hover:bg-[#f8fafc] rounded-md"
-            >
-              Compliance Calendar &amp; Due Dates
-            </a>
-            <a
-              href="#process"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-2 px-2 text-[#0f172a] hover:text-[#1d4ed8] hover:bg-[#f8fafc] rounded-md"
-            >
-              Our Process
-            </a>
-            <a
-              href="#why-us"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-2 px-2 text-[#0f172a] hover:text-[#1d4ed8] hover:bg-[#f8fafc] rounded-md"
-            >
-              Why Choose Us
-            </a>
-            <a
-              href="#office"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-2 px-2 text-[#0f172a] hover:text-[#1d4ed8] hover:bg-[#f8fafc] rounded-md"
-            >
-              Opera House Office &amp; Hours
-            </a>
-            <a
-              href="#faq"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-2 px-2 text-[#0f172a] hover:text-[#1d4ed8] hover:bg-[#f8fafc] rounded-md"
-            >
-              Frequently Asked Questions (FAQ)
-            </a>
-          </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2.5 text-base font-medium">
+              <a
+                href="#services"
+                onClick={() => setMobileMenuOpen(false)}
+                className="p-3 text-[#0f172a] hover:text-[#1d4ed8] hover:bg-[#f8fafc] rounded-lg border border-transparent hover:border-[#e2e8f0] transition-all flex items-center justify-between group"
+              >
+                <span>Services (10 Essential Offerings)</span>
+                <span className="text-xs font-mono text-[#1d4ed8] opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+              </a>
+              <a
+                href="#due-dates"
+                onClick={() => setMobileMenuOpen(false)}
+                className="p-3 text-[#0f172a] hover:text-[#1d4ed8] hover:bg-[#f8fafc] rounded-lg border border-transparent hover:border-[#e2e8f0] transition-all flex items-center justify-between group"
+              >
+                <span>Compliance Calendar &amp; Due Dates</span>
+                <span className="text-xs font-mono text-[#1d4ed8] opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+              </a>
+              <a
+                href="#process"
+                onClick={() => setMobileMenuOpen(false)}
+                className="p-3 text-[#0f172a] hover:text-[#1d4ed8] hover:bg-[#f8fafc] rounded-lg border border-transparent hover:border-[#e2e8f0] transition-all flex items-center justify-between group"
+              >
+                <span>Our Process</span>
+                <span className="text-xs font-mono text-[#1d4ed8] opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+              </a>
+              <a
+                href="#why-us"
+                onClick={() => setMobileMenuOpen(false)}
+                className="p-3 text-[#0f172a] hover:text-[#1d4ed8] hover:bg-[#f8fafc] rounded-lg border border-transparent hover:border-[#e2e8f0] transition-all flex items-center justify-between group"
+              >
+                <span>Why Choose Us</span>
+                <span className="text-xs font-mono text-[#1d4ed8] opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+              </a>
+              <a
+                href="#office"
+                onClick={() => setMobileMenuOpen(false)}
+                className="p-3 text-[#0f172a] hover:text-[#1d4ed8] hover:bg-[#f8fafc] rounded-lg border border-transparent hover:border-[#e2e8f0] transition-all flex items-center justify-between group"
+              >
+                <span>Opera House Office &amp; Hours</span>
+                <span className="text-xs font-mono text-[#1d4ed8] opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+              </a>
+              <a
+                href="#faq"
+                onClick={() => setMobileMenuOpen(false)}
+                className="p-3 text-[#0f172a] hover:text-[#1d4ed8] hover:bg-[#f8fafc] rounded-lg border border-transparent hover:border-[#e2e8f0] transition-all flex items-center justify-between group"
+              >
+                <span>Frequently Asked Questions (FAQ)</span>
+                <span className="text-xs font-mono text-[#1d4ed8] opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+              </a>
+            </div>
 
-          <div className="pt-3 border-t border-[#e2e8f0] flex flex-col gap-2.5">
-            <a
-              href={`tel:${BUSINESS_INFO.phoneClean}`}
-              className="flex items-center justify-center gap-2 py-3 bg-[#1d4ed8] text-white hover:bg-[#1e40af] font-bold text-sm rounded-lg shadow-sm"
-            >
-              <PhoneIcon className="w-4 h-4" />
-              <span>Call: {BUSINESS_INFO.phone}</span>
-            </a>
-            <a
-              href={`https://wa.me/${BUSINESS_INFO.phoneClean.replace('+', '')}?text=Hello%20Sajid%20Tax%20Consultant,%20I%20need%20help%20with%20tax%20and%20accounting.`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 py-3 bg-[#047857] hover:bg-[#065f46] text-white font-semibold text-sm rounded-lg shadow-sm border border-emerald-700/20"
-            >
-              <MessageSquareIcon className="w-4 h-4" />
-              <span>WhatsApp Direct Message</span>
-            </a>
+            <div className="pt-4 border-t border-[#e2e8f0] flex flex-col sm:flex-row items-center gap-3">
+              <a
+                href={`tel:${BUSINESS_INFO.phoneClean}`}
+                className="w-full sm:w-auto flex-1 flex items-center justify-center gap-2 py-3 px-5 bg-[#1d4ed8] text-white hover:bg-[#1e40af] font-bold text-sm rounded-lg shadow-sm transition-all"
+              >
+                <PhoneIcon className="w-4 h-4" />
+                <span>Call: {BUSINESS_INFO.phone}</span>
+              </a>
+              <a
+                href={`https://wa.me/${BUSINESS_INFO.phoneClean.replace('+', '')}?text=Hello%20Sajid%20Tax%20Consultant,%20I%20would%20like%20to%20book%20a%20consultation.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto flex-1 flex items-center justify-center gap-2 py-3 px-5 bg-[#047857] hover:bg-[#065f46] text-white font-semibold text-sm rounded-lg shadow-sm border border-emerald-700/20 transition-all"
+              >
+                <MessageSquareIcon className="w-4 h-4" />
+                <span>WhatsApp Consultation</span>
+              </a>
+            </div>
           </div>
         </div>
       )}

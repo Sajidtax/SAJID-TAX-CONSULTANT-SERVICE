@@ -69,7 +69,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
 export default function App() {
   return (
     <ErrorBoundary>
-      <div className="min-h-screen flex flex-col bg-white text-[#475569] font-sans selection:bg-[#1d4ed8] selection:text-white bg-grid-pattern">
+      <div className="min-h-screen flex flex-col bg-white text-[#475569] font-sans selection:bg-[#1d4ed8] selection:text-white bg-grid-pattern overflow-x-hidden w-full max-w-full">
         {/* Top Navigation */}
         <Header />
 

@@ -50,10 +50,10 @@ export default function Header() {
       </div>
 
       {/* Main Navigation Bar */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-4">
+      <div className="max-w-6xl mx-auto px-3 sm:px-6 py-2.5 sm:py-3.5 flex items-center justify-between gap-2 sm:gap-4">
         {/* Brand identity */}
-        <a href="#" aria-label="Sajid Tax Consultant Service Home" className="flex items-center gap-3 group text-left">
-          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden bg-black border-2 border-amber-500/50 shadow-md ring-1 ring-amber-400/20 shrink-0 flex items-center justify-center group-hover:border-amber-400 group-hover:scale-105 transition-all">
+        <a href="#" aria-label="Sajid Tax Consultant Service Home" className="flex items-center gap-2 sm:gap-3 group text-left min-w-0">
+          <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-full overflow-hidden bg-black border-2 border-amber-500/50 shadow-md ring-1 ring-amber-400/20 shrink-0 flex items-center justify-center group-hover:border-amber-400 group-hover:scale-105 transition-all">
             <img
               src="/images/logo-128.png"
               alt="Sajid Tax Consultant Official Logo"
@@ -63,22 +63,25 @@ export default function Header() {
               loading="eager"
             />
           </div>
-          <div>
-            <div className="font-display font-bold text-lg sm:text-xl text-[#0f172a] group-hover:text-[#1d4ed8] leading-tight tracking-tight">
+          <div className="min-w-0">
+            <div className="font-display font-bold text-sm sm:text-lg md:text-xl text-[#0f172a] group-hover:text-[#1d4ed8] leading-tight tracking-tight truncate">
               {BUSINESS_INFO.name}
             </div>
-            <div className="text-[11px] text-[#1d4ed8] font-semibold tracking-wide uppercase">
+            <div className="text-[10px] sm:text-[11px] text-[#1d4ed8] font-semibold tracking-wide uppercase truncate">
               Opera House, Mumbai
             </div>
           </div>
         </a>
 
         {/* Action Controls: AI Assistant (left) + 3-Row Menu (right) */}
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
           {/* AI Assistant Button (placed directly to the left of 3-row menu) */}
           <button
-            onClick={() => setAiModalOpen(true)}
-            className="group inline-flex items-center gap-1.5 px-3 py-2 text-xs font-bold rounded-lg bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 hover:from-blue-700 hover:via-indigo-700 hover:to-violet-700 text-white shadow-xs hover:shadow-md transition-all active:scale-95"
+            onClick={() => {
+              setMobileMenuOpen(false);
+              setAiModalOpen(true);
+            }}
+            className="group inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 sm:py-2 text-xs font-bold rounded-lg bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 hover:from-blue-700 hover:via-indigo-700 hover:to-violet-700 text-white shadow-xs hover:shadow-md transition-all active:scale-95 shrink-0"
             aria-label="Open AI Tax Assistant"
           >
             <SparklesIcon className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
@@ -88,13 +91,16 @@ export default function Header() {
 
           {/* 3-Row / Hamburger Menu Toggle */}
           <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2.5 text-[#0f172a] hover:bg-[#f8fafc] hover:text-[#1d4ed8] rounded-lg border border-[#e2e8f0] transition-all flex items-center justify-center shadow-2xs"
+            onClick={() => {
+              setAiModalOpen(false);
+              setMobileMenuOpen(!mobileMenuOpen);
+            }}
+            className="p-2 sm:p-2.5 text-[#0f172a] hover:bg-[#f8fafc] hover:text-[#1d4ed8] rounded-lg border border-[#e2e8f0] transition-all flex items-center justify-center shadow-2xs shrink-0"
             aria-label="Toggle Navigation Menu"
             aria-expanded={mobileMenuOpen}
             aria-controls="navigation-menu"
           >
-            {mobileMenuOpen ? <XIcon className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
+            {mobileMenuOpen ? <XIcon className="w-5 h-5 sm:w-6 sm:h-6" /> : <MenuIcon className="w-5 h-5 sm:w-6 sm:h-6" />}
           </button>
         </div>
       </div>

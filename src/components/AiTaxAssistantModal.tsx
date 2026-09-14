@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { XIcon, MessageSquareIcon, SparklesIcon, PhoneIcon } from './CriticalIcons';
+import { XIcon, MessageSquareIcon, SparklesIcon, PhoneIcon, SendIcon } from './CriticalIcons';
 import { BUSINESS_INFO } from '../data/businessData';
 
 interface Message {
@@ -17,20 +17,68 @@ interface AiTaxAssistantModalProps {
 
 const QUICK_PROMPTS = [
   "New vs Old Tax Regime 2025?",
+  "Fees kitna lagta hai?",
   "Documents for GST Registration?",
-  "How to solve PF claim rejection?",
-  "Gumasta license in Mumbai?",
-  "What is the penalty for late ITR?",
-  "Where is your Opera House office?"
+  "PF claim rejection solution?",
+  "Mumbai Gumasta license?",
+  "Opera House office timing?"
 ];
 
 function generateAiResponse(input: string): { text: string; whatsappQuery: string } {
-  const query = input.toLowerCase().trim();
+  const q = input.toLowerCase().trim();
 
-  // 1. New vs Old Tax Regime / Slabs
-  if (query.includes('regime') || query.includes('slab') || query.includes('80c') || query.includes('tax rate') || query.includes('deduction')) {
+  // 1. Greetings / Help
+  if (
+    q === 'hi' || q === 'hello' || q === 'hey' || q.includes('namaste') ||
+    q.includes('salam') || q.includes('kaise ho') || q.includes('kya haal') ||
+    q.includes('who are you') || q.includes('kya karte ho') || q.includes('help')
+  ) {
     return {
-      text: `Under the New Tax Regime (FY 2024-25 / AY 2025-26):
+      text: `Namaste! 🙏 Main Sajid Tax Consultant Service ka Official AI Tax Advisor hoon.
+
+Main aapki in cheezon me madad kar sakta hoon:
+1. Income Tax Return (ITR) & New vs Old Tax Slab
+2. GST Registration & Monthly Return Filing
+3. PF / EPF Withdrawal & Rejection Problem Solution
+4. Mumbai BMC Gumasta License (Shop & Establishment)
+5. Pvt Ltd & LLP Company Registration with MCA
+6. Office Timings, Fees & Document checklist
+
+Aap apna sawaal neeche type kar sakte hain ya quick topics par tap karein!`,
+      whatsappQuery: "Hello Sajid Sir, I have a tax and compliance query. Please assist me."
+    };
+  }
+
+  // 2. Fees / Pricing / Cost
+  if (
+    q.includes('fee') || q.includes('fees') || q.includes('charge') || q.includes('charges') ||
+    q.includes('cost') || q.includes('price') || q.includes('rate') || q.includes('kitna lagega') ||
+    q.includes('kitna paisa') || q.includes('kitna kharcha') || q.includes('paisa') || q.includes('kharch')
+  ) {
+    return {
+      text: `💰 Sajid Tax Consultant Service Pricing & Fee Structure:
+
+• Initial Consultation: 100% FREE!
+• Salaried ITR Filing (ITR-1): Very affordable, starting from ₹500 onwards.
+• Business / Freelancer ITR (ITR-3 / 44AD): Based on turnover and computation complexity.
+• GST Registration: Standard government + processing charge with 100% approval.
+• Mumbai Gumasta License: Complete BMC intimation & registration service.
+• PF Claim Settlement: Zero advance risk, complete guidance till money arrives in bank account.
+
+Hum transparent aur genuine fees quote karte hain bina kisi hidden charges ke.`,
+      whatsappQuery: "Hello Sajid Sir, please let me know your fees for tax filing / compliance services."
+    };
+  }
+
+  // 3. New vs Old Tax Regime / Slabs / Savings
+  if (
+    q.includes('regime') || q.includes('slab') || q.includes('slabs') || q.includes('80c') ||
+    q.includes('deduction') || q.includes('saving') || q.includes('tax rate') ||
+    q.includes('tax kitna') || q.includes('tax bachao') || q.includes('new regime') ||
+    q.includes('old regime') || q.includes('7.75') || q.includes('7 lakh') || q.includes('rebate')
+  ) {
+    return {
+      text: `📊 New Tax Regime Slabs (FY 2024-25 / AY 2025-26):
 • ₹0 - ₹3,00,000: Nil (0%)
 • ₹3,00,001 - ₹7,00,000: 5%
 • ₹7,00,001 - ₹10,00,000: 10%
@@ -38,123 +86,182 @@ function generateAiResponse(input: string): { text: string; whatsappQuery: strin
 • ₹12,00,001 - ₹15,00,000: 20%
 • Above ₹15,00,000: 30%
 
-⭐ Tax Rebate: Under Section 87A, salaried individuals with taxable income up to ₹7.75 Lakhs pay ₹0 Tax (thanks to the ₹75,000 Standard Deduction + Rebate)!
+⭐ Section 87A Tax Rebate Benefit:
+Salaried individuals with total income up to ₹7.75 Lakhs pay ZERO TAX (due to ₹75,000 standard deduction + 87A rebate)!
 
-Old Regime is only better if you have large deductions (Home Loan Interest >₹2L, HRA, 80C/80D) exceeding ₹3.75 Lakhs.`,
+💡 Kaunsa Regime Better Hai?
+Agar aapke paas Home Loan Interest (>₹2 Lakhs), HRA, aur 80C/80D mila kar ₹3.75 Lakhs se zyada deduction nahi hai, to NEW REGIME aapke liye best aur sabse zyada tax bachayega!`,
       whatsappQuery: "Hello Sajid Sir, please calculate which tax regime (Old vs New) saves me more tax."
     };
   }
 
-  // 2. GST Registration & Thresholds
-  if (query.includes('gst') || query.includes('gstin') || query.includes('turnover')) {
+  // 4. GST Registration & Filing
+  if (
+    q.includes('gst') || q.includes('gstin') || q.includes('turnover') || q.includes('gstr') ||
+    q.includes('gst number') || q.includes('invoice') || q.includes('e-way')
+  ) {
     return {
-      text: `Goods & Services Tax (GST) in India:
-• Turnover Threshold for Goods: ₹40 Lakhs (Normal States) / ₹20 Lakhs for services.
-• Mandatory GST: Required for Interstate supply (selling outside state) or E-Commerce sellers regardless of turnover.
-• Documents Required:
-  1. PAN & Aadhaar Card of Proprietor / Partners / Directors
-  2. Electricity bill / Rent agreement of business place
-  3. Cancelled Cheque or Bank Statement
-  4. Passport photo of applicant
+      text: `🧾 GST Registration & Compliance Rules:
 
-We process new GST registrations within 3 to 7 working days with 100% government approval.`,
-      whatsappQuery: "Hello Sajid Sir, I need new GST registration / monthly GST return filing assistance."
+• Turnover Threshold:
+  - Goods Traders / Manufacturers: ₹40 Lakhs (Normal States)
+  - Service Providers / Freelancers: ₹20 Lakhs
+  - Interstate (Doosre state me bechna) ya E-commerce: Registration MANDATORY chahe turnover kitna bhi ho!
+
+• Required Documents:
+  1. PAN Card & Aadhaar Card (Owner/Partners/Directors)
+  2. Electricity Bill / Rent Agreement of Business Place
+  3. Cancelled Cheque / Bank Statement
+  4. Passport Size Photo
+
+Hum 3 se 7 dino ke andar new GSTIN generate karwa dete hain aur monthly GSTR-1 / 3B filing karte hain.`,
+      whatsappQuery: "Hello Sajid Sir, I need GST registration / monthly GST return filing assistance."
     };
   }
 
-  // 3. PF / EPF Withdrawal & Rejection Fix
-  if (query.includes('pf') || query.includes('epf') || query.includes('epfo') || query.includes('form 19') || query.includes('form 10c') || query.includes('uan')) {
+  // 5. PF / EPF Withdrawal & Rejection Fix
+  if (
+    q.includes('pf') || q.includes('epf') || q.includes('epfo') || q.includes('uan') ||
+    q.includes('form 19') || q.includes('form 10c') || q.includes('form 31') ||
+    q.includes('rejection') || q.includes('reject') || q.includes('date of exit') ||
+    q.includes('paisa fas') || q.includes('claim')
+  ) {
     return {
-      text: `EPFO / PF Withdrawal & Dispute Solutions:
-• Form 19: Full & final PF provident fund settlement (after leaving job for 2 months).
+      text: `🏦 EPFO / PF Withdrawal & Dispute Solutions:
+
+• Form 19: Full & final PF provident fund settlement (job chhodne ke 2 mahine baad).
 • Form 10C: Pension fund withdrawal benefit.
-• Form 31: Advance withdrawal for illness, marriage, or home purchase.
+• Form 31: Emergency advance withdrawal (bimari, shaadi, ya ghar ke liye).
 
-Common Rejection Reasons We Fix:
-1. Missing or incorrect "Date of Exit" marked by previous employer.
-2. Father's name or Member name mismatch between Aadhaar and EPFO.
-3. Bank passbook photo unclear or cancelled cheque without printed name.
-4. Duplicate UAN or KYC bank rejection.
+🚨 PF Rejection ke Common Reasons Jo Hum Solve Karte Hain:
+1. "Date of Exit" na hona ya galat hona (hum online update karwate hain).
+2. Naam / Pitaji ke naam ki spelling Aadhaar aur EPFO me mismatch hona.
+3. Bank KYC approved na hona ya passbook photo clear na hona.
+4. Duplicate UAN ya member ID issue.
 
-We track your claim and resolve rejections so your money credits directly into your bank account.`,
+Hum aapke claim ko track karke paise bank me aane tak poora help karte hain.`,
       whatsappQuery: "Hello Sajid Sir, my PF claim was rejected / I need help with PF withdrawal."
     };
   }
 
-  // 4. Gumasta License in Mumbai
-  if (query.includes('gumasta') || query.includes('shop') || query.includes('bmc') || query.includes('establishment')) {
+  // 6. Gumasta License (Mumbai Shop & Establishment)
+  if (
+    q.includes('gumasta') || q.includes('shop') || q.includes('bmc') ||
+    q.includes('establishment') || q.includes('dukan') || q.includes('licence') || q.includes('license')
+  ) {
     return {
-      text: `Gumasta License (Maharashtra Shop & Establishment Act):
-• Mandatory in Mumbai for all commercial offices, traders, and consultancies.
-• Required by banks (HDFC, ICICI, SBI) to open a Current Account.
-• 0-9 Employees: Online Intimation Certificate (Form F) with lifetime validity.
-• 10+ Employees: Official Registration Certificate (Form G).
+      text: `🏢 Gumasta License (Maharashtra Shop & Establishment Act):
 
-Required Documents:
-• Electricity bill of office / shop
-• Rent agreement / NOC from owner
-• Aadhaar & PAN Card of owner
-• Photo of establishment with Marathi signboard on display.`,
+• Mumbai me kisi bhi dukaan, commercial office, consultancy ya trading ke liye Gumasta License ZAROORI hai.
+• Bank me Current Account kholne ke liye Gumasta certificate sabse pehla document maanga jata hai.
+• 0-9 Employees: Form F Intimation (Lifetime validity, koi renewal jhanjhat nahi).
+• 10+ Employees: Form G Registration certificate.
+
+Zaroori Documents:
+• Electricity bill of office/shop & Rent Agreement/NOC
+• Owner ka PAN aur Aadhaar Card
+• Dukaan/Office ka photo Marathi signboard ke sath.`,
       whatsappQuery: "Hello Sajid Sir, I need to obtain a Gumasta license in Mumbai for my office/business."
     };
   }
 
-  // 5. ITR Filing & Penalties
-  if (query.includes('itr') || query.includes('income tax') || query.includes('penalty') || query.includes('deadline') || query.includes('due date')) {
+  // 7. Income Tax Return (ITR) Filing & Deadlines
+  if (
+    q.includes('itr') || q.includes('income tax') || q.includes('return') ||
+    q.includes('penalty') || q.includes('deadline') || q.includes('due date') ||
+    q.includes('form 16') || q.includes('notice') || q.includes('refund')
+  ) {
     return {
-      text: `Income Tax Return (ITR) Compliance & Deadlines:
-• Due Date for Individuals & Non-Audit: 31st July of Assessment Year.
+      text: `📑 Income Tax Return (ITR) Filing & Due Dates:
+
+• Due Date for Individuals & Salaried: 31st July.
 • Due Date for Tax Audit (Section 44AB): 31st October.
 • Late Filing Penalty (Section 234F):
-  - Income up to ₹5,00,000: ₹1,000 late fee
-  - Income above ₹5,00,000: ₹5,000 late fee + 1% monthly interest under Section 234A.
-• Documents to Share: Form 16, Bank Statements, PAN, Aadhaar, and Investment Proofs.
+  - Income up to ₹5 Lakhs: ₹1,000 late fee
+  - Income above ₹5 Lakhs: ₹5,000 late fee + 1% monthly interest (Sec 234A).
+• Documents Needed:
+  - Form 16 (for salaried)
+  - Bank Statements (April to March)
+  - PAN Card & Aadhaar Card
+  - Capital Gains / Crypto / Dividend statement (if any)
 
-Our team files your ITR within 24 to 48 hours and maximizes your legitimate refunds.`,
+Humara office 24-48 ghante me accuracy ke sath ITR file karke instant acknowledgement provide karta hai.`,
       whatsappQuery: "Hello Sajid Sir, I want to file my Income Tax Return (ITR). Please let me know the process."
     };
   }
 
-  // 6. Company Incorporation / Pvt Ltd / LLP
-  if (query.includes('company') || query.includes('pvt ltd') || query.includes('llp') || query.includes('incorporation') || query.includes('mca')) {
+  // 8. Company Registration / Pvt Ltd / LLP
+  if (
+    q.includes('company') || q.includes('pvt ltd') || q.includes('llp') ||
+    q.includes('incorporation') || q.includes('mca') || q.includes('startup') ||
+    q.includes('firm') || q.includes('partnership')
+  ) {
     return {
-      text: `Company Incorporation with MCA (Ministry of Corporate Affairs):
-• Private Limited (Pvt Ltd): Ideal for startups, high growth, and raising investment (Min 2 directors).
-• Limited Liability Partnership (LLP): Lower compliance burden, ideal for professional services.
-• Step-by-Step Incorporation:
-  1. Digital Signature Certificate (DSC) & Director Identification Number (DIN)
-  2. SPICe+ Part A: Name Reservation
-  3. SPICe+ Part B: Drafting MOA, AOA, PAN, TAN, EPFO, ESIC & GSTIN
-  4. Certificate of Incorporation (COI) issued by Registrar of Companies (ROC).`,
+      text: `🏛️ MCA Company Incorporation Services:
+
+• Private Limited (Pvt Ltd): Investors, funding aur brand value ke liye sabse best (Min 2 directors).
+• Limited Liability Partnership (LLP): Low compliance aur professional partners ke liye best.
+• Complete Step-by-Step Package:
+  1. Digital Signature (DSC) & Director Identification Number (DIN)
+  2. MCA SPICe+ Name Approval & Company Registration
+  3. Drafting of MOA & AOA
+  4. PAN, TAN, EPFO, ESIC & GSTIN registration
+  5. Certificate of Incorporation (COI) issued by ROC.`,
       whatsappQuery: "Hello Sajid Sir, I want to incorporate a new Pvt Ltd company / LLP."
     };
   }
 
-  // 7. Office Location & Contact
-  if (query.includes('office') || query.includes('location') || query.includes('address') || query.includes('where') || query.includes('timing') || query.includes('hours') || query.includes('phone') || query.includes('sajid')) {
+  // 9. Office Location, Contact & Timings
+  if (
+    q.includes('office') || q.includes('location') || q.includes('address') ||
+    q.includes('where') || q.includes('timing') || q.includes('hours') ||
+    q.includes('phone') || q.includes('call') || q.includes('number') ||
+    q.includes('opera house') || q.includes('charni road') || q.includes('kahan')
+  ) {
     return {
-      text: `Sajid Tax Consultant Service Office Details:
-📍 Address: Office No.114A, 2nd Floor, Paras Juice Building, Tata Road No.2, Near Prasad Chamber, Opera House, Mumbai - 400004 (Just 5 mins from Charni Road Station).
-⏰ Working Hours: Monday to Saturday, 11:00 AM to 7:00 PM (Sunday Closed).
-📞 Direct Phone: +91 77620 67143
-✉️ Email: workwithsajid@zohomail.in
+      text: `📍 Sajid Tax Consultant Service Office Details:
 
-You are welcome to visit our Opera House office in person or consult digitally via WhatsApp!`,
-      whatsappQuery: "Hello Sajid Sir, I would like to visit your Opera House office for a tax consultation."
+• Address: Office No.114A, 2nd Floor, Paras Juice Building, Tata Road No.2, Near Prasad Chamber, Opera House, Mumbai - 400004.
+• Landmark: Charni Road Railway Station se sirf 5 minute walking distance.
+• Working Hours: Monday to Saturday, 11:00 AM to 7:00 PM (Sunday Closed).
+• Direct Phone: +91 77620 67143
+• Email: workwithsajid@zohomail.in
+
+Aap office me aakar face-to-face mil sakte hain ya WhatsApp par documents bhej kar ghar baithe kaam karwa sakte hain!`,
+      whatsappQuery: "Hello Sajid Sir, I would like to visit your Opera House office for consultation."
     };
   }
 
-  // Default smart tax advice
-  return {
-    text: `Thank you for your query regarding "${input}".
-Sajid Tax Consultant Service specializes in:
-1. Income Tax Return (ITR-1 to ITR-7) & Notice handling
-2. GST Registration, Monthly GSTR-1/3B & Annual Audit
-3. EPF / PF Claim Settlements & Rejections
-4. BMC Gumasta License (Mumbai Shop & Establishment)
-5. MCA Pvt Ltd / LLP Incorporation & TDS Filings
+  // 10. Audit, Accounting & Tally
+  if (
+    q.includes('audit') || q.includes('44ab') || q.includes('accounts') ||
+    q.includes('bookkeeping') || q.includes('tally') || q.includes('balance sheet') ||
+    q.includes('pnl') || q.includes('ledger')
+  ) {
+    return {
+      text: `📊 Accounting, Bookkeeping & Tax Audit Services:
 
-Would you like Consultant Sajid to review your documents and provide a customized solution?`,
+• Tally, Zoho Books, & QuickBooks daily/monthly ledger maintenance.
+• Bank Reconciliation, Debtors & Creditors ageing analysis.
+• Balance Sheet, Profit & Loss Statement preparation.
+• Tax Audit under Section 44AB for business turnover exceeding ₹1 Crore (or ₹10 Crore digital transactions).
+• TDS & TCS computation, deduction, and quarterly return filing (Form 24Q/26Q).`,
+      whatsappQuery: "Hello Sajid Sir, I need accounting, bookkeeping, or tax audit services."
+    };
+  }
+
+  // Default Smart Tax Advice
+  return {
+    text: `Aapke sawaal "${input}" ke silsile me:
+
+Sajid Tax Consultant Service (Opera House, Mumbai) aapko complete guidance provide karta hai:
+1. Income Tax Return (ITR) & Tax Saving Planning
+2. GST Registration & Monthly Compliance
+3. PF / EPF Claim Settlement & Rejection Fix
+4. Mumbai BMC Gumasta License
+5. Pvt Ltd & LLP Company Incorporation
+
+Aap direct Consultant Sajid se WhatsApp par baat karke apne documents share kar sakte hain!`,
     whatsappQuery: `Hello Sajid Sir, I have a query regarding: "${input}". Please guide me.`
   };
 }
@@ -164,21 +271,22 @@ export default function AiTaxAssistantModal({ isOpen, onClose }: AiTaxAssistantM
     {
       id: 'welcome',
       sender: 'ai',
-      text: `Namaste! 🙏 I am the Sajid Tax AI Assistant.
+      text: `Namaste! 🙏 Main Sajid Tax Consultant ka AI Advisor hoon.
 
-I can help you with:
-• New vs Old Tax Regime slabs & 87A rebate
-• GST registration turnover & documents
-• PF withdrawal & rejection fixes
-• Mumbai Gumasta License (Shop & Establishment)
-• MCA Pvt Ltd & LLP registration
+Aap mujhse pooch sakte hain:
+• New vs Old Tax Regime me kitna tax bachega?
+• GST Registration ke liye kya documents chahiye?
+• PF rejection kaise theek hoga?
+• Mumbai Gumasta License kaise banega?
+• Opera House office timings & consultation fees?
 
-Tap any quick topic below or type your question!`
+Neeche kisi bhi topic par tap karein ya apna sawaal type karein!`
     }
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const chatBottomRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -189,6 +297,9 @@ Tap any quick topic below or type your question!`
     if (isOpen) {
       document.addEventListener('keydown', handleKeyDown);
       document.body.style.overflow = 'hidden';
+      setTimeout(() => {
+        inputRef.current?.focus();
+      }, 200);
     }
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
@@ -201,6 +312,9 @@ Tap any quick topic below or type your question!`
       chatBottomRef.current?.scrollIntoView({ behavior: 'smooth' });
     }
   }, [messages, isTyping, isOpen]);
+
+  // CRITICAL: When closed, render NOTHING so 0 horizontal space or touch issues occur
+  if (!isOpen) return null;
 
   const handleSend = (textToSend?: string) => {
     const prompt = textToSend || inputValue;
@@ -216,7 +330,6 @@ Tap any quick topic below or type your question!`
     if (!textToSend) setInputValue('');
     setIsTyping(true);
 
-    // Simulate realistic AI analysis time
     setTimeout(() => {
       const response = generateAiResponse(prompt);
       const aiMessage: Message = {
@@ -228,47 +341,38 @@ Tap any quick topic below or type your question!`
       };
       setMessages((prev) => [...prev, aiMessage]);
       setIsTyping(false);
-    }, 350);
+    }, 300);
   };
 
   return (
     <div
-      className={`fixed inset-0 z-50 transition-all duration-300 ${
-        isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-      }`}
+      className="fixed inset-0 z-50 flex justify-end bg-slate-950/60 backdrop-blur-xs animate-in fade-in duration-200 overflow-hidden"
       role="dialog"
       aria-modal="true"
       aria-labelledby="ai-assistant-title"
+      onClick={onClose}
     >
-      {/* Dark backdrop */}
+      {/* Slide-over drawer container */}
       <div
-        className="fixed inset-0 bg-slate-950/60 backdrop-blur-xs transition-opacity duration-300"
-        onClick={onClose}
-      ></div>
-
-      {/* Smooth Slide-Over Panel from Right */}
-      <div
-        className={`fixed inset-y-0 right-0 z-50 w-full sm:max-w-md bg-white shadow-2xl flex flex-col transition-transform duration-300 ease-out transform ${
-          isOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        className="relative w-full sm:max-w-md h-[100dvh] bg-white shadow-2xl flex flex-col animate-in slide-in-from-right duration-250 text-[#0f172a]"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header - Always 100% visible at the top */}
-        <div className="bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 p-4 sm:p-5 text-white flex items-center justify-between border-b border-white/10 shrink-0 shadow-sm">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-500 via-indigo-500 to-amber-400 flex items-center justify-center shadow-md ring-2 ring-white/20">
+        {/* Header (Pinned at top with guaranteed visibility) */}
+        <div className="bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 p-3.5 sm:p-4 text-white flex items-center justify-between border-b border-white/10 shrink-0 shadow-xs">
+          <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-blue-500 via-indigo-500 to-amber-400 flex items-center justify-center shadow-md ring-2 ring-white/20 shrink-0">
               <SparklesIcon className="w-5 h-5 text-white" />
             </div>
-            <div>
+            <div className="min-w-0">
               <div className="flex items-center gap-2">
-                <h3 id="ai-assistant-title" className="font-display font-bold text-base sm:text-lg text-white leading-tight">
+                <h3 id="ai-assistant-title" className="font-display font-bold text-sm sm:text-base text-white leading-tight truncate">
                   Sajid Tax AI Advisor
                 </h3>
-                <span className="px-1.5 py-0.5 text-[9px] font-mono font-bold uppercase rounded bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">
-                  Active
+                <span className="px-1.5 py-0.2 text-[9px] font-mono font-bold uppercase rounded bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 shrink-0">
+                  Online
                 </span>
               </div>
-              <p className="text-[11px] text-blue-200/90 font-mono">
+              <p className="text-[10.5px] sm:text-[11px] text-blue-200/90 font-mono truncate">
                 ITR, GST, EPFO &amp; Mumbai Regulations
               </p>
             </div>
@@ -276,22 +380,22 @@ Tap any quick topic below or type your question!`
 
           <button
             onClick={onClose}
-            className="p-2 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-colors"
+            className="p-1.5 sm:p-2 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-colors shrink-0"
             aria-label="Close AI Assistant"
           >
-            <XIcon className="w-6 h-6" />
+            <XIcon className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
         </div>
 
         {/* Chat Messages Body */}
-        <div className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-4 bg-[#f8fafc]">
+        <div className="flex-1 overflow-y-auto p-3.5 sm:p-4 space-y-3.5 bg-[#f8fafc] overscroll-contain">
           {messages.map((msg) => (
             <div
               key={msg.id}
               className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
             >
               <div
-                className={`max-w-[88%] sm:max-w-[85%] rounded-2xl p-3.5 sm:p-4 text-xs sm:text-sm leading-relaxed ${
+                className={`max-w-[88%] sm:max-w-[85%] rounded-2xl p-3 sm:p-3.5 text-xs sm:text-sm leading-relaxed ${
                   msg.sender === 'user'
                     ? 'bg-[#1d4ed8] text-white rounded-br-xs shadow-xs'
                     : 'bg-white text-slate-800 border border-slate-200 shadow-xs rounded-bl-xs'
@@ -305,14 +409,14 @@ Tap any quick topic below or type your question!`
                       href={`https://wa.me/${BUSINESS_INFO.phoneClean.replace('+', '')}?text=${encodeURIComponent(msg.whatsappQuery)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-[#047857] hover:bg-[#065f46] text-white font-semibold text-xs shadow-xs transition-all"
+                      className="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-[#047857] hover:bg-[#065f46] text-white font-semibold text-xs shadow-xs transition-all active:scale-95"
                     >
                       <MessageSquareIcon className="w-3.5 h-3.5" />
                       <span>{msg.actionText || 'Message on WhatsApp'}</span>
                     </a>
                     <a
                       href={`tel:${BUSINESS_INFO.phoneClean}`}
-                      className="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs transition-all"
+                      className="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs transition-all active:scale-95"
                     >
                       <PhoneIcon className="w-3 h-3 text-[#1d4ed8]" />
                       <span>Call {BUSINESS_INFO.phone}</span>
@@ -325,11 +429,11 @@ Tap any quick topic below or type your question!`
 
           {isTyping && (
             <div className="flex justify-start">
-              <div className="bg-white border border-slate-200 rounded-2xl rounded-bl-xs p-3.5 flex items-center gap-1.5 shadow-xs">
+              <div className="bg-white border border-slate-200 rounded-2xl rounded-bl-xs p-3 flex items-center gap-1.5 shadow-xs">
                 <span className="w-2 h-2 rounded-full bg-blue-600 animate-bounce"></span>
                 <span className="w-2 h-2 rounded-full bg-blue-600 animate-bounce [animation-delay:0.2s]"></span>
                 <span className="w-2 h-2 rounded-full bg-blue-600 animate-bounce [animation-delay:0.4s]"></span>
-                <span className="text-xs text-slate-400 font-mono ml-2">Consultant AI calculating...</span>
+                <span className="text-xs text-slate-400 font-mono ml-2">Analyzing tax laws...</span>
               </div>
             </div>
           )}
@@ -337,9 +441,9 @@ Tap any quick topic below or type your question!`
           <div ref={chatBottomRef}></div>
         </div>
 
-        {/* Quick Suggestion Chips (Clean pills with no ugly scrollbar) */}
+        {/* Quick Suggestion Chips (Smooth pills without native scrollbar) */}
         <div 
-          className="px-4 py-2.5 bg-white border-t border-slate-200/80 flex items-center gap-1.5 overflow-x-auto text-xs shrink-0"
+          className="px-3 py-2 bg-white border-t border-slate-200/80 flex items-center gap-1.5 overflow-x-auto text-xs shrink-0"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           <span className="text-[10px] font-mono uppercase font-bold text-slate-400 shrink-0 mr-1">
@@ -349,7 +453,7 @@ Tap any quick topic below or type your question!`
             <button
               key={idx}
               onClick={() => handleSend(prompt)}
-              className="shrink-0 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-blue-50 hover:text-[#1d4ed8] hover:border-blue-200 border border-slate-200 text-slate-700 text-[11px] font-medium transition-all active:scale-95"
+              className="shrink-0 px-2.5 py-1 rounded-full bg-slate-100 hover:bg-blue-50 hover:text-[#1d4ed8] hover:border-blue-200 border border-slate-200 text-slate-700 text-[11px] font-medium transition-all active:scale-95"
             >
               {prompt}
             </button>
@@ -362,22 +466,24 @@ Tap any quick topic below or type your question!`
             e.preventDefault();
             handleSend();
           }}
-          className="p-3 sm:p-4 bg-white border-t border-slate-200 flex items-center gap-2 shrink-0"
+          className="p-2.5 sm:p-3 bg-white border-t border-slate-200 flex items-center gap-2 shrink-0 pb-[max(0.75rem,env(safe-area-inset-bottom))]"
         >
           <input
+            ref={inputRef}
             type="text"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            placeholder="Type your question (e.g. New slab, GST, PF)..."
-            className="flex-1 px-3.5 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-300 focus:outline-hidden focus:border-[#1d4ed8] focus:ring-2 focus:ring-blue-100 transition-all placeholder:text-slate-400 bg-slate-50/50 focus:bg-white"
+            placeholder="Type question (e.g. Fees, Tax slab, PF, GST)..."
+            className="flex-1 px-3 py-2 text-xs sm:text-sm rounded-xl border border-slate-300 focus:outline-hidden focus:border-[#1d4ed8] focus:ring-2 focus:ring-blue-100 transition-all placeholder:text-slate-400 bg-slate-50/50 focus:bg-white"
           />
           <button
             type="submit"
             disabled={!inputValue.trim() || isTyping}
-            className="px-4 py-2.5 bg-[#1d4ed8] hover:bg-[#1e40af] disabled:opacity-50 text-white font-bold text-xs sm:text-sm rounded-xl transition-all shadow-xs flex items-center gap-1.5 shrink-0 active:scale-95"
+            className="px-3.5 py-2 bg-[#1d4ed8] hover:bg-[#1e40af] disabled:opacity-50 text-white font-bold text-xs sm:text-sm rounded-xl transition-all shadow-xs flex items-center gap-1 shrink-0 active:scale-95"
+            aria-label="Send query"
           >
             <span>Ask</span>
-            <SparklesIcon className="w-3.5 h-3.5 text-amber-300" />
+            <SendIcon className="w-3.5 h-3.5 text-white" />
           </button>
         </form>
       </div>

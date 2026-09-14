@@ -51,8 +51,15 @@ export default function Header() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-4">
         {/* Brand identity */}
         <a href="#" aria-label="Sajid Tax Consultant Service Home" className="flex items-center gap-3 group text-left">
-          <div className="w-10 h-10 rounded-full border border-blue-200 bg-blue-50 flex items-center justify-center font-display font-bold text-[#1d4ed8] text-lg shadow-xs group-hover:border-[#1d4ed8] group-hover:bg-[#1d4ed8] group-hover:text-white transition-all">
-            SJ
+          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden bg-black border-2 border-amber-500/50 shadow-md ring-1 ring-amber-400/20 shrink-0 flex items-center justify-center group-hover:border-amber-400 group-hover:scale-105 transition-all">
+            <img
+              src="/images/logo-128.png"
+              alt="Sajid Tax Consultant Official Logo"
+              className="w-full h-full object-cover"
+              width="44"
+              height="44"
+              loading="eager"
+            />
           </div>
           <div>
             <div className="font-display font-bold text-lg sm:text-xl text-[#0f172a] group-hover:text-[#1d4ed8] leading-tight tracking-tight">

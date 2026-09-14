@@ -38,8 +38,14 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
       return (
         <div className="min-h-screen flex items-center justify-center bg-[#f8fafc] text-[#0f172a] p-6">
           <div className="max-w-md w-full bg-white border border-[#e2e8f0] rounded-xl p-8 text-center space-y-4 shadow-sm">
-            <div className="w-12 h-12 rounded-full bg-blue-50 text-[#1d4ed8] border border-blue-200 flex items-center justify-center mx-auto text-xl font-bold">
-              SJ
+            <div className="w-14 h-14 rounded-full overflow-hidden bg-black border-2 border-amber-500/60 shadow-md mx-auto flex items-center justify-center">
+              <img
+                src="/images/logo-128.png"
+                alt="Sajid Tax Consultant Logo"
+                className="w-full h-full object-cover"
+                width="56"
+                height="56"
+              />
             </div>
             <h2 className="text-2xl font-display font-bold text-[#0f172a]">
               Sajid Tax Consultant Service

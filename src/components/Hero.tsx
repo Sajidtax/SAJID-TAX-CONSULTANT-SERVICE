@@ -58,7 +58,9 @@ export default function Hero() {
             {/* Quick Action Buttons - Harmonious, uniform height, perfectly aligned */}
             <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 pt-2">
               <a
-                href="#contact"
+                href={`https://wa.me/${BUSINESS_INFO.phoneClean.replace('+', '')}?text=Hello%20Sajid%20Tax%20Consultant,%20I%20would%20like%20to%20book%20a%20free%20consultation.`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="h-12 px-6 rounded-lg bg-[#1d4ed8] hover:bg-[#1e40af] text-white font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 whitespace-nowrap"
               >
                 <span>Book Free Consultation</span>

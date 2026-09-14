@@ -79,13 +79,14 @@ export default function Header() {
           <a href="#why-us" className="hover:text-[#1d4ed8] transition-colors py-1">Why Us</a>
           <a href="#office" className="hover:text-[#1d4ed8] transition-colors py-1">Office &amp; Hours</a>
           <a href="#faq" className="hover:text-[#1d4ed8] transition-colors py-1">FAQ</a>
-          <a href="#contact" className="hover:text-[#1d4ed8] transition-colors py-1">Contact</a>
         </nav>
 
         {/* Single Sleek Desktop CTA */}
         <div className="hidden lg:flex items-center">
           <a
-            href="#contact"
+            href={`https://wa.me/${BUSINESS_INFO.phoneClean.replace('+', '')}?text=Hello%20Sajid%20Tax%20Consultant,%20I%20would%20like%20to%20book%20a%20consultation.`}
+            target="_blank"
+            rel="noopener noreferrer"
             className="whitespace-nowrap inline-flex items-center justify-center px-4 py-2 text-xs font-mono font-bold uppercase tracking-wider rounded-lg bg-[#1d4ed8] text-white hover:bg-[#1e40af] transition-all shadow-xs"
           >
             <span>Book Consultation</span>
@@ -156,13 +157,6 @@ export default function Header() {
               className="py-2 px-2 text-[#0f172a] hover:text-[#1d4ed8] hover:bg-[#f8fafc] rounded-md"
             >
               Frequently Asked Questions (FAQ)
-            </a>
-            <a
-              href="#contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-2 px-2 text-[#0f172a] hover:text-[#1d4ed8] hover:bg-[#f8fafc] rounded-md"
-            >
-              Contact &amp; Callback
             </a>
           </div>
 

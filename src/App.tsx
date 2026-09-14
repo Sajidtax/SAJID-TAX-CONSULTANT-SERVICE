@@ -9,7 +9,6 @@ const ComplianceCalendarSection = lazy(() => import('./components/ComplianceCale
 const ProcessSection = lazy(() => import('./components/ProcessSection'));
 const WhyChooseUs = lazy(() => import('./components/WhyChooseUs'));
 const OfficeLocation = lazy(() => import('./components/OfficeLocation'));
-const ContactSection = lazy(() => import('./components/ContactSection'));
 const FaqSection = lazy(() => import('./components/FaqSection'));
 const Footer = lazy(() => import('./components/Footer'));
 const FloatingContactBar = lazy(() => import('./components/FloatingContactBar'));
@@ -98,9 +97,6 @@ export default function App() {
 
             {/* Opera House Office, Map & Timings from Photo */}
             <OfficeLocation />
-
-            {/* Callback Request & Direct Contacts */}
-            <ContactSection />
 
             {/* Frequently Asked Questions */}
             <FaqSection />

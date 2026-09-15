@@ -6,10 +6,9 @@ export default function Hero() {
 
   return (
     <section className="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden bg-[#0F172A] text-white">
-      {/* Background Photography with High-Trust Corporate Dark Gradient Overlay */}
+      {/* Background: Pure CSS Corporate Gradient on Mobile (0KB, Instant FCP/LCP) & Photography on Desktop */}
       <div className="absolute inset-0 z-0">
-        <picture className="w-full h-full block">
-          <source media="(max-width: 640px)" srcSet="/images/tax-hero-bg-mobile.jpg" />
+        <picture className="w-full h-full hidden sm:block">
           <img
             src="/images/tax-hero-bg.jpg"
             alt="Sajid Tax Consultant reviewing financial paperwork and tax calculations in office"
@@ -20,9 +19,10 @@ export default function Hero() {
             fetchPriority="high"
           />
         </picture>
-        {/* Multilayer gradient: deep navy on left for 100% crisp text readability, fading to subtle vignette on right */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A]/95 via-[#0F172A]/85 to-[#0F172A]/50"></div>
+        {/* Multilayer gradient: deep corporate navy with subtle ambient radial illumination */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A] via-[#0F172A]/95 to-[#0F172A]/70 sm:from-[#0F172A]/95 sm:via-[#0F172A]/85 sm:to-[#0F172A]/50"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-transparent to-[#0F172A]/40"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">

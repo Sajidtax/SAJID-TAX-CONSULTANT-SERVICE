@@ -49,21 +49,31 @@
     <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
     <meta name="robots" content="index, follow" />
     
-    <!-- Preconnect & Asynchronous Non-Blocking Fonts for 100/100 Mobile Performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Plus+Jakarta+Sans:wght@500;700&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Plus+Jakarta+Sans:wght@500;700&display=swap" media="print" onload="this.media='all'" />
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Plus+Jakarta+Sans:wght@500;700&display=swap" />
-    </noscript>
+    <!-- Preload Self-Hosted Fonts for 0ms FOIT & 100/100 Mobile FCP/LCP -->
+    <link rel="preload" href="/fonts/fraunces-700.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/plus-jakarta-sans-700.woff2" as="font" type="font/woff2" crossorigin />
 
-    <!-- Preload Critical Hero Background Images for Instant Mobile (33KB) & Desktop (79KB) LCP -->
-    <link rel="preload" as="image" href="/images/tax-hero-bg-mobile.jpg" media="(max-width: 640px)" fetchpriority="high" />
+    <!-- Preload Desktop Hero Photography Only (Mobile uses pure CSS corporate gradient) -->
     <link rel="preload" as="image" href="/images/tax-hero-bg.jpg" media="(min-width: 641px)" fetchpriority="high" />
 
     <!-- Inline critical CSS for instant 0.3s First Contentful Paint -->
     <style>
+      @font-face {
+        font-family: 'Fraunces';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url('/fonts/fraunces-700.woff2') format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: 'Plus Jakarta Sans';
+        font-style: normal;
+        font-weight: 500 700;
+        font-display: swap;
+        src: url('/fonts/plus-jakarta-sans-700.woff2') format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
       :root {
         --font-serif: "Fraunces", Georgia, Cambria, "Times New Roman", Times, serif;
         --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
@@ -107,6 +117,11 @@
     <!-- Machine-readable Agentic & LLM discovery -->
     <link rel="alternate" type="text/markdown" title="LLM documentation" href="https://www.sajidtaxconsultant.online/llms.txt" />
     <link rel="llms-txt" href="https://www.sajidtaxconsultant.online/llms.txt" />
+
+  </head>
+  <body class="bg-white text-[#475569] font-sans antialiased selection:bg-[#1D4ED8] selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
 
     <!-- Schema.org JSON-LD LocalBusiness / AccountingService Structured Data for Google -->
     <script type="application/ld+json">
@@ -280,10 +295,6 @@
       ]
     }
     </script>
-  </head>
-  <body class="bg-white text-[#475569] font-sans antialiased selection:bg-[#1D4ED8] selection:text-white">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
 

@@ -69,12 +69,12 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
 export default function App() {
   return (
     <ErrorBoundary>
-      <div className="min-h-screen flex flex-col bg-white text-[#475569] font-sans selection:bg-[#1d4ed8] selection:text-white bg-grid-pattern overflow-x-hidden w-full max-w-full">
+      <div className="min-h-screen flex flex-col bg-white text-[#475569] font-sans selection:bg-[#1d4ed8] selection:text-white bg-grid-pattern w-full">
         {/* Top Navigation */}
         <Header />
 
         {/* Main Content Sections */}
-        <main id="main-content" className="flex-1">
+        <main id="main-content" className="flex-1 w-full overflow-x-clip">
           {/* Hero with Value proposition & upcoming due dates card */}
           <Hero />
 

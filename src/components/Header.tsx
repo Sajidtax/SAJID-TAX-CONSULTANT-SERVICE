@@ -10,7 +10,7 @@ export default function Header() {
   const status = getOfficeStatus();
 
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#e2e8f0] shadow-xs transition-all">
+    <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-[#e2e8f0] shadow-xs transition-all sticky-header">
       <a href="#services" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:p-3 focus:bg-[#1d4ed8] focus:text-white focus:font-bold focus:rounded-md shadow-lg">
         Skip to main content
       </a>
@@ -107,7 +107,7 @@ export default function Header() {
 
       {/* Responsive Navigation Menu (Dropdown for all screen sizes) */}
       {mobileMenuOpen && (
-        <div id="navigation-menu" className="border-t border-[#e2e8f0] bg-white shadow-xl animate-in slide-in-from-top duration-200">
+        <div id="navigation-menu" className="border-t border-[#e2e8f0] bg-white shadow-xl max-h-[calc(100vh-60px)] overflow-y-auto animate-in slide-in-from-top duration-200">
           <div className="max-w-6xl mx-auto px-5 sm:px-6 py-6 space-y-5">
             <div className="flex items-center justify-between pb-3 border-b border-[#e2e8f0] text-xs">
               <span className="font-mono text-[#475569]">Working Hours: Mon-Sat 11 AM - 7 PM</span>

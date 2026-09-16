@@ -74,7 +74,7 @@ export default function App() {
         <Header />
 
         {/* Main Content Sections */}
-        <main id="main-content" className="flex-1 w-full overflow-x-clip">
+        <main id="main-content" className="flex-1 w-full overflow-x-clip pb-20 sm:pb-0">
           {/* Hero with Value proposition & upcoming due dates card */}
           <Hero />
 

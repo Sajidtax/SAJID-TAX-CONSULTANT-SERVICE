@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { X, CheckCircle, Check, FileText, Clock, Phone, MessageSquare } from 'lucide-react';
 import { ServiceItem } from '../types';
 import { BUSINESS_INFO } from '../data/businessData';
@@ -25,13 +26,13 @@ export default function ServiceDetailModal({ service, onClose }: ServiceDetailMo
     };
   }, [service, onClose]);
 
-  if (!service) return null;
+  if (!service || typeof document === 'undefined') return null;
 
   const whatsappMessage = encodeURIComponent(
     `Hello Sajid Sir, I am interested in your service: "${service.title}". Please let me know the requirements and fee details.`
   );
 
-  return (
+  const modalContent = (
     <div 
       className="fixed inset-0 z-[90] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-200"
       onClick={onClose}
@@ -56,9 +57,9 @@ export default function ServiceDetailModal({ service, onClose }: ServiceDetailMo
                 </span>
               )}
             </div>
-            <h3 id="modal-service-title" className="text-2xl font-display font-bold mt-1 text-[#0f172a]">
+            <h2 id="modal-service-title" className="text-2xl font-display font-bold mt-1 text-[#0f172a]">
               {service.title}
-            </h3>
+            </h2>
             <p className="text-[#475569] text-xs sm:text-sm mt-1">
               {service.tagline}
             </p>
@@ -76,9 +77,9 @@ export default function ServiceDetailModal({ service, onClose }: ServiceDetailMo
         <div className="p-6 space-y-6">
           {/* Overview */}
           <div>
-            <h4 className="text-xs font-mono font-bold uppercase text-[#1d4ed8] tracking-wider mb-2">
+            <h3 className="text-xs font-mono font-bold uppercase text-[#1d4ed8] tracking-wider mb-2">
               Service Scope &amp; Description
-            </h4>
+            </h3>
             <p className="text-sm sm:text-[15px] text-[#475569] leading-relaxed">
               {service.description}
             </p>
@@ -86,10 +87,10 @@ export default function ServiceDetailModal({ service, onClose }: ServiceDetailMo
 
           {/* Deliverables */}
           <div className="bg-[#f8fafc] p-4 rounded-xl border border-[#e2e8f0]">
-            <h4 className="text-xs font-mono font-bold uppercase text-[#0f172a] tracking-wider mb-3 flex items-center gap-1.5">
+            <h3 className="text-xs font-mono font-bold uppercase text-[#0f172a] tracking-wider mb-3 flex items-center gap-1.5">
               <CheckCircle className="w-4 h-4 text-[#047857]" />
               <span>What We Deliver for You</span>
-            </h4>
+            </h3>
             <ul className="space-y-2 text-xs sm:text-sm text-[#475569]">
               {service.deliverables.map((item, idx) => (
                 <li key={idx} className="flex items-start gap-2">
@@ -102,10 +103,10 @@ export default function ServiceDetailModal({ service, onClose }: ServiceDetailMo
 
           {/* Required Documents checklist */}
           <div>
-            <h4 className="text-xs font-mono font-bold uppercase text-[#1d4ed8] tracking-wider mb-3 flex items-center gap-1.5">
+            <h3 className="text-xs font-mono font-bold uppercase text-[#1d4ed8] tracking-wider mb-3 flex items-center gap-1.5">
               <FileText className="w-4 h-4 text-[#1d4ed8]" />
               <span>Documents Required From You</span>
-            </h4>
+            </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm">
               {service.documentsRequired.map((doc, idx) => (
                 <div key={idx} className="flex items-center gap-2 p-2.5 rounded-lg bg-[#f8fafc] border border-[#e2e8f0]">
@@ -147,4 +148,6 @@ export default function ServiceDetailModal({ service, onClose }: ServiceDetailMo
       </div>
     </div>
   );
+
+  return createPortal(modalContent, document.body);
 }

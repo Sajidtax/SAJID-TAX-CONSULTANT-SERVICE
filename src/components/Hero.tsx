@@ -128,9 +128,9 @@ export default function Hero() {
                   <span className="font-mono text-[11px] uppercase tracking-wider font-semibold text-[#1d4ed8] block">
                     Statutory Compliance Calendar
                   </span>
-                  <h3 className="font-display font-bold text-lg text-[#0f172a] mt-0.5">
+                  <h2 className="font-display font-bold text-lg text-[#0f172a] mt-0.5">
                     Critical Indian Tax Due Dates
-                  </h3>
+                  </h2>
                 </div>
                 <div className="p-2 rounded-lg bg-blue-50 text-[#1d4ed8] border border-blue-200">
                   <CalendarIcon className="w-5 h-5" />

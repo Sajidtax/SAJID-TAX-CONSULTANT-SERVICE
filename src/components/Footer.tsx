@@ -24,6 +24,7 @@ export default function Footer() {
                   width="44"
                   height="44"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div>
@@ -47,9 +48,9 @@ export default function Footer() {
 
           {/* Col 2: Services Quick Links (4 cols) */}
           <div className="lg:col-span-4 space-y-3">
-            <h3 className="font-mono text-xs uppercase font-bold text-white tracking-wider border-b border-slate-800 pb-2">
+            <h2 className="font-mono text-xs uppercase font-bold text-white tracking-wider border-b border-slate-800 pb-2">
               Our 10 Core Services
-            </h3>
+            </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-1.5 text-xs text-slate-300">
               {SERVICES_LIST.map((s) => (
                 <a
@@ -65,9 +66,9 @@ export default function Footer() {
 
           {/* Col 3: Direct Contact & Office Hours (4 cols) */}
           <div className="lg:col-span-4 space-y-3">
-            <h3 className="font-mono text-xs uppercase font-bold text-white tracking-wider border-b border-slate-800 pb-2">
+            <h2 className="font-mono text-xs uppercase font-bold text-white tracking-wider border-b border-slate-800 pb-2">
               Office &amp; Contact
-            </h3>
+            </h2>
             
             <div className="space-y-2.5 text-xs text-slate-300">
               <div className="flex items-start gap-2">

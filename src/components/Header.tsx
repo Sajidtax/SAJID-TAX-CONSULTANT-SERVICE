@@ -74,14 +74,14 @@ export default function Header() {
         </a>
 
         {/* Action Controls: AI Assistant (left) + 3-Row Menu (right) */}
-        <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+        <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
           {/* AI Assistant Button (placed directly to the left of 3-row menu) */}
           <button
             onClick={() => {
               setMobileMenuOpen(false);
               setAiModalOpen(true);
             }}
-            className="group inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 sm:py-2 text-xs font-bold rounded-lg bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 hover:from-blue-700 hover:via-indigo-700 hover:to-violet-700 text-white shadow-xs hover:shadow-md transition-all active:scale-95 shrink-0"
+            className="group inline-flex items-center gap-1 sm:gap-1.5 px-3 sm:px-3.5 py-2 sm:py-2.5 min-h-[44px] text-xs font-bold rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 hover:from-blue-700 hover:via-indigo-700 hover:to-violet-700 text-white shadow-xs hover:shadow-md transition-all active:scale-95 shrink-0"
             aria-label="Open AI Tax Assistant"
           >
             <SparklesIcon className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
@@ -95,7 +95,7 @@ export default function Header() {
               setAiModalOpen(false);
               setMobileMenuOpen(!mobileMenuOpen);
             }}
-            className="p-2 sm:p-2.5 text-[#0f172a] hover:bg-[#f8fafc] hover:text-[#1d4ed8] rounded-lg border border-[#e2e8f0] transition-all flex items-center justify-center shadow-2xs shrink-0"
+            className="min-h-[44px] min-w-[44px] p-2 sm:p-2.5 text-[#0f172a] hover:bg-[#f8fafc] hover:text-[#1d4ed8] rounded-xl border border-[#e2e8f0] transition-all flex items-center justify-center shadow-2xs shrink-0"
             aria-label="Toggle Navigation Menu"
             aria-expanded={mobileMenuOpen}
             aria-controls="navigation-menu"

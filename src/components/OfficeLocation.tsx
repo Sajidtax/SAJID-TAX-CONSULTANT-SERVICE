@@ -90,6 +90,7 @@ export default function OfficeLocation() {
                   width="1024"
                   height="682"
                   loading="lazy"
+                  decoding="async"
                 />
               </picture>
               <div className="absolute top-3 left-3 bg-[#0F172A]/85 backdrop-blur-md text-white text-[11px] font-mono font-bold px-3 py-1 rounded-full border border-white/20 flex items-center gap-1.5 shadow-xs">
@@ -124,6 +125,7 @@ export default function OfficeLocation() {
                   width="768"
                   height="1024"
                   loading="lazy"
+                  decoding="async"
                 />
               </picture>
               <div className="absolute top-3 left-3 bg-[#0F172A]/85 backdrop-blur-md text-white text-[11px] font-mono font-bold px-3 py-1 rounded-full border border-white/20 flex items-center gap-1.5 shadow-xs">

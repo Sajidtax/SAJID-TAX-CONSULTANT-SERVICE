@@ -366,9 +366,9 @@ Neeche kisi topic par tap karein ya apna sawaal type karein!`
             </div>
             <div className="min-w-0">
               <div className="flex items-center gap-2">
-                <h3 id="ai-assistant-title" className="font-display font-bold text-base text-[#0f172a] leading-tight truncate">
+                <h2 id="ai-assistant-title" className="font-display font-bold text-base text-[#0f172a] leading-tight truncate">
                   Sajid Tax AI Assistant
-                </h3>
+                </h2>
                 <span className="inline-flex items-center gap-1 px-1.5 py-0.5 text-[10px] font-mono font-bold uppercase rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 shrink-0">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
                   Online
@@ -454,9 +454,9 @@ Neeche kisi topic par tap karein ya apna sawaal type karein!`
           <span className="text-[10px] font-mono uppercase font-bold text-slate-400 shrink-0 mr-1">
             Topics:
           </span>
-          {QUICK_PROMPTS.map((prompt, idx) => (
+          {QUICK_PROMPTS.map((prompt) => (
             <button
-              key={idx}
+              key={prompt}
               onClick={() => handleSend(prompt)}
               className="shrink-0 px-3 py-1 rounded-full bg-slate-100 hover:bg-blue-50 hover:text-[#1d4ed8] hover:border-blue-200 border border-slate-200 text-slate-700 text-[11px] font-medium transition-all active:scale-95"
             >

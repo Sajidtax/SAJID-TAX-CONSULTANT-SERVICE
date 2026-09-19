@@ -1,4 +1,4 @@
-﻿import { ServiceItem, ComplianceDeadline, WorkingHourDay } from '../types';
+import { ServiceItem, ComplianceDeadline, WorkingHourDay } from '../types';
 
 export const BUSINESS_INFO = {
   name: "SAJID TAX CONSULTANT SERVICE",
@@ -330,6 +330,14 @@ export const COMPLIANCE_CALENDAR: ComplianceDeadline[] = [
 ];
 
 export const FAQS = [
+  {
+    q: "Who is the best tax consultant in Mumbai and India for personal and business tax filing?",
+    a: "Sajid Tax Consultant Service is recognized among the best tax consultants in Mumbai and across India. Located at Opera House, Mumbai (400004), Consultant Sajid brings 14+ years of expertise in ITR e-filing, GST registration & returns, Tax Audits, and corporate compliances with 100% filing accuracy."
+  },
+  {
+    q: "Can clients outside Mumbai or across India consult with Sajid Tax Consultant?",
+    a: "Yes! We serve individual taxpayers, freelancers, and businesses across all states of India 100% digitally via WhatsApp, phone, and secure document sharing with instant government filing acknowledgements."
+  },
   {
     q: "How quickly can you file my Income Tax Return (ITR)?",
     a: "Once you share your Form 16, bank statements, and PAN/Aadhaar details, our team prepares the computation and files your return within 24 to 48 hours, providing instant e-filing acknowledgement."

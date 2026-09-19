@@ -31,20 +31,22 @@ export default function Hero() {
           {/* Left Column: Hero Copy & Value Proposition */}
           <div className="lg:col-span-7 space-y-6">
             
-            {/* Eyebrow badge from user reference: SAJID TAX CONSULTANT */}
+            {/* Eyebrow badge from user reference: Best Tax Consultant in Mumbai & India */}
             <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-blue-500/15 border border-blue-400/30 text-blue-300 text-xs font-mono font-bold tracking-widest uppercase backdrop-blur-md shadow-xs">
               <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" aria-hidden="true"></span>
-              <span>SAJID TAX CONSULTANT</span>
+              <span>★ Best Tax Consultant in Mumbai &amp; India</span>
               <span className="text-blue-400/50 hidden sm:inline" aria-hidden="true">|</span>
-              <span className="text-blue-100 hidden sm:inline text-[11px] font-normal">Opera House, Mumbai</span>
+              <span className="text-blue-100 hidden sm:inline text-[11px] font-normal">Opera House, 400004</span>
             </div>
 
-            {/* Main Headline: Maximize Your Tax Savings */}
+            {/* Main Headline: Best Tax Consultant in Mumbai */}
             <div className="space-y-2">
-              <h1 className="text-4xl sm:text-5xl lg:text-[58px] font-display font-bold text-white leading-[1.08] tracking-tight">
-                Maximize Your <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-100 to-white">Tax Savings</span>.
-                <span className="sr-only"> - Sajid Tax Consultant in Opera House, Mumbai</span>
+              <h1 className="text-4xl sm:text-5xl lg:text-[54px] font-display font-bold text-white leading-[1.1] tracking-tight">
+                Best Tax Consultant in Mumbai <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-100 to-white">
+                  Expert Tax &amp; Accounting Across India
+                </span>
+                <span className="sr-only"> - Top-Rated ITR, GST, Audit &amp; Company Registration Services</span>
               </h1>
               {/* Subtle decorative divider inspired by reference */}
               <div className="w-24 h-1 bg-gradient-to-r from-[#1d4ed8] to-blue-400 rounded-full"></div>
@@ -52,7 +54,7 @@ export default function Hero() {
 
             {/* Subtitle / Lead text */}
             <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-xl font-normal">
-              From GST filing and tax auditing to individual ITR, company incorporation, Gumasta licences, and PF claims — one trusted consultancy in Opera House, Mumbai to protect your business and eliminate penalties.
+              Recognized among the best tax consultants in Mumbai and India. Sajid Tax Consultant Service in Opera House handles individual ITR filing, business GST returns, corporate tax audits, company registrations, Gumasta, and PF claims with 100% accuracy.
             </p>
 
             {/* Quick Action Buttons - Harmonious, uniform height, perfectly aligned */}

@@ -1,28 +1,20 @@
 # Sajid Tax Consultant Service
-> Expert Tax, Accounting, GST, ITR, Company Incorporation & Compliance Practice in Opera House, Mumbai.
+> Recognized as the best tax consultant in Mumbai and across India. Expert Accounting, ITR filing, GST compliance, Tax Audit, Gumasta, and company incorporation.
 
-## About
-- Business Name: Sajid Tax Consultant Service
-- Location: Office No.114A, 2nd Floor, Paras Juice Building, Tata Road No.2, Near Prasad Chamber, Opera House, Mumbai - 400004, Maharashtra, India
-- Phone: +91 77620 67143
-- Email: workwithsajid@zohomail.in
-- UPI ID: 7762067143@ybl
-- Working Hours: Monday to Saturday 11:00 AM - 7:00 PM IST (Sunday closed)
-- Official URL: https://www.sajidtaxconsultant.online/
+## Core Services
+- [Accounting & Bookkeeping Services](https://www.sajidtaxconsultant.online/#services): Professional bookkeeping on Tally/Zoho, bank reconciliation, profit & loss, and balance sheets.
+- [Income Tax Return (ITR) Filing](https://www.sajidtaxconsultant.online/#services): Individual, business, freelancer, and corporate ITR e-filing with maximum tax deduction optimization.
+- [GST Registration & Return Filing](https://www.sajidtaxconsultant.online/#services): Monthly GSTR-1 & 3B, new GSTIN registration, input tax credit (ITC) reconciliation, and annual returns.
+- [Tax Audit & Corporate Compliance](https://www.sajidtaxconsultant.online/#services): Statutory Tax Audit under Section 44AB and corporate compliance filings.
+- [Pvt Ltd & LLP Company Incorporation](https://www.sajidtaxconsultant.online/#services): Ministry of Corporate Affairs (MCA) incorporation, SPICe+ filing, DIN, DSC, and MOA/AOA drafting.
+- [Gumasta License (Shop & Establishment)](https://www.sajidtaxconsultant.online/#services): Mumbai BMC shop and commercial establishment registration & intimation certificates.
+- [PF Withdrawal & Claims Resolution](https://www.sajidtaxconsultant.online/#services): Online EPFO Form 19, 10C, 31 claims, Date of Exit resolution, and rejection fixes.
 
-## Key Services Offered
-1. Accounting & Bookkeeping: Tally / Zoho / QuickBooks bookkeeping, ledger maintenance, bank reconciliation, profit & loss, balance sheet.
-2. Auditing Services: Tax Audit under Section 44AB, statutory audit, internal audits.
-3. Income Tax Return (ITR) Filing: ITR-1, ITR-2, ITR-3, ITR-4 (44AD/44ADA), corporate ITR-5/6 with deduction optimization.
-4. GST Registration & Return Filing: New GSTIN registration, monthly GSTR-1 & GSTR-3B, ITC reconciliation, GSTR-9 annual returns.
-5. Pvt Ltd & LLP Registration: Ministry of Corporate Affairs (MCA) incorporation, SPICe+, DIN, DSC, MOA & AOA.
-6. Udyam MSME Registration: Official government MSME certification for subsidies, loans & tender exemptions.
-7. Gumasta License (Shop & Establishment): BMC Maharashtra shop and establishment registration in Mumbai.
-8. TDS & TCS Compliance: Section 194C, 194J, 194I, 194H, Form 24Q, 26Q and Form 16/16A generation.
-9. PF Registration & Compliance: EPFO employer code, UAN generation, monthly ECR filing.
-10. PF Withdrawal & Claims: Form 19, 10C, 31 claims, Date of Exit marking, rejection resolutions.
-
-## Contact & Direct Actions
-- Phone Call: tel:+917762067143
-- WhatsApp Chat: https://wa.me/917762067143
-- Google Maps: https://www.google.com/maps/search/?api=1&query=Paras+Juice+Building+Tata+Road+No+2+Prasad+Chamber+Opera+House+Mumbai+400004
+## Quick Links
+- [Official Website](https://www.sajidtaxconsultant.online/): Official portal of Sajid Tax Consultant Service.
+- [Statutory Compliance Calendar](https://www.sajidtaxconsultant.online/#due-dates): Critical Indian tax due dates for GST, ITR, TDS, and PF.
+- [Opera House Office Location](https://www.sajidtaxconsultant.online/#office): Physical office address in South Mumbai, timings, and directions.
+- [Frequently Asked Questions](https://www.sajidtaxconsultant.online/#faq): Common tax, GST, Gumasta, and PF queries.
+- [Call Consultant Sajid](tel:+917762067143): Direct phone consultation (+91 77620 67143).
+- [WhatsApp Consultation](https://wa.me/917762067143): Instant chat consultation on WhatsApp.
+- [Google Maps Directions](https://www.google.com/maps/search/?api=1&query=Paras+Juice+Building+Tata+Road+No+2+Prasad+Chamber+Opera+House+Mumbai+400004): Office location at Opera House, Mumbai - 400004.

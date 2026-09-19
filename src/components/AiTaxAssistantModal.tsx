@@ -475,6 +475,9 @@ Neeche kisi topic par tap karein ya apna sawaal type karein!`
         >
           <input
             ref={inputRef}
+            id="ai-tax-input"
+            name="ai-tax-input"
+            aria-label="Ask Sajid Tax AI Assistant a tax or compliance question"
             type="text"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}

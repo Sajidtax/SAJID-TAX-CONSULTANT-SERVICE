@@ -42,8 +42,8 @@ export default function Hero() {
             {/* Main Headline: Best Tax Consultant in Mumbai */}
             <div className="space-y-2">
               <h1 className="text-4xl sm:text-5xl lg:text-[54px] font-display font-bold text-white leading-[1.1] tracking-tight">
-                Best Tax Consultant in Mumbai <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-100 to-white">
+                <span className="text-white block">Best Tax Consultant in Mumbai</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-100 to-white block mt-1">
                   Expert Tax &amp; Accounting Across India
                 </span>
                 <span className="sr-only"> - Top-Rated ITR, GST, Audit &amp; Company Registration Services</span>

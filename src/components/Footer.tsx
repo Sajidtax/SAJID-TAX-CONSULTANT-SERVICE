@@ -104,6 +104,7 @@ export default function Footer() {
               </div>
             </div>
           </div>
+        </div>
 
         {/* Local SEO Geographic Coverage Strip */}
         <div className="py-6 border-b border-slate-800/80 text-[11px] text-slate-400 space-y-2">

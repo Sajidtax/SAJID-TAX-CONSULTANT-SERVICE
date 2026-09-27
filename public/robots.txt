@@ -1,6 +1,15 @@
 User-agent: *
 Allow: /
 
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
 User-agent: GPTBot
 Allow: /
 
@@ -23,4 +32,3 @@ User-agent: Applebot-Extended
 Allow: /
 
 Sitemap: https://www.sajidtaxconsultant.online/sitemap.xml
-

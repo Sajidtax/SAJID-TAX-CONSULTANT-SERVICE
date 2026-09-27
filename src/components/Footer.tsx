@@ -105,6 +105,14 @@ export default function Footer() {
             </div>
           </div>
 
+        {/* Local SEO Geographic Coverage Strip */}
+        <div className="py-6 border-b border-slate-800/80 text-[11px] text-slate-400 space-y-2">
+          <div className="font-mono text-xs uppercase tracking-wider text-slate-300 font-semibold">
+            Areas Served in Mumbai &amp; Across India:
+          </div>
+          <p className="leading-relaxed text-slate-400">
+            Opera House (400004) • Charni Road • Girgaon • Grant Road • Marine Lines • Churchgate • Nariman Point • Fort • Kalbadevi • CST • Lower Parel • Dadar • Bandra • Andheri • South Mumbai • Maharashtra • All States Across India (100% Digital E-Filing).
+          </p>
         </div>
 
         {/* Bottom copyright & back to top */}

@@ -57,10 +57,10 @@ export default function ServicesSection() {
               <span>Comprehensive Portfolio</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#0f172a] tracking-tight">
-              Ten services. One point of contact.
+              Tax, Accounting &amp; Corporate Compliance Services in Mumbai
             </h2>
             <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
-              Every registration, monthly return, and statutory audit your enterprise requires - prepared, verified, and submitted by Sajid Tax Consultant in Opera House, Mumbai.
+              Ten core services. One expert point of contact. Every ITR filing, GST return, Gumasta license, and statutory audit prepared, verified, and submitted by Sajid Tax Consultant in Opera House, Mumbai.
             </p>
           </div>
 

@@ -42,11 +42,11 @@ export default function WhyChooseUs() {
             </div>
             
             <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#0f172a] leading-tight">
-              Built for business owners who value accuracy, time, and peace of mind.
+              Why We Are Ranked The Best Tax Consultant in Mumbai &amp; India
             </h2>
             
             <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
-              Operating centrally from Opera House, Mumbai, we combine rigorous compliance expertise with personal accountability to empower local enterprises and individual taxpayers.
+              Operating centrally from Opera House, Mumbai, we combine 14+ years of rigorous tax compliance expertise with personal accountability to empower local enterprises, salaried individuals, and businesses nationwide.
             </p>
 
             <div className="p-5 rounded-xl bg-blue-50/70 border border-blue-200 shadow-xs space-y-3">

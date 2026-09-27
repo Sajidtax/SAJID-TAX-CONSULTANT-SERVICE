@@ -358,4 +358,17 @@ export const FAQS = [
     q: "What are the penalty consequences for late GST or TDS filing?",
     a: "Late GST filing incurs daily late fees plus 18% per annum interest on unpaid tax liability. Delayed TDS payments attract 1.5% interest per month and late filing fees of ₹200/day. We ensure all your due dates are mapped so you never pay penalties."
   },
+  {
+    q: "What makes Sajid Tax Consultant the best tax consultant in Mumbai?",
+    a: "With 14+ years of dedicated experience in South Mumbai, over 8,500 successful filings, a 4.9-star client rating, and direct one-on-one access to Consultant Sajid, we deliver 100% audit-proof accuracy, proactive tax optimization, and zero penalty delays."
+  },
+  {
+    q: "Which documents are required for Income Tax Return (ITR) filing in India?",
+    a: "You need your PAN card, Aadhaar card, Form 16 / 16A (for salaried), Annual Information Statement (AIS / TIS), bank statements with interest details, capital gains statements, and Chapter VI-A investment proofs (80C, 80D, 80G)."
+  },
+  {
+    q: "Can I complete GST registration and monthly return filing 100% online?",
+    a: "Yes! New GST registration, monthly GSTR-1 & GSTR-3B filings, ITC reconciliation, and annual returns can be managed 100% digitally through secure WhatsApp or email communication with immediate government filing acknowledgements."
+  },
 ];
+

@@ -19,10 +19,10 @@ export default function FaqSection() {
             <span>Frequently Asked Questions</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#0f172a] tracking-tight">
-            Client Advisory &amp; FAQs
+            Frequently Asked Questions | Tax &amp; GST Advisory
           </h2>
           <p className="text-sm sm:text-base text-[#475569]">
-            Answers to common tax, GST, Gumasta, and PF queries for Mumbai businesses.
+            Answers to common Income Tax, GST, Gumasta, and PF queries for taxpayers in Mumbai and across India.
           </p>
         </div>
 

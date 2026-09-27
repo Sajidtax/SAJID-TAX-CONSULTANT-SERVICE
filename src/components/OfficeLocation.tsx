@@ -68,10 +68,10 @@ export default function OfficeLocation() {
             <span>Physical Office &amp; Working Hours</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#0f172a] tracking-tight">
-            Visit Our Opera House Office
+            Tax Consultant Office in Opera House, Mumbai
           </h2>
           <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
-            Centrally situated near Prasad Chamber at Opera House in South Mumbai. You are welcome to visit for in-person consultations during office hours or connect digitally.
+            Centrally situated near Prasad Chamber at Opera House in South Mumbai (400004). Conveniently accessible from Charni Road, Girgaon, Grant Road, and Marine Lines for in-person consultations or 100% digital support.
           </p>
         </div>
 

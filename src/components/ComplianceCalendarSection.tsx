@@ -20,7 +20,7 @@ export default function ComplianceCalendarSection() {
             <span>Statutory Compliance Calendar</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#0f172a] tracking-tight">
-            Upcoming Deadlines &amp; Filing Timelines
+            Statutory Tax &amp; GST Due Dates Calendar (India)
           </h2>
           <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
             Avoid heavy government penalties, late filing fees, and blocked Input Tax Credit (ITC). We track every deadline on your behalf.

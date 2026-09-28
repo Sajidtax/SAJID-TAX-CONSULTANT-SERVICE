@@ -172,7 +172,7 @@ export default function OfficeLocation() {
 
               <button
                 onClick={handleCopyAddress}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#e2e8f0] text-xs font-mono font-medium hover:bg-[#f8fafc] text-[#475569] transition-all shrink-0"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#e2e8f0] text-xs font-mono font-medium hover:bg-[#f8fafc] text-[#334155] transition-all shrink-0"
                 title="Copy full address"
                 aria-label="Copy full office address"
               >
@@ -183,7 +183,7 @@ export default function OfficeLocation() {
                   </>
                 ) : (
                   <>
-                    <Copy className="w-3.5 h-3.5 text-slate-400" />
+                    <Copy className="w-3.5 h-3.5 text-[#334155]" />
                     <span>Copy Address</span>
                   </>
                 )}
@@ -191,21 +191,21 @@ export default function OfficeLocation() {
             </div>
 
             {/* Address Breakdown */}
-            <div className="bg-[#f8fafc] p-4 sm:p-5 rounded-xl border border-[#e2e8f0] space-y-1.5 text-sm sm:text-base text-[#475569]">
+            <div className="bg-[#f8fafc] p-4 sm:p-5 rounded-xl border border-[#e2e8f0] space-y-1.5 text-sm sm:text-base text-[#334155]">
               <p className="font-bold text-[#0f172a]">{BUSINESS_INFO.address.line1}</p>
               <p>{BUSINESS_INFO.address.line2}</p>
               <p className="font-semibold text-[#1d4ed8]">{BUSINESS_INFO.address.area} - {BUSINESS_INFO.address.pincode}</p>
-              <p className="text-xs font-mono text-[#64748b]">{BUSINESS_INFO.address.state}</p>
+              <p className="text-xs font-mono text-[#334155] font-medium">{BUSINESS_INFO.address.state}</p>
             </div>
 
             {/* Local Areas Served for Google Local SEO */}
             <div className="pt-1">
-              <div className="text-[11px] font-mono uppercase text-[#64748b] font-semibold mb-2">
+              <div className="text-[11px] font-mono uppercase text-[#334155] font-bold mb-2">
                 Serving Clients Across South Mumbai &amp; Maharashtra:
               </div>
-              <div className="flex flex-wrap gap-1.5 text-[11px] font-mono text-[#475569]">
+              <div className="flex flex-wrap gap-1.5 text-[11px] font-mono text-[#334155]">
                 {["Opera House (400004)", "Charni Road", "Girgaon", "Grant Road", "Lamington Road", "Marine Lines", "Kalbadevi", "Churchgate / Fort"].map((area) => (
-                  <span key={area} className="px-2 py-0.5 rounded-md bg-[#f8fafc] border border-[#e2e8f0] text-[#475569]">
+                  <span key={area} className="px-2 py-0.5 rounded-md bg-[#f8fafc] border border-[#e2e8f0] text-[#334155] font-medium">
                     📍 {area}
                   </span>
                 ))}
@@ -240,7 +240,7 @@ export default function OfficeLocation() {
                   <QrCode className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-[10px] font-mono uppercase text-[#64748b] font-bold">
+                  <div className="text-[10px] font-mono uppercase text-[#334155] font-bold">
                     Official Consultation UPI ID
                   </div>
                   <div className="font-mono text-xs sm:text-sm font-bold text-[#0f172a]">
@@ -252,7 +252,7 @@ export default function OfficeLocation() {
               <button
                 onClick={handleCopyUpi}
                 aria-label="Copy consultation UPI ID"
-                className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-[#e2e8f0] text-xs font-mono font-semibold hover:bg-slate-100 text-[#475569] transition-all self-start sm:self-auto shadow-xs"
+                className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-[#e2e8f0] text-xs font-mono font-semibold hover:bg-slate-100 text-[#334155] transition-all self-start sm:self-auto shadow-xs"
               >
                 {copiedUpi ? (
                   <>
@@ -261,7 +261,7 @@ export default function OfficeLocation() {
                   </>
                 ) : (
                   <>
-                    <Copy className="w-3.5 h-3.5 text-slate-400" />
+                    <Copy className="w-3.5 h-3.5 text-[#334155]" />
                     <span>Copy UPI</span>
                   </>
                 )}
@@ -282,12 +282,12 @@ export default function OfficeLocation() {
                   <h3 className="font-display font-bold text-lg text-[#0f172a]">
                     Working Hours
                   </h3>
-                  <p className="text-xs text-[#64748b]">Official Operational Timings</p>
+                  <p className="text-xs text-[#334155] font-medium">Official Operational Timings</p>
                 </div>
               </div>
 
               <div className={`px-2.5 py-1 rounded-md text-xs font-mono font-bold uppercase border ${
-                status.isOpen ? 'bg-emerald-50 text-emerald-800 border-emerald-300' : 'bg-amber-50 text-amber-800 border-amber-300'
+                status.isOpen ? 'bg-emerald-50 text-emerald-800 border-emerald-300' : 'bg-amber-50 text-amber-900 border-amber-300'
               }`}>
                 {status.text}
               </div>
@@ -300,12 +300,12 @@ export default function OfficeLocation() {
                   key={item.day}
                   className={`flex items-center justify-between py-2 px-3 rounded-lg transition-colors ${
                     item.isOpen 
-                      ? 'bg-[#f8fafc] border border-[#e2e8f0] text-[#475569]' 
-                      : 'bg-[#f8fafc] border border-[#e2e8f0] text-red-600 font-semibold'
+                      ? 'bg-[#f8fafc] border border-[#e2e8f0] text-[#334155]' 
+                      : 'bg-[#f8fafc] border border-[#e2e8f0] text-red-700 font-semibold'
                   }`}
                 >
                   <span className="font-medium">{item.day}</span>
-                  <span className={item.isOpen ? 'text-[#0f172a] font-bold' : 'text-red-600 uppercase font-bold'}>
+                  <span className={item.isOpen ? 'text-[#0f172a] font-bold' : 'text-red-700 uppercase font-bold'}>
                     {item.hours}
                   </span>
                 </div>
@@ -313,12 +313,12 @@ export default function OfficeLocation() {
             </div>
 
             {/* Contact Note */}
-            <div className="pt-2 border-t border-[#e2e8f0] text-xs text-[#64748b] space-y-1">
+            <div className="pt-2 border-t border-[#e2e8f0] text-xs text-[#334155] space-y-1">
               <p className="flex items-center gap-1.5">
                 <Mail className="w-3.5 h-3.5 text-[#1d4ed8]" />
                 <span>Email: <a href={`mailto:${BUSINESS_INFO.email}`} className="font-mono font-semibold text-[#1d4ed8] hover:underline">{BUSINESS_INFO.email}</a></span>
               </p>
-              <p className="text-[11px] text-[#94a3b8]">
+              <p className="text-[11px] text-[#334155] font-medium">
                 * Sunday appointments can be arranged upon prior phone confirmation for urgent tax filing deadlines.
               </p>
             </div>

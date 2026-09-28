@@ -67,7 +67,7 @@ export default function ServicesSection() {
           {/* Quick Search */}
           <div className="relative w-full md:w-72">
             <label htmlFor="service-search" className="sr-only">Search taxation and accounting services</label>
-            <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-[#64748b]" aria-hidden="true" />
+            <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-[#475569]" aria-hidden="true" />
             <input
               id="service-search"
               name="search"
@@ -76,7 +76,7 @@ export default function ServicesSection() {
               placeholder="Search service (e.g. GST, ITR, PF, Gumasta)..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-4 py-2.5 bg-white border border-[#e2e8f0] rounded-lg text-xs sm:text-sm text-[#0f172a] placeholder:text-[#64748b] focus:outline-none focus:border-[#1d4ed8] focus:ring-1 focus:ring-[#1d4ed8] shadow-xs transition-all"
+              className="w-full pl-9 pr-4 py-2.5 bg-white border border-[#e2e8f0] rounded-lg text-xs sm:text-sm text-[#0f172a] placeholder:text-[#475569] focus:outline-none focus:border-[#1d4ed8] focus:ring-1 focus:ring-[#1d4ed8] shadow-xs transition-all"
             />
           </div>
         </div>
@@ -207,7 +207,7 @@ export default function ServicesSection() {
 
         {filteredServices.length === 0 && (
           <div className="text-center py-12 bg-white rounded-xl border border-dashed border-[#e2e8f0] my-8">
-            <p className="text-[#64748b] font-mono text-sm">No services match "{searchQuery}".</p>
+            <p className="text-[#334155] font-mono text-sm font-medium">No services match "{searchQuery}".</p>
             <button
               onClick={() => { setSearchQuery(''); setActiveCategory('all'); }}
               className="mt-3 text-xs font-semibold text-[#1d4ed8] hover:text-[#1e40af] underline"

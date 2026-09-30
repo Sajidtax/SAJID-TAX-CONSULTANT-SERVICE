@@ -4,6 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sajid Tax Consultant & Web Solutions | Opera House, Mumbai</title>
+  <meta property="og:site_name" content="Sajid Tax Consultant" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Sajid Tax Consultant",
+  "alternateName": ["STC", "Sajid Tax Consultant Mumbai"],
+  "url": "https://www.sajidtaxconsultant.online/"
+}
+</script>
+    
 
   <!-- Google Fonts: Cinzel & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -9,11 +9,17 @@ export default function Hero() {
   const [selectedQuickService, setSelectedQuickService] = useState('ITR Filing');
 
   const quickServices = [
-    { label: "ITR Filing", query: "ITR e-Filing (Salaried / Business)" },
-    { label: "GST Return", query: "GST Registration & Monthly Returns" },
-    { label: "Tax Notice", query: "Income Tax or GST Notice Resolution" },
+    { label: "ITR Filing", query: "Income Tax (ITR) Filing" },
+    { label: "GST Return", query: "GST Registration & Returns" },
+    { label: "Audit 44AB", query: "Tax & Statutory Audit (44AB)" },
+    { label: "Pvt Ltd / LLP", query: "Pvt Ltd & LLP Company Incorporation" },
     { label: "Gumasta", query: "BMC Gumasta / Shop & Establishment Licence" },
+    { label: "Udyam MSME", query: "Udyam MSME Registration" },
+    { label: "Accounting", query: "Accounting & Bookkeeping Services" },
+    { label: "TDS / TCS", query: "TDS & TCS Returns Compliance" },
     { label: "PF Claim", query: "PF Withdrawal & Rejection Settlement" },
+    { label: "Tax Notice", query: "Income Tax or GST Notice Resolution" },
+    { label: "Web Solutions", query: "Web Solutions & Digital Business Setup" },
   ];
 
   const getQuickWhatsAppUrl = (serviceName: string) => {

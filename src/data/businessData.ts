@@ -252,6 +252,50 @@ export const SERVICES_LIST: ServiceItem[] = [
     turnaroundTime: "24 - 48 Hours for filing | 7-15 days for EPFO bank credit",
     badge: "Direct Help"
   },
+  {
+    id: "tax-notice",
+    number: "11",
+    title: "Tax Notice & Scrutiny Advisory",
+    category: "tax",
+    tagline: "Income Tax & GST department notice replies, scrutiny resolution & appeal filings",
+    description: "Received a notice under Section 143(1), 139(9) defective return, 148 reassessment, or GST ASMT-10 / DRC-01? We prepare point-by-point factual submissions, reconcile ledger discrepancies, and handle portal hearings with zero stress.",
+    deliverables: [
+      "Notice analysis & factual response draft submission on Income Tax / GST portal",
+      "Section 143(1) intimation adjustment & demand rectification (Section 154)",
+      "Section 139(9) defective return rectification within statutory deadline",
+      "GST ASMT-10 notice explanation & DRC-03 voluntary payment assistance",
+    ],
+    documentsRequired: [
+      "Copy of notice / order received from Income Tax or GST Department (DIN number)",
+      "Original return acknowledgement (ITR-V / GSTR-3B) and computation statement",
+      "AIS, TIS, 26AS, or GST 2B statement for the relevant assessment year",
+      "Supporting bank statements and transaction ledgers",
+    ],
+    turnaroundTime: "24 - 72 Hours for emergency deadline replies",
+    badge: "Urgent Relief"
+  },
+  {
+    id: "web-solutions",
+    number: "12",
+    title: "Web Solutions & Digital Business Setup",
+    category: "digital",
+    tagline: "Business website design, Google Search Console, local SEO & digital presence",
+    description: "Empower your business with high-speed, modern web solutions engineered by Sajid Web Solutions. Designed specifically for traders, diamond merchants, manufacturers, and professionals looking to dominate Google searches.",
+    deliverables: [
+      "High-speed, mobile-responsive business website with ultra-fast Speed Index",
+      "Google Search Console & Google Business Profile verification & setup",
+      "Local Mumbai SEO optimization for Opera House, South Mumbai & all-India reach",
+      "WhatsApp direct consultation integration and interactive lead capture tools",
+    ],
+    documentsRequired: [
+      "Business name, logo & services details",
+      "Contact phone, WhatsApp, and office address",
+      "Domain preference (.com, .online, .in)",
+      "Target customer locations and services checklist",
+    ],
+    turnaroundTime: "3 - 7 working days for complete deployment",
+    badge: "Tech Solutions"
+  },
 ];
 
 export const COMPLIANCE_CALENDAR: ComplianceDeadline[] = [

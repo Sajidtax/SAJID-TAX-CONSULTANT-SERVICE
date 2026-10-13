@@ -75,11 +75,15 @@ export default function Header() {
         </a>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-5 text-xs font-semibold text-[#334155]">
-          <a href="#services" className="hover:text-[#1d4ed8] transition-colors py-1">Services</a>
+        <nav className="hidden lg:flex items-center gap-4 xl:gap-5 text-xs font-semibold text-[#334155]">
+          <a href="#services" className="hover:text-[#1d4ed8] transition-colors py-1">Tax Services</a>
+          <a href="#services" className="hover:text-[#1d4ed8] transition-colors py-1 flex items-center gap-1">
+            <span>Web Solutions</span>
+            <span className="px-1.5 py-0.2 rounded text-[9px] font-mono bg-blue-100 text-[#1d4ed8] font-bold">TECH</span>
+          </a>
           <a href="#tax-calculator" className="hover:text-[#1d4ed8] transition-colors py-1 flex items-center gap-1">
-            <span>Tax Calculator</span>
-            <span className="px-1.5 py-0.2 rounded text-[9px] font-mono bg-blue-100 text-[#1d4ed8] font-bold">NEW</span>
+            <span>Calculator</span>
+            <span className="px-1.5 py-0.2 rounded text-[9px] font-mono bg-emerald-100 text-[#065f46] font-bold">NEW</span>
           </a>
           <a href="#consultant-profile" className="hover:text-[#1d4ed8] transition-colors py-1">Meet Sajid</a>
           <a href="#due-dates" className="hover:text-[#1d4ed8] transition-colors py-1">Tax Calendar</a>
@@ -136,7 +140,14 @@ export default function Header() {
               onClick={() => setMobileMenuOpen(false)}
               className="py-1.5 border-b border-slate-100 hover:text-[#1d4ed8]"
             >
-              📋 All 10 Services
+              📋 All Core Services &amp; Licences
+            </a>
+            <a 
+              href="#services" 
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-1.5 border-b border-slate-100 hover:text-[#1d4ed8]"
+            >
+              🌐 Sajid Web Solutions &amp; Tech
             </a>
             <a 
               href="#tax-calculator" 

@@ -11,7 +11,9 @@ import {
   Users, 
   Wallet,
   ArrowRight,
-  Sparkles
+  Sparkles,
+  ShieldAlert,
+  Globe
 } from 'lucide-react';
 import { SERVICES_LIST, BUSINESS_INFO } from '../data/businessData';
 import { ServiceItem } from '../types';
@@ -29,10 +31,12 @@ const serviceIcons: Record<string, LucideIcon> = {
   'tds': Receipt,
   'pf-reg': Users,
   'pf-withdraw': Wallet,
+  'tax-notice': ShieldAlert,
+  'web-solutions': Globe,
 };
 
 export default function ServicesSection() {
-  const [activeCategory, setActiveCategory] = useState<'all' | 'tax' | 'accounting' | 'registration' | 'compliance'>('all');
+  const [activeCategory, setActiveCategory] = useState<'all' | 'tax' | 'accounting' | 'registration' | 'compliance' | 'digital'>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
 
@@ -92,7 +96,7 @@ export default function ServicesSection() {
                 : 'bg-white text-[#475569] hover:bg-[#f8fafc] border border-[#e2e8f0]'
             }`}
           >
-            All 10 Services
+            All {SERVICES_LIST.length} Services
           </button>
           <button
             onClick={() => setActiveCategory('tax')}
@@ -137,6 +141,17 @@ export default function ServicesSection() {
             }`}
           >
             PF &amp; Labour ({SERVICES_LIST.filter(s => s.category === 'compliance').length})
+          </button>
+          <button
+            onClick={() => setActiveCategory('digital')}
+            aria-pressed={activeCategory === 'digital'}
+            className={`px-4 py-2 rounded-lg font-mono uppercase tracking-wider transition-all ${
+              activeCategory === 'digital'
+                ? 'bg-[#1d4ed8] text-white font-bold shadow-xs'
+                : 'bg-white text-[#475569] hover:bg-[#f8fafc] border border-[#e2e8f0]'
+            }`}
+          >
+            Web Solutions ({SERVICES_LIST.filter(s => s.category === 'digital').length})
           </button>
         </div>
 

@@ -2,7 +2,7 @@ export interface ServiceItem {
   id: string;
   number: string;
   title: string;
-  category: 'tax' | 'accounting' | 'registration' | 'compliance';
+  category: 'tax' | 'accounting' | 'registration' | 'compliance' | 'digital';
   tagline: string;
   description: string;
   deliverables: string[];

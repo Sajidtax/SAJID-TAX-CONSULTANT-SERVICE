@@ -372,3 +372,95 @@ export const FAQS = [
   },
 ];
 
+export interface ClientReview {
+  id: string;
+  name: string;
+  role: string;
+  location: string;
+  rating: number;
+  date: string;
+  service: string;
+  comment: string;
+  verified: boolean;
+}
+
+export const CLIENT_REVIEWS: ClientReview[] = [
+  {
+    id: "rev-1",
+    name: "Rajesh V. Mehta",
+    role: "Director, Diamond Exports Firm",
+    location: "Opera House, Mumbai",
+    rating: 5,
+    date: "August 2026",
+    service: "GST & Tax Audit (44AB)",
+    comment: "Sajid Sir has been managing our company's GST returns and annual tax audit for 6 years now. His chamber is right near Prasad Chambers in Opera House. His response time on WhatsApp is phenomenal and we haven't faced a single penalty or notice.",
+    verified: true,
+  },
+  {
+    id: "rev-2",
+    name: "Pooja Deshmukh",
+    role: "Senior Engineering Manager",
+    location: "BKC / Bandra, Mumbai",
+    rating: 5,
+    date: "July 2026",
+    service: "ITR-2 Filing (ESOPs & Capital Gains)",
+    comment: "I had RSUs from a US tech firm plus mutual fund capital gains across 3 brokers. Previous online platforms messed up my foreign asset schedule. Consultant Sajid cross-checked every single trade with my AIS/TIS and filed within 24 hours. Got my refund directly in 18 days!",
+    verified: true,
+  },
+  {
+    id: "rev-3",
+    name: "Mohammad Farooq Ansari",
+    role: "Wholesale Textile Trader",
+    location: "Kalbadevi & Mangaldas Market, Mumbai",
+    rating: 5,
+    date: "September 2026",
+    service: "GST Reconciliation & GSTR-3B",
+    comment: "In wholesale textile, vendor ITC mismatch is a constant headache. Sajid bhai personally reconciles our 2B vs purchase ledgers every month before filing GSTR-3B. Honest, upfront fees and zero hidden costs.",
+    verified: true,
+  },
+  {
+    id: "rev-4",
+    name: "Dr. Sandeep Kadam",
+    role: "Consultant Physician & Clinic Owner",
+    location: "Girgaon, Mumbai",
+    rating: 5,
+    date: "June 2026",
+    service: "ITR-4 Presumptive (Section 44ADA) & Gumasta",
+    comment: "Helped me transition to Presumptive Taxation under 44ADA for my medical practice and got our BMC Gumasta licence renewed seamlessly. Highly professional and very respectful of client confidentiality.",
+    verified: true,
+  },
+  {
+    id: "rev-5",
+    name: "Aniket Sharma",
+    role: "Co-Founder, D2C Apparel Brand",
+    location: "Grant Road, Mumbai",
+    rating: 5,
+    date: "May 2026",
+    service: "Pvt Ltd Company Incorporation & Startup MSME",
+    comment: "Registered our Private Limited company, got SPICe+ MCA approval, PAN/TAN, and Udyam certification in under a week. Transparent guidance on director compliance and zero bureaucratic runaround.",
+    verified: true,
+  },
+];
+
+export const CONSULTANT_PROFILE = {
+  name: "Consultant Sajid Husain",
+  title: "Principal Tax Consultant & Corporate Statutory Advisor",
+  location: "Opera House, South Mumbai",
+  experience: "14+ Years Active Practice",
+  filingsCount: "8,500+",
+  clientsCount: "1,200+",
+  accuracyRate: "100% Audit-Proof",
+  deskPhoto: "/images/consultant-desk.jpg",
+  officePhoto: "/images/office-facade.jpg",
+  quote: "When you bring your financial records to our chamber, you work directly with me. No automated bots, no unverified filings. Every return is cross-referenced against your 26AS, AIS, and TIS before e-filing.",
+  specialties: [
+    "Individual & Salaried ITR (Capital Gains, ESOPs, Foreign Income)",
+    "GST Monthly Returns (GSTR-1, 3B, ITC Reconciliations)",
+    "Corporate Tax Audits under Section 44AB",
+    "Maharashtra BMC Gumasta Licences & Shop Act",
+    "EPFO PF Claim Rejection Settlements",
+    "MCA Pvt Ltd & LLP Company Incorporations"
+  ]
+};
+
+

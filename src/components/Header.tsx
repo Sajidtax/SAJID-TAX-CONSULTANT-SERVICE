@@ -14,12 +14,13 @@ export default function Header() {
       <a href="#services" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:p-3 focus:bg-[#1d4ed8] focus:text-white focus:font-bold focus:rounded-md shadow-lg">
         Skip to main content
       </a>
+      
       {/* Top micro-bar for quick contact & office status */}
       <div className="bg-[#f8fafc] text-[#475569] text-xs py-2 px-4 border-b border-[#e2e8f0] hidden sm:block">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2">
-              <span className={`w-2 h-2 rounded-full ${status.isOpen ? 'bg-emerald-500 animate-pulse' : 'bg-slate-400'}`}></span>
+              <span className={`w-2 h-2 rounded-full ${status.isOpen ? 'bg-emerald-500 animate-pulse' : 'bg-amber-500'}`}></span>
               <span className={`font-mono text-[11px] uppercase tracking-wider font-semibold ${status.isOpen ? 'text-[#065f46]' : 'text-[#334155]'}`}>
                 {status.text}
               </span>
@@ -50,10 +51,10 @@ export default function Header() {
       </div>
 
       {/* Main Navigation Bar */}
-      <div className="max-w-6xl mx-auto px-3 sm:px-6 py-2.5 sm:py-3.5 flex items-center justify-between gap-2 sm:gap-4">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
         {/* Brand identity */}
-        <a href="#" aria-label="Sajid Tax Consultant Service Home" className="flex items-center gap-2 sm:gap-3 group text-left min-w-0">
-          <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-full overflow-hidden bg-white border border-[#cbd5e1] shadow-xs ring-1 ring-slate-100 shrink-0 flex items-center justify-center p-0.5 group-hover:border-[#1d4ed8] group-hover:scale-105 transition-all">
+        <a href="#" aria-label="Sajid Tax Consultant Service Home" className="flex items-center gap-3 group text-left min-w-0">
+          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden bg-white border border-[#cbd5e1] shadow-xs shrink-0 flex items-center justify-center p-0.5 group-hover:border-[#1d4ed8] group-hover:scale-105 transition-all">
             <img
               src="/images/logo-128.png"
               alt="Sajid Tax Consultant Official Logo"
@@ -64,133 +65,158 @@ export default function Header() {
             />
           </div>
           <div className="min-w-0">
-            <div className="font-display font-bold text-sm sm:text-lg md:text-xl text-[#0f172a] group-hover:text-[#1d4ed8] leading-tight tracking-tight truncate">
+            <div className="font-display font-bold text-sm sm:text-base md:text-lg text-[#0f172a] group-hover:text-[#1d4ed8] leading-tight tracking-tight truncate">
               {BUSINESS_INFO.name}
             </div>
-            <div className="text-[10px] sm:text-[11px] text-[#1d4ed8] font-semibold tracking-wide uppercase truncate">
-              Opera House, Mumbai
+            <div className="text-[10px] sm:text-[11px] text-[#1d4ed8] font-mono font-semibold tracking-wide uppercase truncate">
+              Opera House, Mumbai • Est. 2010
             </div>
           </div>
         </a>
 
-        {/* Action Controls: AI Assistant (left) + 3-Row Menu (right) */}
-        <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
-          {/* AI Assistant Button (placed directly to the left of 3-row menu) */}
+        {/* Desktop Navigation Links */}
+        <nav className="hidden lg:flex items-center gap-5 text-xs font-semibold text-[#334155]">
+          <a href="#services" className="hover:text-[#1d4ed8] transition-colors py-1">Services</a>
+          <a href="#tax-calculator" className="hover:text-[#1d4ed8] transition-colors py-1 flex items-center gap-1">
+            <span>Tax Calculator</span>
+            <span className="px-1.5 py-0.2 rounded text-[9px] font-mono bg-blue-100 text-[#1d4ed8] font-bold">NEW</span>
+          </a>
+          <a href="#consultant-profile" className="hover:text-[#1d4ed8] transition-colors py-1">Meet Sajid</a>
+          <a href="#due-dates" className="hover:text-[#1d4ed8] transition-colors py-1">Tax Calendar</a>
+          <a href="#why-us" className="hover:text-[#1d4ed8] transition-colors py-1">Why Us</a>
+          <a href="#reviews" className="hover:text-[#1d4ed8] transition-colors py-1">Reviews</a>
+          <a href="#office-location" className="hover:text-[#1d4ed8] transition-colors py-1">Chamber &amp; Map</a>
+          <a href="#faq" className="hover:text-[#1d4ed8] transition-colors py-1">FAQs</a>
+        </nav>
+
+        {/* Header Action Controls */}
+        <div className="flex items-center gap-2.5 shrink-0">
+          
+          {/* Quick AI Advisor Trigger */}
           <button
-            onClick={() => {
-              setMobileMenuOpen(false);
-              setAiModalOpen(true);
-            }}
-            className="group inline-flex items-center gap-1 sm:gap-1.5 px-3 sm:px-3.5 py-2 sm:py-2.5 min-h-[44px] text-xs font-bold rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 hover:from-blue-700 hover:via-indigo-700 hover:to-violet-700 text-white shadow-xs hover:shadow-md transition-all active:scale-95 shrink-0"
-            aria-label="Open AI Tax Assistant"
+            onClick={() => setAiModalOpen(true)}
+            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 text-xs font-mono font-semibold rounded-lg bg-blue-50 text-[#1d4ed8] border border-blue-200 hover:bg-blue-100 transition-all"
+            title="Ask Tax Questions to AI Assistant"
           >
-            <SparklesIcon className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
-            <span className="tracking-wide font-bold">+ AI</span>
-            <span className="hidden sm:inline font-normal text-blue-100">Advisor</span>
+            <SparklesIcon className="w-3.5 h-3.5 text-amber-500" />
+            <span>AI Tax Guide</span>
           </button>
 
-          {/* 3-Row / Hamburger Menu Toggle */}
+          {/* Direct WhatsApp Call to Action */}
+          <a
+            href={`https://wa.me/${BUSINESS_INFO.phoneClean.replace('+', '')}?text=Hello%20Sajid%20Sir,%20I%20would%20like%20to%20consult%20with%20you%20regarding%20tax%20filing.`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold rounded-lg bg-[#047857] hover:bg-[#065f46] text-white transition-all shadow-xs"
+          >
+            <MessageSquareIcon className="w-3.5 h-3.5 text-white" />
+            <span className="hidden sm:inline">WhatsApp Sajid</span>
+            <span className="sm:hidden">WhatsApp</span>
+          </a>
+
+          {/* Mobile Menu Toggle Button */}
           <button
-            onClick={() => {
-              setAiModalOpen(false);
-              setMobileMenuOpen(!mobileMenuOpen);
-            }}
-            className="min-h-[44px] min-w-[44px] p-2 sm:p-2.5 text-[#0f172a] hover:bg-[#f8fafc] hover:text-[#1d4ed8] rounded-xl border border-[#e2e8f0] transition-all flex items-center justify-center shadow-2xs shrink-0"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="lg:hidden p-2 text-[#0f172a] hover:bg-[#f8fafc] hover:text-[#1d4ed8] rounded-lg border border-[#e2e8f0] transition-all flex items-center justify-center shrink-0"
             aria-label="Toggle Navigation Menu"
             aria-expanded={mobileMenuOpen}
-            aria-controls="navigation-menu"
           >
-            {mobileMenuOpen ? <XIcon className="w-5 h-5 sm:w-6 sm:h-6" /> : <MenuIcon className="w-5 h-5 sm:w-6 sm:h-6" />}
+            {mobileMenuOpen ? <XIcon className="w-5 h-5" /> : <MenuIcon className="w-5 h-5" />}
           </button>
+
         </div>
       </div>
 
-      {/* Responsive Navigation Menu (Dropdown for all screen sizes) */}
+      {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div id="navigation-menu" className="border-t border-[#e2e8f0] bg-white shadow-xl max-h-[calc(100vh-60px)] overflow-y-auto animate-in slide-in-from-top duration-200">
-          <div className="max-w-6xl mx-auto px-5 sm:px-6 py-6 space-y-5">
-            <div className="flex items-center justify-between pb-3 border-b border-[#e2e8f0] text-xs">
-              <span className="font-mono text-[#475569]">Working Hours: Mon-Sat 11 AM - 7 PM</span>
-              <span className={`font-mono font-bold ${status.isOpen ? 'text-[#047857]' : 'text-[#475569]'}`}>
-                {status.text}
-              </span>
-            </div>
+        <div className="lg:hidden bg-white border-b border-[#e2e8f0] px-6 py-5 shadow-lg animate-in slide-in-from-top-2 duration-200">
+          <div className="flex flex-col gap-3 text-sm font-medium text-[#334155]">
+            <a 
+              href="#services" 
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-1.5 border-b border-slate-100 hover:text-[#1d4ed8]"
+            >
+              📋 All 10 Services
+            </a>
+            <a 
+              href="#tax-calculator" 
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-1.5 border-b border-slate-100 hover:text-[#1d4ed8] font-bold text-[#1d4ed8] flex items-center justify-between"
+            >
+              <span>🧮 Old vs New Tax Calculator</span>
+              <span className="text-[10px] bg-blue-100 text-[#1d4ed8] px-2 py-0.5 rounded font-mono">POPULAR</span>
+            </a>
+            <a 
+              href="#consultant-profile" 
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-1.5 border-b border-slate-100 hover:text-[#1d4ed8]"
+            >
+              👤 Meet Consultant Sajid
+            </a>
+            <a 
+              href="#due-dates" 
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-1.5 border-b border-slate-100 hover:text-[#1d4ed8]"
+            >
+              📅 Indian Tax Due Dates
+            </a>
+            <a 
+              href="#why-us" 
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-1.5 border-b border-slate-100 hover:text-[#1d4ed8]"
+            >
+              🛡️ Why Choose Sajid
+            </a>
+            <a 
+              href="#reviews" 
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-1.5 border-b border-slate-100 hover:text-[#1d4ed8]"
+            >
+              ⭐ Client Reviews (4.9 Rating)
+            </a>
+            <a 
+              href="#office-location" 
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-1.5 border-b border-slate-100 hover:text-[#1d4ed8]"
+            >
+              📍 Opera House Office &amp; Timings
+            </a>
+            <a 
+              href="#faq" 
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-1.5 border-b border-slate-100 hover:text-[#1d4ed8]"
+            >
+              ❓ Frequently Asked Questions
+            </a>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2.5 text-base font-medium">
-              <a
-                href="#services"
-                onClick={() => setMobileMenuOpen(false)}
-                className="p-3 text-[#0f172a] hover:text-[#1d4ed8] hover:bg-[#f8fafc] rounded-lg border border-transparent hover:border-[#e2e8f0] transition-all flex items-center justify-between group"
-              >
-                <span>Services (10 Essential Offerings)</span>
-                <span className="text-xs font-mono text-[#1d4ed8] opacity-0 group-hover:opacity-100 transition-opacity">→</span>
-              </a>
-              <a
-                href="#due-dates"
-                onClick={() => setMobileMenuOpen(false)}
-                className="p-3 text-[#0f172a] hover:text-[#1d4ed8] hover:bg-[#f8fafc] rounded-lg border border-transparent hover:border-[#e2e8f0] transition-all flex items-center justify-between group"
-              >
-                <span>Compliance Calendar &amp; Due Dates</span>
-                <span className="text-xs font-mono text-[#1d4ed8] opacity-0 group-hover:opacity-100 transition-opacity">→</span>
-              </a>
-              <a
-                href="#process"
-                onClick={() => setMobileMenuOpen(false)}
-                className="p-3 text-[#0f172a] hover:text-[#1d4ed8] hover:bg-[#f8fafc] rounded-lg border border-transparent hover:border-[#e2e8f0] transition-all flex items-center justify-between group"
-              >
-                <span>Our Process</span>
-                <span className="text-xs font-mono text-[#1d4ed8] opacity-0 group-hover:opacity-100 transition-opacity">→</span>
-              </a>
-              <a
-                href="#why-us"
-                onClick={() => setMobileMenuOpen(false)}
-                className="p-3 text-[#0f172a] hover:text-[#1d4ed8] hover:bg-[#f8fafc] rounded-lg border border-transparent hover:border-[#e2e8f0] transition-all flex items-center justify-between group"
-              >
-                <span>Why Choose Us</span>
-                <span className="text-xs font-mono text-[#1d4ed8] opacity-0 group-hover:opacity-100 transition-opacity">→</span>
-              </a>
-              <a
-                href="#office"
-                onClick={() => setMobileMenuOpen(false)}
-                className="p-3 text-[#0f172a] hover:text-[#1d4ed8] hover:bg-[#f8fafc] rounded-lg border border-transparent hover:border-[#e2e8f0] transition-all flex items-center justify-between group"
-              >
-                <span>Opera House Office &amp; Hours</span>
-                <span className="text-xs font-mono text-[#1d4ed8] opacity-0 group-hover:opacity-100 transition-opacity">→</span>
-              </a>
-              <a
-                href="#faq"
-                onClick={() => setMobileMenuOpen(false)}
-                className="p-3 text-[#0f172a] hover:text-[#1d4ed8] hover:bg-[#f8fafc] rounded-lg border border-transparent hover:border-[#e2e8f0] transition-all flex items-center justify-between group"
-              >
-                <span>Frequently Asked Questions (FAQ)</span>
-                <span className="text-xs font-mono text-[#1d4ed8] opacity-0 group-hover:opacity-100 transition-opacity">→</span>
-              </a>
-            </div>
-
-            <div className="pt-4 border-t border-[#e2e8f0] flex flex-col sm:flex-row items-center gap-3">
+            <div className="pt-3 flex flex-col gap-2">
               <a
                 href={`tel:${BUSINESS_INFO.phoneClean}`}
-                className="w-full sm:w-auto flex-1 flex items-center justify-center gap-2 py-3 px-5 bg-[#1d4ed8] text-white hover:bg-[#1e40af] font-bold text-sm rounded-lg shadow-sm transition-all"
+                className="w-full py-2.5 rounded-lg border border-[#e2e8f0] text-[#0f172a] font-bold text-center text-xs flex items-center justify-center gap-2 hover:bg-slate-50"
               >
-                <PhoneIcon className="w-4 h-4" />
-                <span>Call: {BUSINESS_INFO.phone}</span>
+                <PhoneIcon className="w-3.5 h-3.5 text-[#1d4ed8]" />
+                <span>Call Directly: {BUSINESS_INFO.phone}</span>
               </a>
-              <a
-                href={`https://wa.me/${BUSINESS_INFO.phoneClean.replace('+', '')}?text=Hello%20Sajid%20Tax%20Consultant,%20I%20would%20like%20to%20book%20a%20consultation.`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto flex-1 flex items-center justify-center gap-2 py-3 px-5 bg-[#047857] hover:bg-[#065f46] text-white font-semibold text-sm rounded-lg shadow-sm border border-emerald-700/20 transition-all"
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  setAiModalOpen(true);
+                }}
+                className="w-full py-2.5 rounded-lg bg-blue-50 text-[#1d4ed8] border border-blue-200 font-bold text-xs flex items-center justify-center gap-2"
               >
-                <MessageSquareIcon className="w-4 h-4" />
-                <span>WhatsApp Consultation</span>
-              </a>
+                <SparklesIcon className="w-3.5 h-3.5 text-amber-500" />
+                <span>Ask AI Tax Guide</span>
+              </button>
             </div>
           </div>
         </div>
       )}
 
-      {/* AI Tax & Compliance Assistant Dialog */}
-      <AiTaxAssistantModal isOpen={aiModalOpen} onClose={() => setAiModalOpen(false)} />
+      {/* AI Tax Assistant Modal */}
+      <AiTaxAssistantModal
+        isOpen={aiModalOpen}
+        onClose={() => setAiModalOpen(false)}
+      />
     </header>
   );
 }

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { PhoneIcon, MessageSquareIcon, ArrowRightIcon, ShieldCheckIcon, CheckCircle2Icon, CalendarIcon } from './CriticalIcons';
+import { MessageSquareIcon, ArrowRightIcon, ShieldCheckIcon, CheckCircle2Icon, CalendarIcon } from './CriticalIcons';
 import { BUSINESS_INFO, COMPLIANCE_CALENDAR } from '../data/businessData';
 import { getOfficeStatus } from '../utils/timeHelper';
 
@@ -82,31 +82,11 @@ export default function Hero() {
             {/* Quick Action Buttons */}
             <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 pt-2">
               <a
-                href={`https://wa.me/${BUSINESS_INFO.phoneClean.replace('+', '')}?text=${encodeURIComponent(
-                  `Hello Sajid Sir, I would like to consult with you regarding ${selectedQuickService}.`
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="h-12 px-6 rounded-xl bg-[#047857] hover:bg-[#065f46] text-white font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 whitespace-nowrap"
-              >
-                <MessageSquareIcon className="w-4 h-4 text-white" />
-                <span>WhatsApp Consultant Sajid</span>
-              </a>
-
-              <a
                 href="#tax-calculator"
-                className="h-12 px-5 rounded-xl bg-[#1d4ed8] hover:bg-[#1e40af] text-white font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 whitespace-nowrap"
+                className="h-12 px-6 rounded-xl bg-[#1d4ed8] hover:bg-[#1e40af] text-white font-bold text-sm inline-flex items-center justify-center gap-2 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 whitespace-nowrap"
               >
                 <span>Compare Tax Regimes</span>
                 <ArrowRightIcon className="w-4 h-4" />
-              </a>
-
-              <a
-                href={`tel:${BUSINESS_INFO.phoneClean}`}
-                className="h-12 px-4 rounded-xl border border-white/20 text-white bg-white/10 hover:bg-white/20 backdrop-blur-md font-semibold text-sm flex items-center justify-center gap-2 transition-all shadow-xs hover:-translate-y-0.5 whitespace-nowrap"
-              >
-                <PhoneIcon className="w-4 h-4 text-blue-300" />
-                <span>Call {BUSINESS_INFO.phone}</span>
               </a>
             </div>
 

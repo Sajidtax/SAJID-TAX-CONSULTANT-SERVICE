@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { PhoneIcon, MessageSquareIcon, MenuIcon, XIcon, MapPinIcon, SparklesIcon } from './CriticalIcons';
+import { PhoneIcon, MenuIcon, XIcon, MapPinIcon, SparklesIcon } from './CriticalIcons';
 import { BUSINESS_INFO } from '../data/businessData';
 import { getOfficeStatus } from '../utils/timeHelper';
 import AiTaxAssistantModal from './AiTaxAssistantModal';
@@ -105,18 +105,6 @@ export default function Header() {
             <SparklesIcon className="w-3.5 h-3.5 text-amber-500" />
             <span>AI Tax Guide</span>
           </button>
-
-          {/* Direct WhatsApp Call to Action */}
-          <a
-            href={`https://wa.me/${BUSINESS_INFO.phoneClean.replace('+', '')}?text=Hello%20Sajid%20Sir,%20I%20would%20like%20to%20consult%20with%20you%20regarding%20tax%20filing.`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold rounded-lg bg-[#047857] hover:bg-[#065f46] text-white transition-all shadow-xs"
-          >
-            <MessageSquareIcon className="w-3.5 h-3.5 text-white" />
-            <span className="hidden sm:inline">WhatsApp Sajid</span>
-            <span className="sm:hidden">WhatsApp</span>
-          </a>
 
           {/* Mobile Menu Toggle Button */}
           <button

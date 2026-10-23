@@ -79,7 +79,7 @@ export default function Hero() {
               Direct personal representation by <strong>Consultant Sajid</strong>. Serving salaried taxpayers, Opera House diamond traders, Kalbadevi merchants, and Indian businesses since 2010. Every return is personally audited before submission.
             </p>
 
-            {/* Quick Action Buttons */}
+            {/* Quick Action Button: Direct Tax Regime Calculator */}
             <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 pt-2">
               <a
                 href="#tax-calculator"
